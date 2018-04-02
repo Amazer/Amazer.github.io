@@ -152,6 +152,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-[引擎]之一：mesh在Unity中的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/">[引擎]之一：mesh在Unity中的简单使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" class="archive-article-date">
+  	<time datetime="2018-04-02T05:40:43.946Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>读过 《3D游戏编程大师技巧》之后在Unity中的试验</p>
+</li>
+<li><p>理论中，Mesh（网格）的基本组成为顶点，由顶点组成的面，一般情况下，都指定的是三角面。有了顶点之后，三角面的由顶点index顺序指定就可以了。</p>
+</li>
+<li>此外，顶点color,uv坐标等信息，也可以存储下来。</li>
+<li>在Unity中，使用的是<strong>左手坐标系</strong>，所以顶点<strong>顺时针</strong>方向为三角形的正面。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-3D向量叉乘的理解和记忆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,32 +272,9 @@
 <h2 id="2-3D向量的叉乘"><a href="#2-3D向量的叉乘" class="headerlink" title="2.3D向量的叉乘"></a>2.3D向量的叉乘</h2><ul>
 <li>3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：</li>
 </ul>
-<blockquote>
-<p>   x轴向量 × y轴向量=z轴向量<br>    y轴向量 × z轴向量=x轴向量<br>    z轴向量 × x轴向量=y轴向量</p>
-</blockquote>
-<blockquote>
-<p>   即：<br>    x轴向量=y轴向量 × z轴向量<br>    y轴向量=z轴向量 × x轴向量<br>    z轴向量=x轴向量 × y轴向量<br>    (xyz的顺不能变)</p>
-</blockquote>
-<p>如果用i,j,k代表x,y,z轴的单位向量有：</p>
-<blockquote>
-<p>   i = j × k<br>    j = k × i<br>    k = i × j</p>
-</blockquote>
-<p> 3D向量的叉乘结果，是一个3D向量，也就是说，在i j k三个方向的向量的组合。<br> 那么，分别获得三个方向上的值就可以了。</p>
-<p>设 <strong>N</strong> = <strong>U</strong> × <strong>V</strong></p>
-<p>x轴方向的量，由yz两个轴向量叉乘得到：</p>
-<blockquote>
-<p><strong>i = j × k</strong><br>     <strong>N</strong><sub>x</sub> = <strong>U</strong><sub>yz</sub> × <strong>V</strong><sub>yz</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub></p>
-</blockquote>
-<p>y轴方向的量，由zx两个轴向量叉乘得到：</p>
-<blockquote>
-<p><strong>j = k × i</strong><br>     <strong>N</strong><sub>y</sub> = <strong>U</strong><sub>zx</sub> × <strong>V</strong><sub>zx</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub></p>
-</blockquote>
-<p>z轴方向的量，由xy两个轴向量叉乘得到：</p>
-<blockquote>
-<p> <strong>k = i × j</strong><br>     <strong>N</strong><sub>z</sub> = <strong>U</strong><sub>xy</sub> × <strong>V</strong><sub>xy</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub></p>
-</blockquote>
-<p>最终，得到叉乘向量的结果是：<br>        <strong>U</strong> x <strong>V</strong> = &lt;<strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub>  , <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub> , <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub>&gt;</p>
-
+        
+          <a class="article-more-a" href="/2018/04/02/3D向量叉乘的理解和记忆/#more">more >></a>
+        
       
 
       
@@ -300,119 +371,9 @@
 <p>   去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？</p>
 </blockquote>
 <p><strong>解决方案：</strong></p>
-<blockquote>
-<p>一定要有一个clearFlag设置为SolidColor或者SkyBox的相机，并且这个相机的depth为你所有相机中depth的最小值（保证这相机先渲染）</p>
-</blockquote>
-<ul>
-<li><strong>原理</strong><blockquote>
-<p>Unity每个渲染帧的开始，并不会清空颜色缓冲区和深度缓冲区，是通过设置相机的clearFlag来起作用的,具体如下:</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ClearFlag</th>
-<th style="text-align:left">颜色缓冲区</th>
-<th style="text-align:left">深度缓冲区</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">SkyBox</td>
-<td style="text-align:left">改变，设置为skyBox的颜色</td>
-<td style="text-align:left">不改变</td>
-</tr>
-<tr>
-<td style="text-align:left">SolidColor</td>
-<td style="text-align:left">改变，设置为BackGround颜色</td>
-<td style="text-align:left">不改变</td>
-</tr>
-<tr>
-<td style="text-align:left">DepthOnly</td>
-<td style="text-align:left">不改变</td>
-<td style="text-align:left">改变，清空深度缓冲</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>因此，如果场景中没有一个改变颜色缓冲区的相机，在渲染的初始帧，颜色缓冲区会保留上一帧的结果。</p>
-</blockquote>
-<blockquote>
-<p>在此，给一种出现花屏的现象的实例：<br>场景中有两个相机，设置分别为：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">相机</th>
-<th style="text-align:left">clearFlag</th>
-<th style="text-align:left">depth</th>
-<th>Culling Mask</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">gameCam</td>
-<td style="text-align:left">depthOnly</td>
-<td style="text-align:left">-1</td>
-<td>GameScene</td>
-</tr>
-<tr>
-<td style="text-align:left">uiCame</td>
-<td style="text-align:left">depthOnly</td>
-<td style="text-align:left">1</td>
-<td>UI</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p> 渲染顺序为：<br>颜色缓冲上一帧残留(A) -&gt; 当前渲染帧开始 -&gt; gameCame 渲染，修改颜色缓冲区 (B)-&gt; uiCam渲染，修改颜色缓冲(C) -&gt; 显示到屏幕上.<br>最终渲染的是A+B+C</p>
-</blockquote>
-<ul>
-<li><p><strong>拓展：花屏和卡帧</strong></p>
-<blockquote>
-<p>当然，如果在切换界面的时候，不卡帧，其实也不会出现花屏的现象。这一条先占上坑，改天详细说明。</p>
-</blockquote>
-</li>
-<li><p><strong>拓展：花屏和多线程渲染</strong></p>
-<blockquote>
-<p>在我的测试中，如果开启了多线程渲染，一卡帧，很容易就出现花屏。相反，不开启多线程渲染，基本上是不会有花屏现象的。特别是开了垂直同步之后，cpu会等待gup渲染结束再进行下一帧的计算。<br>  ps.Unity3d垂直同步有个坑，和帧率相关<br>  垂直同步QualitySettings.vSyncCount的设置，值可以为0,1,2。</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">vSyncCount</th>
-<th style="text-align:center">是否等待GPU渲染完成</th>
-<th style="text-align:center">游戏帧率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">不影响帧率设置</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">是,一个缓冲buffer</td>
-<td style="text-align:center">影响，强制60fps</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">是，2个缓冲buffer</td>
-<td style="text-align:center">影响，强制30fps</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>拓展：花屏和GL.Clear()</strong><blockquote>
-<p>GL.Clear()当然是可以清除颜色缓冲的。不过，由于不知道卡几帧，每帧都设置GL.Clear()也是挺奇怪的。<br>所以，在切换界面的时候调用一次GL.Clear()不能完全解决花屏的问题。<br>GL.Clear()是使用，参见：<br><a href="http://blog.csdn.net/yanchezuo/article/details/12751917" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/12751917</a></p>
-</blockquote>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2018/04/02/Unity3d花屏处理/#more">more >></a>
+        
       
 
       
@@ -582,6 +543,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引擎</a>
               </li>
             
             <div class="clearfix"></div>

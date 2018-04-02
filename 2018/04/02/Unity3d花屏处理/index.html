@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的blog">
 <meta property="og:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-02T05:28:13.193Z">
+<meta property="og:updated_time" content="2018-04-02T05:55:08.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D花屏问题解决">
 <meta name="twitter:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
@@ -184,6 +184,7 @@
 <p>   去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？</p>
 </blockquote>
 <p><strong>解决方案：</strong></p>
+<a id="more"></a>
 <blockquote>
 <p>一定要有一个clearFlag设置为SolidColor或者SkyBox的相机，并且这个相机的depth为你所有相机中depth的最小值（保证这相机先渲染）</p>
 </blockquote>
@@ -556,6 +557,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引擎</a>
               </li>
             
             <div class="clearfix"></div>
