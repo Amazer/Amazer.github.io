@@ -176,37 +176,33 @@
 <li><strong>U</strong> × <strong>V</strong> = <strong>U</strong><sub>x</sub> <em> <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x<sub></sub></sub></li>
 </ul>
 <h2 id="2-3D向量的叉乘"><a href="#2-3D向量的叉乘" class="headerlink" title="2.3D向量的叉乘"></a>2.3D向量的叉乘</h2><ul>
-<li><p>3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：</p>
-<pre><code>x轴向量 × y轴向量=z轴向量
-y轴向量 × z轴向量=x轴向量
-z轴向量 × x轴向量=y轴向量
-
-即：
-x轴向量=y轴向量 × z轴向量
-y轴向量=z轴向量 × x轴向量
-z轴向量=x轴向量 × y轴向量
-(xyz的顺不能变)
-</code></pre><p>如果用i,j,k代表x,y,z轴的单位向量有：</p>
-<pre><code>i = j × k
-j = k × i
-k = i × j
-</code></pre><p>3D向量的叉乘结果，是一个3D向量，也就是说，在i j k三个方向的向量的组合。<br>那么，分别获得三个方向上的值就可以了。</p>
-<p>  设 <strong>N</strong> = <strong>U</strong> × <strong>V</strong><br>  x轴方向的量，由yz两个轴向量叉乘得到：</p>
-<pre><code>&gt; **i = j × k**
-&gt; **N**&lt;sub&gt;x&lt;/sub&gt; = **U**&lt;sub&gt;yz&lt;/sub&gt; × **V**&lt;sub&gt;yz&lt;/sub&gt;
-&gt; &amp;nbsp; &amp;nbsp;&amp;nbsp;  = **U**&lt;sub&gt;y&lt;/sub&gt; *  **V**&lt;sub&gt;z&lt;/sub&gt; - **U**&lt;sub&gt;z&lt;/sub&gt; * **V**&lt;sub&gt;y&lt;/sub&gt;
-</code></pre></li>
+<li>3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：</li>
 </ul>
-<pre><code>y轴方向的量，由zx两个轴向量叉乘得到：
-    &gt; **j = k × i**
-    &gt; **N**&lt;sub&gt;y&lt;/sub&gt; = **U**&lt;sub&gt;zx&lt;/sub&gt; × **V**&lt;sub&gt;zx&lt;/sub&gt;
-    &gt; &amp;nbsp; &amp;nbsp;&amp;nbsp;  = **U**&lt;sub&gt;z&lt;/sub&gt; *  **V**&lt;sub&gt;x&lt;/sub&gt; - **U**&lt;sub&gt;x&lt;/sub&gt; * **V**&lt;sub&gt;z&lt;/sub&gt;
-
-z轴方向的量，由xy两个轴向量叉乘得到：
-    &gt; **k = i × j**
-    &gt; **N**&lt;sub&gt;z&lt;/sub&gt; = **U**&lt;sub&gt;xy&lt;/sub&gt; × **V**&lt;sub&gt;xy&lt;/sub&gt;
-    &gt; &amp;nbsp; &amp;nbsp;&amp;nbsp;  = **U**&lt;sub&gt;x&lt;/sub&gt; *  **V**&lt;sub&gt;y&lt;/sub&gt; - **U**&lt;sub&gt;y&lt;/sub&gt; * **V**&lt;sub&gt;x&lt;/sub&gt;
-</code></pre><p>最终，得到叉乘向量的结果是：<br>        <strong>U</strong> x <strong>V</strong> = &lt;<strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub>  , <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub> , <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub>&gt;</p>
+<blockquote>
+<p>   x轴向量 × y轴向量=z轴向量<br>    y轴向量 × z轴向量=x轴向量<br>    z轴向量 × x轴向量=y轴向量</p>
+</blockquote>
+<blockquote>
+<p>   即：<br>    x轴向量=y轴向量 × z轴向量<br>    y轴向量=z轴向量 × x轴向量<br>    z轴向量=x轴向量 × y轴向量<br>    (xyz的顺不能变)</p>
+</blockquote>
+<p>如果用i,j,k代表x,y,z轴的单位向量有：</p>
+<blockquote>
+<p>   i = j × k<br>    j = k × i<br>    k = i × j</p>
+</blockquote>
+<p> 3D向量的叉乘结果，是一个3D向量，也就是说，在i j k三个方向的向量的组合。<br> 那么，分别获得三个方向上的值就可以了。</p>
+<p>设 <strong>N</strong> = <strong>U</strong> × <strong>V</strong></p>
+<p>x轴方向的量，由yz两个轴向量叉乘得到：</p>
+<blockquote>
+<p><strong>i = j × k</strong><br>     <strong>N</strong><sub>x</sub> = <strong>U</strong><sub>yz</sub> × <strong>V</strong><sub>yz</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub></p>
+</blockquote>
+<p>y轴方向的量，由zx两个轴向量叉乘得到：</p>
+<blockquote>
+<p><strong>j = k × i</strong><br>     <strong>N</strong><sub>y</sub> = <strong>U</strong><sub>zx</sub> × <strong>V</strong><sub>zx</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub></p>
+</blockquote>
+<p>z轴方向的量，由xy两个轴向量叉乘得到：</p>
+<blockquote>
+<p> <strong>k = i × j</strong><br>     <strong>N</strong><sub>z</sub> = <strong>U</strong><sub>xy</sub> × <strong>V</strong><sub>xy</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub></p>
+</blockquote>
+<p>最终，得到叉乘向量的结果是：<br>        <strong>U</strong> x <strong>V</strong> = &lt;<strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub>  , <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub> , <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub>&gt;</p>
 
       
 
