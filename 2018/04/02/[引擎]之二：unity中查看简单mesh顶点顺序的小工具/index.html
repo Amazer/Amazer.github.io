@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>延澈左的blog</title>
+  <title>[引擎]之二：Unity中查看简单mesh顶点顺序的小工具 | 延澈左的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="延澈左的blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="因为要在Unity3d中检验在《3D游戏编程大师技巧》中学习到的东西，写了一个查看简单mesh的顶点顺序的小工具。效果如下（当前也可以将uv坐标等其他信息加入到显示中）：">
+<meta name="keywords" content="引擎,mesh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[引擎]之二：Unity中查看简单mesh顶点顺序的小工具">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/index.html">
 <meta property="og:site_name" content="延澈左的blog">
+<meta property="og:description" content="因为要在Unity3d中检验在《3D游戏编程大师技巧》中学习到的东西，写了一个查看简单mesh的顶点顺序的小工具。效果如下（当前也可以将uv坐标等其他信息加入到显示中）：">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://img.blog.csdn.net/20180104133806421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-04-02T06:18:56.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="延澈左的blog">
+<meta name="twitter:title" content="[引擎]之二：Unity中查看简单mesh顶点顺序的小工具">
+<meta name="twitter:description" content="因为要在Unity3d中检验在《3D游戏编程大师技巧》中学习到的东西，写了一个查看简单mesh的顶点顺序的小工具。效果如下（当前也可以将uv坐标等其他信息加入到显示中）：">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180104133806421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的blog" type="application/atom+xml">
   
@@ -150,16 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-[引擎]之二：unity中查看简单mesh顶点顺序的小工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-[引擎]之二：unity中查看简单mesh顶点顺序的小工具" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/">[引擎]之二：Unity中查看简单mesh顶点顺序的小工具</a>
+    <h1 class="article-title" itemprop="name">
+      [引擎]之二：Unity中查看简单mesh顶点顺序的小工具
     </h1>
   
 
@@ -173,11 +178,47 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>因为要在Unity3d中检验在《3D游戏编程大师技巧》中学习到的东西，写了一个查看简单mesh的顶点顺序的小工具。<br>效果如下（当前也可以将uv坐标等其他信息加入到显示中）：</p>
-        
-          <a class="article-more-a" href="/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/#more">more >></a>
-        
+<a id="more"></a>
+<p><img src="http://img.blog.csdn.net/20180104133806421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="工具效果"></p>
+<p>工具创建步骤：</p>
+<ol>
+<li>创建一个脚本，读取mesh中的顶点列表</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">namespace YanCheZuo</span><br><span class="line">&#123;</span><br><span class="line">    [RequireComponent(typeof(MeshFilter))]</span><br><span class="line">    public class TestMeshViewer : MonoBehaviour</span><br><span class="line">    &#123;</span><br><span class="line">        private MeshFilter _meshFilter;</span><br><span class="line">        private Mesh _mesh;</span><br><span class="line"></span><br><span class="line">        public List&lt;Vector3&gt; verticesList = new List&lt;Vector3&gt;();</span><br><span class="line">        public List&lt;Vector2&gt; uvList = new List&lt;Vector2&gt;();</span><br><span class="line">        public List&lt;int&gt; triList = new List&lt;int&gt;();</span><br><span class="line"></span><br><span class="line">        private void Start()</span><br><span class="line">        &#123;</span><br><span class="line">            _meshFilter = this.GetComponent&lt;MeshFilter&gt;();</span><br><span class="line">            _mesh = _meshFilter.mesh;</span><br><span class="line"></span><br><span class="line">            ReadMeshInfo();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        private void ReadMeshInfo()</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            for (int i = 0, imax = _mesh.vertexCount; i &lt; imax; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                verticesList.Add(_mesh.vertices[i]);</span><br><span class="line">                uvList.Add(_mesh.uv[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            for (int i = 0, imax = _mesh.triangles.Length; i &lt; imax; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                triList.Add(_mesh.triangles[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建编辑器脚本，在Scene中绘制顶点顺序</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">using UnityEditor;</span><br><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Text;</span><br><span class="line">namespace YanCheZuo</span><br><span class="line">&#123;</span><br><span class="line">    [CustomEditor(typeof(TestMeshViewer))]</span><br><span class="line">    public class MeshViewerEditor : Editor</span><br><span class="line">    &#123;</span><br><span class="line">        private void OnSceneGUI()</span><br><span class="line">        &#123;</span><br><span class="line">            GUIStyle style = new GUIStyle();</span><br><span class="line">            style.normal.textColor = Color.red;</span><br><span class="line">            TestMeshViewer viewer = target as TestMeshViewer;</span><br><span class="line">            Dictionary&lt;Vector3, StringBuilder&gt; posList=new Dictionary&lt;Vector3, StringBuilder&gt;();</span><br><span class="line"></span><br><span class="line">            for (int i = 0, imax = viewer.verticesList.Count; i &lt; imax; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                Vector3 vPos = viewer.transform.TransformPoint(viewer.verticesList[i]);</span><br><span class="line">                </span><br><span class="line">                StringBuilder sb;</span><br><span class="line">                if (posList.TryGetValue(vPos, out sb))</span><br><span class="line">                &#123;</span><br><span class="line">                    sb.AppendLine(&quot;index:&quot; + i);</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    sb = new StringBuilder();</span><br><span class="line">                    sb.AppendLine(&quot;index&quot; + i);</span><br><span class="line">                    posList.Add(vPos, sb);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Handles.Label(vPos, sb.ToString(),style);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>使用方法：<br>把TestMeshViewer挂到有MeshFilter组件的GameObject上。</p>
+</li>
+<li><p>以上</p>
+</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -212,16 +253,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎]之一：mesh在Unity中的简单使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -241,293 +341,14 @@
 
 
 
-
   
-    <article id="post-[引擎]之一：mesh在Unity中的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/">[引擎]之一：mesh在Unity中的简单使用</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:40:43.946Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>读过 《3D游戏编程大师技巧》之后在Unity中的试验</p>
-</li>
-<li><p>理论中，Mesh（网格）的基本组成为顶点，由顶点组成的面，一般情况下，都指定的是三角面。有了顶点之后，三角面的由顶点index顺序指定就可以了。</p>
-</li>
-<li>此外，顶点color,uv坐标等信息，也可以存储下来。</li>
-<li>在Unity中，使用的是<strong>左手坐标系</strong>，所以顶点<strong>顺时针</strong>方向为三角形的正面。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3D向量叉乘的理解和记忆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/3D向量叉乘的理解和记忆/">3D向量叉乘的理解和记忆</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/02/3D向量叉乘的理解和记忆/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:25:50.284Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-2D向量的叉乘"><a href="#1-2D向量的叉乘" class="headerlink" title="1.2D向量的叉乘"></a>1.2D向量的叉乘</h2><ul>
-<li><strong>U</strong> × <strong>V</strong> = <strong>U</strong><sub>x</sub> <em> <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x<sub></sub></sub></li>
-</ul>
-<h2 id="2-3D向量的叉乘"><a href="#2-3D向量的叉乘" class="headerlink" title="2.3D向量的叉乘"></a>2.3D向量的叉乘</h2><ul>
-<li>3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/04/02/3D向量叉乘的理解和记忆/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/3D向量叉乘的理解和记忆/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Unity3d花屏处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/Unity3d花屏处理/">Unity3D花屏问题解决</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/02/Unity3d花屏处理/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文地址:<a href="http://blog.csdn.net/yanchezuo/article/details/77337755" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/77337755</a></p>
-<p>4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！</p>
-<ul>
-<li><strong>你的界面花屏了？</strong></li>
-</ul>
-<blockquote>
-<p>   去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？</p>
-</blockquote>
-<p><strong>解决方案：</strong></p>
-        
-          <a class="article-more-a" href="/2018/04/02/Unity3d花屏处理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/Unity3d花屏处理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -550,8 +371,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
