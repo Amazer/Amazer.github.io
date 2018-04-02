@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20180104200223065?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104200403257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104201944583?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-04-02T06:45:57.997Z">
+<meta property="og:updated_time" content="2018-04-02T07:18:33.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎]之三:在Unity3D中自定义CubeMesh">
 <meta name="twitter:description" content="之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
@@ -65,6 +65,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -120,6 +122,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -140,7 +144,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,6 +179,33 @@
         
       </header>
     
+<!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-顶点的生成"><span class="toc-number">1.</span> <span class="toc-text">(1) 顶点的生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-生成三角面"><span class="toc-number">2.</span> <span class="toc-text">(2) 生成三角面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-生成uv坐标"><span class="toc-number">3.</span> <span class="toc-text">(3) 生成uv坐标</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-看看效果"><span class="toc-number">4.</span> <span class="toc-text">(4) 看看效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-理论和对比"><span class="toc-number">5.</span> <span class="toc-text">(5) 理论和对比</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-修改"><span class="toc-number">6.</span> <span class="toc-text">(6) 修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-总结"><span class="toc-number">7.</span> <span class="toc-text">(7) 总结</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-预告"><span class="toc-number">8.</span> <span class="toc-text">(8) 预告</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
         <p>之前的文章<a href="http://blog.csdn.net/yanchezuo/article/details/78969457" target="_blank" rel="noopener">mesh在Unity中的简单使用</a>说过，会创建CubeMesh。嗯，来了。</p>
@@ -332,6 +365,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/04/02/essay-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          0.新搭建自己博客
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">[引擎]之二：Unity中查看简单mesh顶点顺序的小工具</div>
@@ -353,6 +395,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-顶点的生成"><span class="toc-number">1.</span> <span class="toc-text">(1) 顶点的生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-生成三角面"><span class="toc-number">2.</span> <span class="toc-text">(2) 生成三角面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-生成uv坐标"><span class="toc-number">3.</span> <span class="toc-text">(3) 生成uv坐标</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-看看效果"><span class="toc-number">4.</span> <span class="toc-text">(4) 看看效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-理论和对比"><span class="toc-number">5.</span> <span class="toc-text">(5) 理论和对比</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-修改"><span class="toc-number">6.</span> <span class="toc-text">(6) 修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-总结"><span class="toc-number">7.</span> <span class="toc-text">(7) 总结</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-预告"><span class="toc-number">8.</span> <span class="toc-text">(8) 预告</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -466,7 +521,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">3D,数学</a>
+                <a href="javascript:void(0)" class="js-tag color3">引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mesh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,14 +538,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mesh</a>
               </li>
             
             <div class="clearfix"></div>
