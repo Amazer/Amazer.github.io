@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://amazer.github.io">
-  <title>0.新搭建自己博客 | 延澈左的blog</title>
+  <title>0.hexo常用命令 | 延澈左的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="简单描述">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0.新搭建自己博客">
+<meta property="og:title" content="0.hexo常用命令">
 <meta property="og:url" content="https://amazer.github.io/2018/04/02/essay-1/index.html">
 <meta property="og:site_name" content="延澈左的blog">
 <meta property="og:description" content="简单描述">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-02T08:43:28.313Z">
+<meta property="og:updated_time" content="2018-04-02T10:37:50.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0.新搭建自己博客">
+<meta name="twitter:title" content="0.hexo常用命令">
 <meta name="twitter:description" content="简单描述">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的blog" type="application/atom+xml">
@@ -162,7 +162,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      0.新搭建自己博客
+      0.hexo常用命令
     </h1>
   
 
@@ -180,10 +180,12 @@
       
         <p>新搭建完成自己的博客,记录一下常用的命令什么的</p>
 <a id="more"></a>
-<p>一、命令：<br>常见命令：<br>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #部署到GitHub<br>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本<br>缩写命令：<br>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy<br>组合命令<br>hexo s -g #生成并本地预览<br>hexo d -g #生成并上传</p>
-<p>二、文章格式： （如果题目什么的是中文，要添加单引号’’或者双引号””）<br>‘空行’<br>-–<br>title: postName #文章页面上的显示名称，一般是中文<br>date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改<br>categories: 默认分类 #分类<br>tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格<br>description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面<br>-–</p>
-<p>正文xxxxxx</p>
-<p>三、摘要和详细内容<br>合适的位置加<br>&lt;!--more--></p>
+<p>一、命令：<br>常见命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure></p>
+<p>缩写命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>组合命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g #生成并本地预览</span><br><span class="line">hexo d -g #生成并上传</span><br></pre></td></tr></table></figure></p>
+<p>二、文章格式： （如果题目什么的是中文，要添加单引号’’或者双引号””）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: postName #文章页面上的显示名称，一般是中文</span><br><span class="line">date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改</span><br><span class="line">categories: 默认分类 #分类</span><br><span class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格</span><br><span class="line">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</span><br><span class="line">toc: true # 如果设置了自动生成目录</span><br><span class="line">copyright: true # 如果设置了添加版权信息。添加版权方法链接 https://amazer.github.io/2018/04/02/hexo-addcopyright/</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">正文xxxxxx</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://amazer.github.io/2018/04/02/hexo-addcopyright/">添加版权方法链接</a></p>
+<p>三、摘要和详细内容<br>合适的位置加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -215,9 +217,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/essay-1/" target="_blank" title="0.新搭建自己博客">0.新搭建自己博客</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/essay-1/" target="_blank" title="0.hexo常用命令">0.hexo常用命令</a></b></center>
 
-<center>本文链接为<b><a href="/2018/04/02/essay-1/" target="_blank" title="0.新搭建自己博客">https://amazer.github.io/2018/04/02/essay-1/</a></b></center>
+<center>本文链接为<b><a href="/2018/04/02/essay-1/" target="_blank" title="0.hexo常用命令">https://amazer.github.io/2018/04/02/essay-1/</a></b></center>
 </div>
 <! -- 添加版权信息 -->
 
