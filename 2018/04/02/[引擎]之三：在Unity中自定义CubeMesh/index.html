@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>延澈左的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’categories: ‘引擎’ tags: ‘引擎’toc: true 之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
+  <meta name="description" content="title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’categories: ‘引擎’ tags: ‘引擎’之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="延澈左的blog">
 <meta property="og:url" content="http://yoursite.com/2018/04/02/[引擎]之三：在Unity中自定义CubeMesh/index.html">
 <meta property="og:site_name" content="延澈左的blog">
-<meta property="og:description" content="title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’categories: ‘引擎’ tags: ‘引擎’toc: true 之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
+<meta property="og:description" content="title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’categories: ‘引擎’ tags: ‘引擎’之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104193620015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104195152317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104200223065?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104200403257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20180104201944583?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-04-02T06:35:36.928Z">
+<meta property="og:updated_time" content="2018-04-02T06:37:56.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="延澈左的blog">
-<meta name="twitter:description" content="title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’categories: ‘引擎’ tags: ‘引擎’toc: true 之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
+<meta name="twitter:description" content="title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’categories: ‘引擎’ tags: ‘引擎’之前的文章mesh在Unity中的简单使用说过，会创建CubeMesh。嗯，来了。  1.顶点的生成 2.生成三角面 3.生成uv坐标 4.看看效果 5.理论和对比 6.修改 7.总结 8.预告">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20180104193620015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的blog" type="application/atom+xml">
@@ -167,8 +167,7 @@
       
         <hr>
 <p>title: ‘[引擎]之三:在Unity3D中自定义CubeMesh’<br>categories: ‘引擎’</p>
-<h2 id="tags-‘引擎’"><a href="#tags-‘引擎’" class="headerlink" title="tags: ‘引擎’"></a>tags: ‘引擎’</h2><p>toc: true</p>
-<p>之前的文章<a href="http://blog.csdn.net/yanchezuo/article/details/78969457" target="_blank" rel="noopener">mesh在Unity中的简单使用</a>说过，会创建CubeMesh。嗯，来了。</p>
+<h2 id="tags-‘引擎’"><a href="#tags-‘引擎’" class="headerlink" title="tags: ‘引擎’"></a>tags: ‘引擎’</h2><p>之前的文章<a href="http://blog.csdn.net/yanchezuo/article/details/78969457" target="_blank" rel="noopener">mesh在Unity中的简单使用</a>说过，会创建CubeMesh。嗯，来了。</p>
 <ul>
 <li>1.顶点的生成</li>
 <li>2.生成三角面</li>
@@ -337,9 +336,6 @@
   
 
   
-        <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
 
   
 
