@@ -6,27 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://amazer.github.io">
-  <title>[引擎]之一：mesh在Unity中的简单使用 | 延澈左的博客</title>
+  <title>Unity3D花屏问题解决 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="读过 《3D游戏编程大师技巧》之后在Unity中的试验  理论中，Mesh（网格）的基本组成为顶点，由顶点组成的面，一般情况下，都指定的是三角面。有了顶点之后，三角面的由顶点index顺序指定就可以了。  此外，顶点color,uv坐标等信息，也可以存储下来。 在Unity中，使用的是左手坐标系，所以顶点顺时针方向为三角形的正面。">
-<meta name="keywords" content="引擎">
+  <meta name="description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
+<meta name="keywords" content="Unity3D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[引擎]之一：mesh在Unity中的简单使用">
-<meta property="og:url" content="https://amazer.github.io/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/index.html">
+<meta property="og:title" content="Unity3D花屏问题解决">
+<meta property="og:url" content="https://amazer.github.io/2018/04/02/u3d1/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="读过 《3D游戏编程大师技巧》之后在Unity中的试验  理论中，Mesh（网格）的基本组成为顶点，由顶点组成的面，一般情况下，都指定的是三角面。有了顶点之后，三角面的由顶点index顺序指定就可以了。  此外，顶点color,uv坐标等信息，也可以存储下来。 在Unity中，使用的是左手坐标系，所以顶点顺时针方向为三角形的正面。">
+<meta property="og:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://img.blog.csdn.net/20180104121421458?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20180104121840989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20180104122741606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20180104130633219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20180104131204351?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20180104132001692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-04-02T09:45:25.131Z">
+<meta property="og:updated_time" content="2018-04-02T09:45:14.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[引擎]之一：mesh在Unity中的简单使用">
-<meta name="twitter:description" content="读过 《3D游戏编程大师技巧》之后在Unity中的试验  理论中，Mesh（网格）的基本组成为顶点，由顶点组成的面，一般情况下，都指定的是三角面。有了顶点之后，三角面的由顶点index顺序指定就可以了。  此外，顶点color,uv坐标等信息，也可以存储下来。 在Unity中，使用的是左手坐标系，所以顶点顺时针方向为三角形的正面。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20180104121421458?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="Unity3D花屏问题解决">
+<meta name="twitter:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -162,20 +155,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-[引擎]之一：mesh在Unity中的简单使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-u3d1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [引擎]之一：mesh在Unity中的简单使用
+      Unity3D花屏问题解决
     </h1>
   
 
         
-        <a href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:40:43.946Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+        <a href="/2018/04/02/u3d1/" class="archive-article-date">
+  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
 </a>
         
       </header>
@@ -186,36 +179,127 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>读过 《3D游戏编程大师技巧》之后在Unity中的试验</p>
-</li>
-<li><p>理论中，Mesh（网格）的基本组成为顶点，由顶点组成的面，一般情况下，都指定的是三角面。有了顶点之后，三角面的由顶点index顺序指定就可以了。</p>
-</li>
-<li>此外，顶点color,uv坐标等信息，也可以存储下来。</li>
-<li>在Unity中，使用的是<strong>左手坐标系</strong>，所以顶点<strong>顺时针</strong>方向为三角形的正面。</li>
-</ul>
-<a id="more"></a>
-<p>现在，我有一张贴图，如图所示：</p>
-<p><img src="http://img.blog.csdn.net/20180104121421458?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Unity中的贴图"></p>
-<p>哈哈，显然这是一张MineCraft的纹理贴图。<br>我的目标是，在mesh中只显示贴图中泥土的那块。<br>因为是第一次手动创建mesh，所以，第一步，创建一个只有两个三角面的平面，并且赋上uv，让贴图泥土的块显示出来。如下图所示，显示红框框中的部分：<br><img src="http://img.blog.csdn.net/20180104121840989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="贴图选中部分"></p>
-<h6 id="1-顶点列表，这里，在xz平面中定义平面，如图所示："><a href="#1-顶点列表，这里，在xz平面中定义平面，如图所示：" class="headerlink" title="1.  顶点列表，这里，在xz平面中定义平面，如图所示："></a>1.  顶点列表，这里，在xz平面中定义平面，如图所示：</h6><p><img src="http://img.blog.csdn.net/20180104122741606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="自定义平面"></p>
-<p>依次按照index为0,1,2,3的顺序加入到顶点列表中即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 定义顶点列表</span><br><span class="line">public List&lt;Vector3&gt; _verticesList=new List&lt;Vector3&gt;();</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 赋值</span><br><span class="line">_verticesList.Add(new Vector3(0, 0, 0)); </span><br><span class="line">_verticesList.Add(new Vector3(1, 0, 0));</span><br><span class="line">_verticesList.Add(new Vector3(0, 0, 1));</span><br><span class="line">_verticesList.Add(new Vector3(1, 0, 1));</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 赋值给mesh</span><br><span class="line">_mesh.SetVertices(_verticesList);</span><br></pre></td></tr></table></figure>
-<h6 id="2-三角面"><a href="#2-三角面" class="headerlink" title="2. 三角面"></a>2. 三角面</h6><p>按照<strong>顺时针</strong>顺添加三角面。3个index的排列顺序有多种，一般建议，按照<strong>由小到大</strong>的顺序添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 定义三角面列表</span><br><span class="line">public List&lt;int&gt; _triList = new List&lt;int&gt;();</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 第一个三角面，index顺序为 0,2,1</span><br><span class="line">_triList.Add(0);</span><br><span class="line">_triList.Add(2);</span><br><span class="line">_triList.Add(1);</span><br><span class="line"></span><br><span class="line">// 第二个三角面，index顺序为 1,2,3</span><br><span class="line">_triList.Add(1);</span><br><span class="line">_triList.Add(2);</span><br><span class="line">_triList.Add(3);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 赋值给mesh。Unity中，可以有submesh。0表示主mesh</span><br><span class="line">_mesh.SetTriangles(_triList, 0);</span><br></pre></td></tr></table></figure>
-<h6 id="3-uv坐标"><a href="#3-uv坐标" class="headerlink" title="3. uv坐标"></a>3. uv坐标</h6><p>uv坐标系如下图所示：<br><img src="http://img.blog.csdn.net/20180104130633219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="uv坐标系"></p>
-<p>并且，uv坐标的<strong>范围是归一化</strong>的，即<strong>[0,1]</strong>。<br>uv坐标如下图所示：<br><img src="http://img.blog.csdn.net/20180104131204351?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>所以，给对应的顶点index设置uv坐标就可以了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 定义uv坐标list</span><br><span class="line">public List&lt;Vector2&gt; _uvList=new List&lt;Vector2&gt;();</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 赋值</span><br><span class="line">_uvList.Add(new Vector2(0f, 0.75f));</span><br><span class="line">_uvList.Add(new Vector2(0.25f, 0.75f));</span><br><span class="line">_uvList.Add(new Vector2(0f, 1f));</span><br><span class="line">_uvList.Add(new Vector2(0.25f, 1f));</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 赋值给mesh。Unity中，可以有多套uv。这里赋值给第一套。</span><br><span class="line">_mesh.SetUVs(0, _uvList);</span><br></pre></td></tr></table></figure>
-<p>最终效果，在scene中表现为：<br><img src="http://img.blog.csdn.net/20180104132001692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWFuY2hlenVv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="最终效果"></p>
-<p>下面是完整代码。使用方法是，把下面的脚本挂到一个有MeshFilter的GameObject上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">namespace YanCheZuo</span><br><span class="line">&#123;</span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// 创建了一个平面，1x1的平面，并贴图左上角的1/4</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    [RequireComponent(typeof(MeshFilter))]</span><br><span class="line">    public class TestMesh : MonoBehaviour</span><br><span class="line">    &#123;</span><br><span class="line">        private Mesh _mesh;</span><br><span class="line">        private MeshFilter _meshFilter;</span><br><span class="line"></span><br><span class="line">        public List&lt;Vector3&gt; _verticesList=new List&lt;Vector3&gt;();</span><br><span class="line">        public List&lt;Vector2&gt; _uvList=new List&lt;Vector2&gt;();</span><br><span class="line">        public List&lt;Color&gt; _colorList=new List&lt;Color&gt;();</span><br><span class="line">        public List&lt;int&gt; _triList = new List&lt;int&gt;();</span><br><span class="line">        private void Start()</span><br><span class="line">        &#123;</span><br><span class="line">            _meshFilter = this.GetComponent&lt;MeshFilter&gt;();</span><br><span class="line">            _mesh = _meshFilter.mesh;</span><br><span class="line">            RebuildMesh();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void RebuildMesh()</span><br><span class="line">        &#123;</span><br><span class="line">            _mesh = new Mesh();</span><br><span class="line">            _mesh.name = &quot;yanchezuo_mesh&quot;;</span><br><span class="line">            _verticesList.Add(new Vector3(0, 0, 0));</span><br><span class="line">            _verticesList.Add(new Vector3(1, 0, 0));</span><br><span class="line">            _verticesList.Add(new Vector3(0, 0, 1));</span><br><span class="line">            _verticesList.Add(new Vector3(1, 0, 1));</span><br><span class="line"></span><br><span class="line">            _mesh.SetVertices(_verticesList);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            float startX = 0f;</span><br><span class="line">            float endX=0.25f;</span><br><span class="line"></span><br><span class="line">            float startY = 0.75f;</span><br><span class="line">            float endY = 1f;</span><br><span class="line"></span><br><span class="line">            float width = 0.25f;</span><br><span class="line">            int index = 0;</span><br><span class="line"></span><br><span class="line">            _uvList.Add(new Vector2(startX+width*index, startY));</span><br><span class="line">            _uvList.Add(new Vector2(endX+width*index, startY));</span><br><span class="line">            _uvList.Add(new Vector2(startX+width*index, endY));</span><br><span class="line">            _uvList.Add(new Vector2(endX+width*index, endY));</span><br><span class="line">            _mesh.SetUVs(0, _uvList);</span><br><span class="line"></span><br><span class="line">            // 顺时针三角形顺序</span><br><span class="line">            _triList.Add(0);</span><br><span class="line">            _triList.Add(2);</span><br><span class="line">            _triList.Add(1);</span><br><span class="line"></span><br><span class="line">            _triList.Add(1);</span><br><span class="line">            _triList.Add(2);</span><br><span class="line">            _triList.Add(3);</span><br><span class="line"></span><br><span class="line">            _mesh.SetTriangles(_triList, 0);</span><br><span class="line"></span><br><span class="line">            _meshFilter.mesh = _mesh;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>原文地址:<a href="http://blog.csdn.net/yanchezuo/article/details/77337755" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/77337755</a></p>
+<p>4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！</p>
 <ul>
-<li>总结<br>mesh的基本组成和用法为，顶点列表，三角面列表，顶点的uv坐标列表。</li>
-<li>下一篇文章预告：<br>下一篇会写一个cubeMesh。处理方式如果按着今天的做法，并得不到想要的效果。所以，会探究一下。</li>
+<li><strong>你的界面花屏了？</strong></li>
+</ul>
+<blockquote>
+<p>   去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？</p>
+</blockquote>
+<p><strong>解决方案：</strong></p>
+<a id="more"></a>
+<blockquote>
+<p>一定要有一个clearFlag设置为SolidColor或者SkyBox的相机，并且这个相机的depth为你所有相机中depth的最小值（保证这相机先渲染）</p>
+</blockquote>
+<ul>
+<li><strong>原理</strong><blockquote>
+<p>Unity每个渲染帧的开始，并不会清空颜色缓冲区和深度缓冲区，是通过设置相机的clearFlag来起作用的,具体如下:</p>
+</blockquote>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ClearFlag</th>
+<th style="text-align:left">颜色缓冲区</th>
+<th style="text-align:left">深度缓冲区</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SkyBox</td>
+<td style="text-align:left">改变，设置为skyBox的颜色</td>
+<td style="text-align:left">不改变</td>
+</tr>
+<tr>
+<td style="text-align:left">SolidColor</td>
+<td style="text-align:left">改变，设置为BackGround颜色</td>
+<td style="text-align:left">不改变</td>
+</tr>
+<tr>
+<td style="text-align:left">DepthOnly</td>
+<td style="text-align:left">不改变</td>
+<td style="text-align:left">改变，清空深度缓冲</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>因此，如果场景中没有一个改变颜色缓冲区的相机，在渲染的初始帧，颜色缓冲区会保留上一帧的结果。</p>
+</blockquote>
+<blockquote>
+<p>在此，给一种出现花屏的现象的实例：<br>场景中有两个相机，设置分别为：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">相机</th>
+<th style="text-align:left">clearFlag</th>
+<th style="text-align:left">depth</th>
+<th>Culling Mask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">gameCam</td>
+<td style="text-align:left">depthOnly</td>
+<td style="text-align:left">-1</td>
+<td>GameScene</td>
+</tr>
+<tr>
+<td style="text-align:left">uiCame</td>
+<td style="text-align:left">depthOnly</td>
+<td style="text-align:left">1</td>
+<td>UI</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p> 渲染顺序为：<br>颜色缓冲上一帧残留(A) -&gt; 当前渲染帧开始 -&gt; gameCame 渲染，修改颜色缓冲区 (B)-&gt; uiCam渲染，修改颜色缓冲(C) -&gt; 显示到屏幕上.<br>最终渲染的是A+B+C</p>
+</blockquote>
+<ul>
+<li><p><strong>拓展：花屏和卡帧</strong></p>
+<blockquote>
+<p>当然，如果在切换界面的时候，不卡帧，其实也不会出现花屏的现象。这一条先占上坑，改天详细说明。</p>
+</blockquote>
+</li>
+<li><p><strong>拓展：花屏和多线程渲染</strong></p>
+<blockquote>
+<p>在我的测试中，如果开启了多线程渲染，一卡帧，很容易就出现花屏。相反，不开启多线程渲染，基本上是不会有花屏现象的。特别是开了垂直同步之后，cpu会等待gup渲染结束再进行下一帧的计算。<br>  ps.Unity3d垂直同步有个坑，和帧率相关<br>  垂直同步QualitySettings.vSyncCount的设置，值可以为0,1,2。</p>
+</blockquote>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">vSyncCount</th>
+<th style="text-align:center">是否等待GPU渲染完成</th>
+<th style="text-align:center">游戏帧率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">不影响帧率设置</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">是,一个缓冲buffer</td>
+<td style="text-align:center">影响，强制60fps</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">是，2个缓冲buffer</td>
+<td style="text-align:center">影响，强制30fps</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>拓展：花屏和GL.Clear()</strong><blockquote>
+<p>GL.Clear()当然是可以清除颜色缓冲的。不过，由于不知道卡几帧，每帧都设置GL.Clear()也是挺奇怪的。<br>所以，在切换界面的时候调用一次GL.Clear()不能完全解决花屏的问题。<br>GL.Clear()是使用，参见：<br><a href="http://blog.csdn.net/yanchezuo/article/details/12751917" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/12751917</a></p>
+</blockquote>
+</li>
 </ul>
 
       
@@ -248,9 +332,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" target="_blank" title="[引擎]之一：mesh在Unity中的简单使用">[引擎]之一：mesh在Unity中的简单使用</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/u3d1/" target="_blank" title="Unity3D花屏问题解决">Unity3D花屏问题解决</a></b></center>
 
-<center>本文链接为<b><a href="/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" target="_blank" title="[引擎]之一：mesh在Unity中的简单使用">https://amazer.github.io/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/</a></b></center>
+<center>本文链接为<b><a href="/2018/04/02/u3d1/" target="_blank" title="Unity3D花屏问题解决">https://amazer.github.io/2018/04/02/u3d1/</a></b></center>
 </div>
 <! -- 添加版权信息 -->
 
@@ -288,7 +372,7 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
         		</li>
       		
 		</ul>
@@ -300,7 +384,7 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
+        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
         		</li>
       		
 		</ul>
@@ -355,7 +439,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://amazer.github.io/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amazer.github.io/2018/04/02/u3d1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -369,20 +453,15 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/2018/04/02/[引擎]之二：unity中查看简单mesh顶点顺序的小工具/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/02/math_1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [引擎]之二：Unity中查看简单mesh顶点顺序的小工具
+          3D向量叉乘的理解和记忆
         
       </div>
     </a>
   
-  
-    <a href="/2018/04/02/3D向量叉乘的理解和记忆/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3D向量叉乘的理解和记忆</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -420,7 +499,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://amazer.github.io/2018/04/02/[引擎]之一：mesh在Unity中的简单使用/",
+  id: "https://amazer.github.io/2018/04/02/u3d1/",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
@@ -524,23 +603,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,7 +611,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
             
             <div class="clearfix"></div>
