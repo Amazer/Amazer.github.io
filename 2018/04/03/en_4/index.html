@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-03T08:05:43.142Z">
+<meta property="og:updated_time" content="2018-04-03T11:29:32.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之一：windows游戏运行框架">
 <meta name="twitter:description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
@@ -183,7 +183,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-工程配置"><span class="toc-number">1.</span> <span class="toc-text">1.工程配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建Windows窗口"><span class="toc-number">2.</span> <span class="toc-text">2.创建Windows窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-游戏循环"><span class="toc-number">3.</span> <span class="toc-text">3.游戏循环</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-工程配置"><span class="toc-number">1.</span> <span class="toc-text">1.工程配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建Windows窗口"><span class="toc-number">2.</span> <span class="toc-text">2.创建Windows窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0-基础准备知识"><span class="toc-number">2.1.</span> <span class="toc-text">0.基础准备知识</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建WindowsClassEx结构体"><span class="toc-number">2.2.</span> <span class="toc-text">1.创建WindowsClassEx结构体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-注册WindowsClassEx"><span class="toc-number">2.3.</span> <span class="toc-text">2.注册WindowsClassEx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建Windows窗口"><span class="toc-number">2.4.</span> <span class="toc-text">3.创建Windows窗口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口事件和游戏主循环"><span class="toc-number">3.</span> <span class="toc-text">3.窗口事件和游戏主循环</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -218,10 +218,29 @@
 </ol>
 </li>
 </ul>
-<h4 id="2-创建Windows窗口"><a href="#2-创建Windows窗口" class="headerlink" title="2.创建Windows窗口"></a>2.创建Windows窗口</h4><pre><code>1. 创建WindowsClassEx结构体
-2. 注册WindowsClassEx
-3. 创建Windows窗口
-</code></pre><h4 id="3-游戏循环"><a href="#3-游戏循环" class="headerlink" title="3.游戏循环"></a>3.游戏循环</h4>
+<h4 id="2-创建Windows窗口"><a href="#2-创建Windows窗口" class="headerlink" title="2.创建Windows窗口"></a>2.创建Windows窗口</h4><h5 id="0-基础准备知识"><a href="#0-基础准备知识" class="headerlink" title="0.基础准备知识"></a>0.基础准备知识</h5><ul>
+<li><p>console应用的入口是main()</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void main()</span><br></pre></td></tr></table></figure>
+<p>  或者是：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc char *argv[])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>win32应用的入口是WinMain()</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int WINAPI WinMain(HINSTANCE hinstance,</span><br><span class="line">HINSTANCE hprevinstance,</span><br><span class="line">LPSTR lpcmdline,</span><br><span class="line">int ncmdshow)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>win32应用需要包含头文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define WIN32_LEAN_AND_MEAN             </span><br><span class="line">#include &lt;windows.h&gt;</span><br><span class="line">#include &lt;windowsx.h&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>#defind WIN32_LEAN_AND_MEAN：开发win32应用可以使用MFC和win sdk两种。MFC是比较重量级的api，这里告诉编译器，只是用轻量级的win sdk</li>
+<li>#include &lt;windows.h&gt;     包含旧版win api的头文件 </li>
+<li>#include &lt;windowsx.h&gt;    包含新版win api的头文件</li>
+<li><strong>Windows SDK中带x(Ex)的比较新</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="1-创建WindowsClassEx结构体"><a href="#1-创建WindowsClassEx结构体" class="headerlink" title="1.创建WindowsClassEx结构体"></a>1.创建WindowsClassEx结构体</h5><ul>
+<li>头文件: windows.h windowsEx.h</li>
+</ul>
+<h5 id="2-注册WindowsClassEx"><a href="#2-注册WindowsClassEx" class="headerlink" title="2.注册WindowsClassEx"></a>2.注册WindowsClassEx</h5><h5 id="3-创建Windows窗口"><a href="#3-创建Windows窗口" class="headerlink" title="3.创建Windows窗口"></a>3.创建Windows窗口</h5><h4 id="3-窗口事件和游戏主循环"><a href="#3-窗口事件和游戏主循环" class="headerlink" title="3.窗口事件和游戏主循环"></a>3.窗口事件和游戏主循环</h4>
       
 
 <!-- 版权内容-->
@@ -395,7 +414,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-工程配置"><span class="toc-number">1.</span> <span class="toc-text">1.工程配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建Windows窗口"><span class="toc-number">2.</span> <span class="toc-text">2.创建Windows窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-游戏循环"><span class="toc-number">3.</span> <span class="toc-text">3.游戏循环</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-工程配置"><span class="toc-number">1.</span> <span class="toc-text">1.工程配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建Windows窗口"><span class="toc-number">2.</span> <span class="toc-text">2.创建Windows窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0-基础准备知识"><span class="toc-number">2.1.</span> <span class="toc-text">0.基础准备知识</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建WindowsClassEx结构体"><span class="toc-number">2.2.</span> <span class="toc-text">1.创建WindowsClassEx结构体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-注册WindowsClassEx"><span class="toc-number">2.3.</span> <span class="toc-text">2.注册WindowsClassEx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建Windows窗口"><span class="toc-number">2.4.</span> <span class="toc-text">3.创建Windows窗口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口事件和游戏主循环"><span class="toc-number">3.</span> <span class="toc-text">3.窗口事件和游戏主循环</span></a></li></ol>
                     </div>
                 </span>
             </div>
