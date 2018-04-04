@@ -463,11 +463,8 @@ if(true){
 
     var isIndex = $(".pageViews").length == 1 ?true:false;
 
-	var	isHome = is_home();
-
     function showTime() {
         var Counter = AV.Object.extend("Counter");
-        /*
         if(isIndex){
             $(".pageViews").each(function(){
                 showPageViewsNum($(this),Counter);
@@ -475,14 +472,6 @@ if(true){
             });
         }else{
             showPageViewsNum($(".pageViews"),Counter);
-            //addPageViewsNum($(".pageViews"));
-        }
-        */
-
-        showPageViewsNum($(this),Counter);
-        if(!isHome)
-        {
-            addPageViewsNum($(this));
         }
     }
 
