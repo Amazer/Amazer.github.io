@@ -517,13 +517,12 @@ if(true){
 
     function showTime() {
         var Counter = AV.Object.extend("Counter");
-        if(index){
+        if(isIndex){
             $(".pageViews").each(function(){
                 showPageViewsNum($(this),Counter);
             });
         }else{
             showPageViewsNum($(".pageViews"),Counter);
-        //    addPageViewsNum($(this));
             addPageViewsNum($(".pageViews"));
         }
     }
