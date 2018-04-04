@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://amazer.github.io">
-  <title>Archives: 2018/4 | 延澈左的博客</title>
+  <title>hexo yalia主题添加文章阅读量-小白适用 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="延澈左的博客">
-<meta property="og:url" content="https://amazer.github.io/archives/2018/04/index.html">
+  <meta name="description" content="本人是web前端小白。以下给出配置hexo yalia主题的文章阅读量的步骤">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo yalia主题添加文章阅读量-小白适用">
+<meta property="og:url" content="https://amazer.github.io/2018/04/04/hexo-2/index.html">
 <meta property="og:site_name" content="延澈左的博客">
+<meta property="og:description" content="本人是web前端小白。以下给出配置hexo yalia主题的文章阅读量的步骤">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-04T12:28:30.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="延澈左的博客">
+<meta name="twitter:title" content="hexo yalia主题添加文章阅读量-小白适用">
+<meta name="twitter:description" content="本人是web前端小白。以下给出配置hexo yalia主题的文章阅读量的步骤">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -150,31 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo-2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/04/hexo-2/" class="archive-article-date">
-  	<time datetime="2018-04-04T11:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/04/hexo-2/">hexo yalia主题添加文章阅读量-小白适用</a>
+    <h1 class="article-title" itemprop="name">
+      hexo yalia主题添加文章阅读量-小白适用
     </h1>
   
 
@@ -188,8 +176,130 @@
   </a>
 
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/04/hexo-2/" class="archive-article-date">
+  	<time datetime="2018-04-04T11:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+      </header>
+    
+
+<!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ejs相关了解"><span class="toc-number">1.</span> <span class="toc-text">1. ejs相关了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-存储库申请和配置-leancloud"><span class="toc-number">2.</span> <span class="toc-text">2. 存储库申请和配置(leancloud)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-配置Hexo"><span class="toc-number">3.</span> <span class="toc-text">3. 配置Hexo</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人是web前端小白。以下给出配置hexo yalia主题的文章阅读量的步骤<br><a id="more"></a></p>
+<h3 id="1-ejs相关了解"><a href="#1-ejs相关了解" class="headerlink" title="1. ejs相关了解"></a>1. ejs相关了解</h3><p>因为参考的文章配置之后，阅读量显示有bug,所以，稍微看了下ejs相关的东西，之后，修复了bug。(为自己点赞!)</p>
+<p>参考<a href="https://www.jianshu.com/p/81ea81d291fd" target="_blank" rel="noopener">ejs的简要介绍</a>,可以知道一下几点内容：</p>
+<ul>
+<li>1.ejs是一个JavaScript模板库，用来从Json数据库中生存html字符串</li>
+<li>2.在html中引入ejs，以使javascript能够使用它<br>  简单来说，就是可以和html混着用，可以调用js代码生成html,或者是调用js代码调用函数，将结果生成到html中</li>
+<li>3.简单的ejs语法<br>  &lt;% code %&gt;          执行其中的javascript代码<br>  &lt;%= code %&gt;         会对code的内容进行转义<br>  &lt;%- code %&gt;          不会对code内容进行转义</li>
+</ul>
+<p>稍微知道点ejs语法，就可以读懂代码了。</p>
+<h3 id="2-存储库申请和配置-leancloud"><a href="#2-存储库申请和配置-leancloud" class="headerlink" title="2. 存储库申请和配置(leancloud)"></a>2. 存储库申请和配置(leancloud)</h3><p><a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>是一个云数据库，用来存储文章阅读量的查询。</p>
+<p>根据<a href="http://www.icafebolger.com/hexo/hexopostcount.html" target="_blank" rel="noopener">这篇博客</a>申请配置leancloud。<br>注意,创建应用时候，应用名称可以自己随意起，但是<strong>创建存储Class的时候，名字也要叫Counter</strong>，后面配置hexo的时候会用到,<strong>如果名字不叫Counter记得去修改</strong>。<br>看完创建API类就可以了，后面的内容在下面会给出配置成功的方法。</p>
+<h3 id="3-配置Hexo"><a href="#3-配置Hexo" class="headerlink" title="3. 配置Hexo"></a>3. 配置Hexo</h3><p> 1.在<strong>yilia</strong>主题下修改<strong>_config.yml</strong>，最后添加是否使用leancloud进行阅读量统计的相关配置：<br>  填上你在leancound创建的应用的 appid和appkey<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 添加浏览量</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: **************        # 填上你在leancound创建的应用的 appid和appkey</span><br><span class="line">  app_key: ************</span><br><span class="line"></span><br><span class="line">#添加一下js插件的 CDN地址</span><br><span class="line">js_cdn:</span><br><span class="line">  jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js</span><br><span class="line">  av : //cdn1.lncld.net/static/js/2.5.0/av-min.js</span><br></pre></td></tr></table></figure></p>
+<p> 2.在主题下的<strong>layout_parial\post</strong>文件夹里面，新建<strong>leancloud.ejs</strong>文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;&lt;%- theme.js_cdn.av %&gt;&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; </span><br><span class="line">if(&lt;%- theme.leancloud_visitors.enable %&gt;)&#123;</span><br><span class="line">    var leancloud_app_id  = &apos;&lt;%- theme.leancloud_visitors.app_id %&gt;&apos;;</span><br><span class="line">    var leancloud_app_key = &apos;&lt;%- theme.leancloud_visitors.app_key %&gt;&apos;;</span><br><span class="line"></span><br><span class="line">    AV.init(&#123;</span><br><span class="line">        appId: leancloud_app_id,</span><br><span class="line">        appKey: leancloud_app_key</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    var pageViewsLength = $(&quot;.pageViews&quot;).length;</span><br><span class="line"></span><br><span class="line">    var isIndex = $(&quot;.pageViews&quot;).length &gt; 1 ?true:false;</span><br><span class="line"></span><br><span class="line">    function showTime() &#123;</span><br><span class="line">        var Counter = AV.Object.extend(&quot;Counter&quot;);          // leanclound查询ClassName叫做 Counter 的查询</span><br><span class="line">        if(isIndex)&#123;</span><br><span class="line">            $(&quot;.pageViews&quot;).each(function()&#123;</span><br><span class="line">                showPageViewsNum($(this),Counter);         // 注意这里，只需要显示在列表中的阅读数量，不需要阅读数+1</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            showPageViewsNum($(&quot;.pageViews&quot;),Counter);</span><br><span class="line">            addPageViewsNum($(&quot;.pageViews&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //显示阅读量</span><br><span class="line">    function showPageViewsNum(ele,Counter)&#123;</span><br><span class="line">        var query = new AV.Query(&quot;Counter&quot;);</span><br><span class="line">        var url = ele.attr(&apos;id&apos;).trim();</span><br><span class="line">            query.equalTo(&quot;words&quot;, url);</span><br><span class="line">            query.count().then(function (number) &#123;</span><br><span class="line">                $(document.getElementById(url)).text(number?  number : &apos;0&apos;);</span><br><span class="line">            &#125;, function (error) &#123;</span><br><span class="line">                 $(document.getElementById(url)).text(&apos;0&apos;);</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //追加阅读量</span><br><span class="line">    function addPageViewsNum(ele)&#123;</span><br><span class="line">        var url = ele.attr(&apos;id&apos;).trim();</span><br><span class="line">        var Counter = AV.Object.extend(&quot;Counter&quot;);          // 查询leanclound叫做Counter的查询</span><br><span class="line">        var query = new Counter;</span><br><span class="line">        query.save(&#123;</span><br><span class="line">            words: url</span><br><span class="line">        &#125;).then(function (object) &#123;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(pageViewsLength)&#123; //此处判断等于 1 在执行 可去除循环</span><br><span class="line">        showTime();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>根据我们刚才稍微了解到的ejs知识，可以阅读代码。这里就是调用显示阅读数量和阅读数量+1的地方<br><strong>注意1：代码中isIndex为ture的时候，是在主页中显示的列表。这里只需要显示阅读数量，不需要阅读数量+1</strong><br><strong>注意2：AV.Object.extend(“Counter”); 的意思是，在leanclound查询ClassName叫做 Counter 的查询,如果之前<em><font color="gray">创建存储Class</font></em>的时候，不叫Counter，这里要换成你的命名</strong></p>
+<p> 3.在主题下的<strong>layout_parial\post</strong> 找到 title.ejs 文件,添加显示阅读量的html代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (post.link)&#123; %&gt;</span><br><span class="line">  &lt;h1 itemprop=&quot;name&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;&lt;%= class_name %&gt;&quot; href=&quot;&lt;%- url_for(post.link) %&gt;&quot; target=&quot;_blank&quot; itemprop=&quot;url&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">&lt;% &#125; else if (post.title)&#123; %&gt;</span><br><span class="line">  &lt;% if (index)&#123; %&gt;</span><br><span class="line">    &lt;h1 itemprop=&quot;name&quot;&gt;</span><br><span class="line">      &lt;a class=&quot;&lt;%= class_name %&gt;&quot; href=&quot;&lt;%- url_for(post.path) %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">  &lt;% &#125; else &#123; %&gt;</span><br><span class="line">    &lt;h1 class=&quot;&lt;%= class_name %&gt;&quot; itemprop=&quot;name&quot;&gt;</span><br><span class="line">      &lt;%= post.title %&gt;</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">&lt;!-- 上面是 yilia 主题的标题 下面是添加阅读量代码 --&gt;</span><br><span class="line">&lt;!-- span 给的 id 是文章的 url 作为唯一的 key 值 --&gt;</span><br><span class="line">&lt;% if (theme.leancloud_visitors.enable)&#123; %&gt;</span><br><span class="line">  &lt;a href=&quot;javascript:;&quot; class=&quot;archive-article-date&quot;&gt;</span><br><span class="line">      &lt;i class=&quot;icon-smile icon&quot;&gt;&lt;/i&gt; 阅读数:&lt;span id=&quot;&lt;%- url_for(post.path) %&gt;&quot; class=&quot;pageViews&quot;&gt;0&lt;/span&gt;次</span><br><span class="line">  &lt;/a&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line">&lt;!-- 自己添加结束 --&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 4.添加js代码, 在<strong>layout_parial</strong>找到<strong>after.footer.ejs</strong>,在<strong></strong>后面再添加一段script代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var yiliaConfig = &#123;</span><br><span class="line">        mathjax: &lt;%=theme.mathjax%&gt;,</span><br><span class="line">        isHome: &lt;%=is_home()%&gt;,</span><br><span class="line">        isPost: &lt;%=is_post()%&gt;,</span><br><span class="line">        isArchive: &lt;%=is_archive()%&gt;,</span><br><span class="line">        isTag: &lt;%=is_tag()%&gt;,</span><br><span class="line">        isCategory: &lt;%=is_category()%&gt;,</span><br><span class="line">        open_in_new: &lt;%=theme.open_in_new%&gt;,</span><br><span class="line">        toc_hide_index: &lt;%=theme.toc_hide_index%&gt;,</span><br><span class="line">        root: &quot;&lt;%=config.root%&gt;&quot;,</span><br><span class="line">        innerArchive: &lt;%=theme.smart_menu.innerArchive ? true : false%&gt;,</span><br><span class="line">        showTags: &lt;%=(theme.slider &amp;&amp; theme.slider.showTags) ? true : false%&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--上面是 yilia 主题配置自带 下面是自己添加的 --&gt;</span><br><span class="line">&lt;script src=&quot;&lt;%- theme.js_cdn.jquery %&gt;&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.leancloud_visitors.enable)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/leancloud&apos;) %&gt; </span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--自己添加结束 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;%- partial(&apos;script&apos;) %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.mathjax)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;mathjax&apos;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里添加的内容是说，如果leancloud_visitors.enable是ture,就调用post文件加下的leancloud.ejs。<br>怎么样，稍微懂了一点ejs知识，一下子就明了了吧？</p>
+<p>以上。</p>
+
+      
+
+<!-- 版权内容-->
+    
+            
+<! -- 添加版权信息 -->
+<style type="text/css">
+div.article-footer-copyright{
+   border-top:1px solid #d3d3d3;
+   margin: 20px auto;     
+   padding-left:2em;
+   width: 80%;
+}
+div.article-footer-copyright span,.copyright abbr{
+  color:#3d3d3d;
+}
+div.article-footer-copyright{
+	margin-top:2em;
+	padding:1.5em;
+	border:1px solid #d3d3d3;
+	background-color:#DEEBF7;
+}
+div.article-footer-copyright {
+	line-height: 160%;
+	margin: 10px;
+	font-size: 90%;
+    color: #A3A3A3
+}
+</style>
+<br>
+<div class="article-footer-copyright">
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/04/hexo-2/" target="_blank" title="hexo yalia主题添加文章阅读量-小白适用">hexo yalia主题添加文章阅读量-小白适用</a></b></center>
+
+<center>本文链接为<b><a href="/2018/04/04/hexo-2/" target="_blank" title="hexo yalia主题添加文章阅读量-小白适用">https://amazer.github.io/2018/04/04/hexo-2/</a></b></center>
+
+</div>
+<! -- 添加版权信息 -->
+
+    
+<!--版权内容结束-->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持~~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,470 +311,137 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://amazer.github.io/2018/04/04/hexo-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/03/en_4/" class="archive-article-date">
-  	<time datetime="2018-04-03T07:12:51.796Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/03/en_4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之一：windows游戏运行框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/03/en_4/">[引擎笔记]之一：windows游戏运行框架</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/03/en_4/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ejs相关了解"><span class="toc-number">1.</span> <span class="toc-text">1. ejs相关了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-存储库申请和配置-leancloud"><span class="toc-number">2.</span> <span class="toc-text">2. 存储库申请和配置(leancloud)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-配置Hexo"><span class="toc-number">3.</span> <span class="toc-text">3. 配置Hexo</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/hexo_1/" class="archive-article-date">
-  	<time datetime="2018-04-02T09:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/hexo_1/">hexo添加版权信息</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/hexo_1/" class="pageViews">0</span>次
-  </a>
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/essay-1/" class="archive-article-date">
-  	<time datetime="2018-04-02T07:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/essay-1/">0.hexo常用命令</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/essay-1/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/en_3/" class="archive-article-date">
-  	<time datetime="2018-04-02T06:20:37.698Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/en_3/">[引擎]之三:在Unity3D中自定义CubeMesh</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/en_3/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/en_2/" class="archive-article-date">
-  	<time datetime="2018-04-02T06:12:48.226Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/en_2/">[引擎]之二：Unity中查看简单mesh顶点顺序的小工具</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/en_2/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mesh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/en_1/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:40:43.946Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/en_1/">[引擎]之一：mesh在Unity中的简单使用</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/en_1/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/math_1/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:25:50.284Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/math_1/">3D向量叉乘的理解和记忆</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/math_1/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/02/u3d1/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/02/u3d1/">Unity3D花屏问题解决</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/u3d1/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://amazer.github.io/2018/04/04/hexo-2/",
+  owner: 'Amazer',
+  repo: 'BlogComments',
+  oauth: {
+    client_id: 'e1e268a29dfa6b73a2d2',
+    client_secret: 'c1512e5e5a9f54a5165e7a860a28a1621ff2df4f',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
+
 
 
 
@@ -688,8 +465,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
