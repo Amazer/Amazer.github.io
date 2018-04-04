@@ -1,0 +1,33 @@
+
+<! -- 添加版权信息 -->
+<style type="text/css">
+div.article-footer-copyright{
+   border-top:1px solid #d3d3d3;
+   margin: 20px auto;     
+   padding-left:2em;
+   width: 80%;
+}
+div.article-footer-copyright span,.copyright abbr{
+  color:#3d3d3d;
+}
+div.article-footer-copyright{
+	margin-top:2em;
+	padding:1.5em;
+	border:1px solid #d3d3d3;
+	background-color:#DEEBF7;
+}
+div.article-footer-copyright {
+	line-height: 160%;
+	margin: 10px;
+	font-size: 90%;
+    color: #A3A3A3
+}
+</style>
+<br>
+<div class="article-footer-copyright">
+<center>转载请注明作者及出处,本文作者为<b><a href="<%= config.root %>index.html" target="_blank" title="<%= config.author %>"><%= config.author %></a></b>,本文标题为<b><a href="<%- config.root %><%- post.path %>" target="_blank" title="<%= post.title %>"><%= post.title %></a></b></center>
+
+<center>本文链接为<b><a href="<%- config.root %><%- post.path %>" target="_blank" title="<%= post.title %>"><%- config.url %>/<%- post.path %></a></b></center>
+
+</div>
+<! -- 添加版权信息 -->
