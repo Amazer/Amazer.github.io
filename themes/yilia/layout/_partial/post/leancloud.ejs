@@ -20,8 +20,8 @@ if(<%- theme.leancloud_visitors.enable %>){
                 showPageViewsNum($(this),Counter);
             });
         }else{
-            showPageViewsNum($(".pageViews"),Counter);
             addPageViewsNum($(".pageViews"));
+            showPageViewsNum($(".pageViews"),Counter);
         }
     }
 
