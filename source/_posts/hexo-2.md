@@ -75,8 +75,8 @@ if(<%- theme.leancloud_visitors.enable %>){
                 showPageViewsNum($(this),Counter);         // 注意这里，只需要显示在列表中的阅读数量，不需要阅读数+1
             });
         }else{
+            addPageViewsNum($(".pageViews"));               // 先加再显示
             showPageViewsNum($(".pageViews"),Counter);
-            addPageViewsNum($(".pageViews"));
         }
     }
 

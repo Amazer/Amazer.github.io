@@ -1,8 +1,7 @@
 ---
-title: '0.hexo常用命令'
+title: 'hexo常用命令'
 date: 2018-04-02 15:07:02
-tags: '随笔'
-description: '简单描述'
+tags: 'hexo'
 copyright: true
 ---
 
