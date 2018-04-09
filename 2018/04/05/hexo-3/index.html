@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>3D向量叉乘的理解和记忆 | 延澈左的博客</title>
+  <title>[hexo] 多端同步win7下使用(yilia主题) | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.2D向量的叉乘 U × V = Ux  Vy - Uy  Vx  2.3D向量的叉乘 3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：">
-<meta name="keywords" content="3D,数学">
+  <meta name="description" content="0. github秘钥相关设置1.下载安装nodejs">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3D向量叉乘的理解和记忆">
-<meta property="og:url" content="https://yanchezuo.com/2018/04/02/math_1/index.html">
+<meta property="og:title" content="[hexo] 多端同步win7下使用(yilia主题)">
+<meta property="og:url" content="https://yanchezuo.com/2018/04/05/hexo-3/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.2D向量的叉乘 U × V = Ux  Vy - Uy  Vx  2.3D向量的叉乘 3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：">
+<meta property="og:description" content="0. github秘钥相关设置1.下载安装nodejs">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-02T09:45:21.350Z">
+<meta property="og:updated_time" content="2018-04-08T05:26:50.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3D向量叉乘的理解和记忆">
-<meta name="twitter:description" content="1.2D向量的叉乘 U × V = Ux  Vy - Uy  Vx  2.3D向量的叉乘 3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：">
+<meta name="twitter:title" content="[hexo] 多端同步win7下使用(yilia主题)">
+<meta name="twitter:description" content="0. github秘钥相关设置1.下载安装nodejs">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -155,14 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-math_1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hexo-3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      3D向量叉乘的理解和记忆
+      [hexo] 多端同步win7下使用(yilia主题)
     </h1>
   
 
@@ -172,13 +172,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/math_1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/05/hexo-3/" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/2018/04/02/math_1/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:25:50.284Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+        <a href="/2018/04/05/hexo-3/" class="archive-article-date">
+  	<time datetime="2018-04-05T04:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
 </a>
         
       </header>
@@ -186,41 +186,51 @@
 
 <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-github秘钥相关设置"><span class="toc-number">1.</span> <span class="toc-text">0. github秘钥相关设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-下载安装nodejs"><span class="toc-number">2.</span> <span class="toc-text">1.下载安装nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-clone自己的hexo工程，并切到分支"><span class="toc-number">3.</span> <span class="toc-text">2. clone自己的hexo工程，并切到分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-npm安装"><span class="toc-number">4.</span> <span class="toc-text">3. npm安装</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-2D向量的叉乘"><a href="#1-2D向量的叉乘" class="headerlink" title="1.2D向量的叉乘"></a>1.2D向量的叉乘</h2><ul>
-<li><strong>U</strong> × <strong>V</strong> = <strong>U</strong><sub>x</sub> <em> <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x<sub></sub></sub></li>
+        <h3 id="0-github秘钥相关设置"><a href="#0-github秘钥相关设置" class="headerlink" title="0. github秘钥相关设置"></a>0. github秘钥相关设置</h3><h3 id="1-下载安装nodejs"><a href="#1-下载安装nodejs" class="headerlink" title="1.下载安装nodejs"></a>1.下载安装nodejs</h3><a id="more"></a>
+<p>在<a href="http://nodejs.cn/" target="_blank" rel="noopener">node.js中文网</a>下载并安装</p>
+<h3 id="2-clone自己的hexo工程，并切到分支"><a href="#2-clone自己的hexo工程，并切到分支" class="headerlink" title="2. clone自己的hexo工程，并切到分支"></a>2. clone自己的hexo工程，并切到分支</h3><h3 id="3-npm安装"><a href="#3-npm安装" class="headerlink" title="3. npm安装"></a>3. npm安装</h3><p>在hexo工程下安装</p>
+<ul>
+<li><p>npm install hexo-cli -g           // 初始化 hexo</p>
+</li>
+<li><p><strong>npm install</strong>               // 重要命令.进入blog目录下运行。安装hexo server什么的</p>
+</li>
 </ul>
-<h2 id="2-3D向量的叉乘"><a href="#2-3D向量的叉乘" class="headerlink" title="2.3D向量的叉乘"></a>2.3D向量的叉乘</h2><ul>
-<li>3D笛卡尔坐标系的三个坐标轴两两垂直，并且有着如下的关系：</li>
+<p>至此就OK了。下面是备用命令，有可能需要用到:</p>
+<ul>
+<li><p>npm install hexo –save</p>
+</li>
+<li><p>npm install hexo-server –save            // 需要安装hexo-server，否则没有hexo server命令</p>
+</li>
+<li><p>npm i hexo-generator-json-content –save  // 所有文章需要</p>
+</li>
 </ul>
-<a id="more"></a>
-<blockquote>
-<p>   x轴向量 × y轴向量=z轴向量<br>    y轴向量 × z轴向量=x轴向量<br>    z轴向量 × x轴向量=y轴向量</p>
-</blockquote>
-<blockquote>
-<p>   即：<br>    x轴向量=y轴向量 × z轴向量<br>    y轴向量=z轴向量 × x轴向量<br>    z轴向量=x轴向量 × y轴向量<br>    (xyz的顺不能变)</p>
-</blockquote>
-<p>如果用i,j,k代表x,y,z轴的单位向量有：</p>
-<blockquote>
-<p>   i = j × k<br>    j = k × i<br>    k = i × j</p>
-</blockquote>
-<p> 3D向量的叉乘结果，是一个3D向量，也就是说，在i j k三个方向的向量的组合。<br> 那么，分别获得三个方向上的值就可以了。</p>
-<p>设 <strong>N</strong> = <strong>U</strong> × <strong>V</strong></p>
-<p>x轴方向的量，由yz两个轴向量叉乘得到：</p>
-<blockquote>
-<p><strong>i = j × k</strong><br>     <strong>N</strong><sub>x</sub> = <strong>U</strong><sub>yz</sub> × <strong>V</strong><sub>yz</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub></p>
-</blockquote>
-<p>y轴方向的量，由zx两个轴向量叉乘得到：</p>
-<blockquote>
-<p><strong>j = k × i</strong><br>     <strong>N</strong><sub>y</sub> = <strong>U</strong><sub>zx</sub> × <strong>V</strong><sub>zx</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub></p>
-</blockquote>
-<p>z轴方向的量，由xy两个轴向量叉乘得到：</p>
-<blockquote>
-<p> <strong>k = i × j</strong><br>     <strong>N</strong><sub>z</sub> = <strong>U</strong><sub>xy</sub> × <strong>V</strong><sub>xy</sub><br>     &nbsp; &nbsp;&nbsp;  = <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub></p>
-</blockquote>
-<p>最终，得到叉乘向量的结果是：<br>        <strong>U</strong> x <strong>V</strong> = &lt;<strong>U</strong><sub>y</sub> <em>  <strong>V</strong><sub>z</sub> - <strong>U</strong><sub>z</sub> </em> <strong>V</strong><sub>y</sub>  , <strong>U</strong><sub>z</sub> <em>  <strong>V</strong><sub>x</sub> - <strong>U</strong><sub>x</sub> </em> <strong>V</strong><sub>z</sub> , <strong>U</strong><sub>x</sub> <em>  <strong>V</strong><sub>y</sub> - <strong>U</strong><sub>y</sub> </em> <strong>V</strong><sub>x</sub>&gt;</p>
 
       
 
@@ -253,9 +263,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/math_1/" target="_blank" title="3D向量叉乘的理解和记忆">3D向量叉乘的理解和记忆</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/05/hexo-3/" target="_blank" title="[hexo] 多端同步win7下使用(yilia主题)">[hexo] 多端同步win7下使用(yilia主题)</a></b></center>
 
-<center>本文链接为<b><a href="/2018/04/02/math_1/" target="_blank" title="3D向量叉乘的理解和记忆">https://yanchezuo.com/2018/04/02/math_1/</a></b></center>
+<center>本文链接为<b><a href="/2018/04/05/hexo-3/" target="_blank" title="[hexo] 多端同步win7下使用(yilia主题)">https://yanchezuo.com/2018/04/05/hexo-3/</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -294,28 +304,13 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -365,7 +360,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/02/math_1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/05/hexo-3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -379,18 +374,18 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/2018/04/02/en_1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/05/en-5/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [引擎]之一：mesh在Unity中的简单使用
+          [引擎]之四：unity中查看简单mesh顶点顺序的小工具——修改
         
       </div>
     </a>
   
   
-    <a href="/2018/04/02/u3d1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[Unity3D]之Unity3D花屏问题解决</div>
+    <a href="/2018/04/04/hexo-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo yalia主题添加文章阅读量-小白适用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -409,6 +404,19 @@ div.article-footer-copyright {
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-github秘钥相关设置"><span class="toc-number">1.</span> <span class="toc-text">0. github秘钥相关设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-下载安装nodejs"><span class="toc-number">2.</span> <span class="toc-text">1.下载安装nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-clone自己的hexo工程，并切到分支"><span class="toc-number">3.</span> <span class="toc-text">2. clone自己的hexo工程，并切到分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-npm安装"><span class="toc-number">4.</span> <span class="toc-text">3. npm安装</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -430,7 +438,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/2018/04/02/math_1/",
+  id: "https://yanchezuo.com/2018/04/05/hexo-3/",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
