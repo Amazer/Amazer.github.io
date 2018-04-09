@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="方程组如下：$$\begin{cases}a_{00}*x+a_{01}*y+a_{01}*z=b_0 \\a_{10}*x+a_{11}*y+a_{11}*z=b_0 \\a_{20}*x+a_{21}*y+a_{21}*z=b_0 \\\end{cases}$$">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-09T06:10:50.120Z">
+<meta property="og:updated_time" content="2018-04-09T06:19:11.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]数学：矩阵求三变量方程组">
 <meta name="twitter:description" content="方程组如下：$$\begin{cases}a_{00}*x+a_{01}*y+a_{01}*z=b_0 \\a_{10}*x+a_{11}*y+a_{11}*z=b_0 \\a_{20}*x+a_{21}*y+a_{21}*z=b_0 \\\end{cases}$$">
@@ -191,7 +191,7 @@
       
         <ul>
 <li>方程组如下：<br>$$<br>\begin{cases}<br>a_{00}*x+a_{01}*y+a_{01}*z=b_0 \\<br>a_{10}*x+a_{11}*y+a_{11}*z=b_0 \\<br>a_{20}*x+a_{21}*y+a_{21}*z=b_0 \\<br>\end{cases}<br>$$<a id="more"></a></li>
-<li>矩阵形式为：<br><strong>A</strong> =<br>\begin{vmatrix}<br>a_{00}&amp;a_{01}&amp;a_{02}\\<br>a_{10}&amp;a_{11}&amp;a_{12}\\<br>a_{20}&amp;a_{21}&amp;a_{22}\\<br>\end{vmatrix}<br><strong>X</strong>=<br>\begin{vmatrix}<br>x\<br>y\<br>z\<br>\end{vmatrix}<br><strong>B</strong>=<br>\begin{vmatrix}<br>b_0\\<br>b_1\\<br>b_2\\<br>\end{vmatrix}</li>
+<li>矩阵形式为：<br><strong>A</strong> =<br>\begin{vmatrix}<br>a_{00}&amp;a_{01}&amp;a_{02}\\<br>a_{10}&amp;a_{11}&amp;a_{12}\\<br>a_{20}&amp;a_{21}&amp;a_{22}\\<br>\end{vmatrix}<br><strong>X</strong>=<br>\begin{vmatrix}<br>x\\<br>y\\<br>z\\<br>\end{vmatrix}<br><strong>B</strong>=<br>\begin{vmatrix}<br>b_0\\<br>b_1\\<br>b_2\\<br>\end{vmatrix}</li>
 <li><p>计算det值<br>det(<strong>A</strong>)=$$a_{00}*a_{11}*a_{22}+a_{01}*a_{12}*a_{20}+a_{02}*a_{10}*a_{21}-a_{02}*a_{11}*a_{20}-a_{01}*a_{10}*a_{22}-a_{00}*a_{12}*a{21}$$<br>基于<strong>余因子扩展</strong>计算矩阵行列式的方法，结果为：<br>det(<strong>A</strong>)=$$a_{00}*(a_{11}*a_{22}-a_{12}*a_{21})-a_{01}*(a_{10}*a_{22}-a_{12}*a_{20})+a_{02}*(a_{10}*a_{21}-a_{11}*a_{20})$$<br>（提出某一行的所有元素。元素分别乘以元素不在的行和列组成的矩阵的行列式，加减号由元素所在的行列数和决定，奇数减，偶数加。<strong>这的行列从0开始计数</strong>）</p>
 </li>
 <li><p>克莱姆法表示为一组求解x,y,z的商:<br>  对于每个变量(x,y,z)，都有一个用于求解它的商，其中分子分别是用列向量<strong>B</strong>替换矩阵<strong>A</strong>的第一列、第二列和第三列得到的矩阵的行列式，分母都为det(<strong>A</strong>)：<br>令：det(tx)=<br>$$\begin{vmatrix}<br>b_0&amp;a_{01}&amp;a_{02}\\<br>b_1&amp;a_{11}&amp;a_{12}\\<br>b_2&amp;a_{21}&amp;a_{22}\\<br>\end{vmatrix}$$<br>则：<br><strong>x</strong>=det(tx)/det(<strong>A</strong>)<br>令：det(ty)=<br>$$\begin{vmatrix}<br>a_{00}&amp;b_{0}&amp;a_{02}\\<br>a_{10}&amp;b_{1}&amp;a_{12}\\<br>a_{20}&amp;b_{2}&amp;a_{22}\\<br>\end{vmatrix}$$<br>则：<br><strong>y</strong>=det(ty)/det(<strong>A</strong>)<br>令：det(tz)=<br>$$\begin{vmatrix}<br>a_{00}&amp;a_{01}&amp;b_{0}\\<br>a_{10}&amp;a_{11}&amp;b_{1}\\<br>a_{20}&amp;a_{21}&amp;b_{2}\\<br>\end{vmatrix}$$<br>则：<br><strong>z</strong>=det(tz)/det(<strong>A</strong>)</p>
