@@ -216,7 +216,7 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://amazer.github.io/2018/04/04/en_2/">这里</a>制作的小工具，功能有点单薄，只能查看顶点的顺序。<br>在写CubeMesh的时候,需要查看顶点的位置信息和uv信息。<br>因此，添加这两个功能：</p>
+        <p><a href="https://amazer.github.io/2018/04/04/en_2/" target="_blank" rel="noopener">这里</a>制作的小工具，功能有点单薄，只能查看顶点的顺序。<br>在写CubeMesh的时候,需要查看顶点的位置信息和uv信息。<br>因此，添加这两个功能：</p>
 <a id="more"></a>
 <h2 id="1-添加查看顶点位置和uv信息"><a href="#1-添加查看顶点位置和uv信息" class="headerlink" title="(1) 添加查看顶点位置和uv信息"></a><font size="4">(1) 添加查看顶点位置和uv信息</font></h2><p>在<a href="http://blog.csdn.net/yanchezuo/article/details/78969956" target="_blank" rel="noopener">MeshViewerEditor</a>中，添加两个方法，来显示顶点位置信息和uv信息。因为目前只会在简单的mesh查看时用到，所以不必太考虑性能什么的，先有再追求。以下是新加的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 显示顶点位置Str</span><br><span class="line">      private void AddVerticeStr(ref StringBuilder sb, Vector3 vert)</span><br><span class="line">      &#123;</span><br><span class="line">          sb.Append(&quot;,vertice:&quot; + vert);</span><br><span class="line">      &#125;</span><br><span class="line">      // 显示uv信息Str</span><br><span class="line">      private void AddUVStr(ref StringBuilder sb,Vector2 uv)</span><br><span class="line">      &#123;</span><br><span class="line">          sb.Append(&quot;,uv:&quot; + uv);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="2-兼容顶点数量和uv数量不同的情况"><a href="#2-兼容顶点数量和uv数量不同的情况" class="headerlink" title="(2) 兼容顶点数量和uv数量不同的情况"></a><font size="4">(2) 兼容顶点数量和uv数量不同的情况</font></h2><p>在新建Mesh的过程中，先添加顶点，之后才会给每个顶点添加uv坐标。所以，有可能uv坐标的数量和顶点数量不一致。这个时候，兼容一下。修改显示uv信息的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private void AddUVStr(ref StringBuilder sb, ref List&lt;Vector2&gt; uvList, int index)</span><br><span class="line">&#123;</span><br><span class="line">    if (uvList.Count &gt; index)</span><br><span class="line">    &#123;</span><br><span class="line">        sb.Append(&quot;,uv:&quot; + uvList[index]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -619,11 +619,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">矩阵</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,10 +644,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
               </li>
             
             <div class="clearfix"></div>

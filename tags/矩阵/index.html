@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[Unity3D]之Unity3D花屏问题解决 | 延澈左的博客</title>
+  <title>Tag: 矩阵 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
-<meta name="keywords" content="Unity3D">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[Unity3D]之Unity3D花屏问题解决">
-<meta property="og:url" content="https://yanchezuo.com/2018/04/02/u3d1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="延澈左的博客">
+<meta property="og:url" content="https://yanchezuo.com/tags/矩阵/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T05:26:50.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Unity3D]之Unity3D花屏问题解决">
-<meta name="twitter:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
+<meta name="twitter:title" content="延澈左的博客">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -155,14 +150,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-u3d1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      [Unity3D]之Unity3D花屏问题解决
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/09/en-7/" class="archive-article-date">
+  	<time datetime="2018-04-09T10:45:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/09/en-7/">[引擎笔记]理论：使用矩阵进行变换</a>
     </h1>
   
 
@@ -172,358 +184,40 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/u3d1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/09/en-7/" class="pageViews">0</span>次
   </a>
 
 
-        
-        <a href="/2018/04/02/u3d1/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文地址:<a href="http://blog.csdn.net/yanchezuo/article/details/77337755" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/77337755</a></p>
-<p>4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！</p>
-<ul>
-<li><strong>你的界面花屏了？</strong></li>
-</ul>
-<blockquote>
-<p>   去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？</p>
-</blockquote>
-<p><strong>解决方案：</strong></p>
-<a id="more"></a>
-<blockquote>
-<p>一定要有一个clearFlag设置为SolidColor或者SkyBox的相机，并且这个相机的depth为你所有相机中depth的最小值（保证这相机先渲染）</p>
-</blockquote>
-<ul>
-<li><strong>原理</strong><blockquote>
-<p>Unity每个渲染帧的开始，并不会清空颜色缓冲区和深度缓冲区，是通过设置相机的clearFlag来起作用的,具体如下:</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ClearFlag</th>
-<th style="text-align:left">颜色缓冲区</th>
-<th style="text-align:left">深度缓冲区</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">SkyBox</td>
-<td style="text-align:left">改变，设置为skyBox的颜色</td>
-<td style="text-align:left">不改变</td>
-</tr>
-<tr>
-<td style="text-align:left">SolidColor</td>
-<td style="text-align:left">改变，设置为BackGround颜色</td>
-<td style="text-align:left">不改变</td>
-</tr>
-<tr>
-<td style="text-align:left">DepthOnly</td>
-<td style="text-align:left">不改变</td>
-<td style="text-align:left">改变，清空深度缓冲</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>因此，如果场景中没有一个改变颜色缓冲区的相机，在渲染的初始帧，颜色缓冲区会保留上一帧的结果。</p>
-</blockquote>
-<blockquote>
-<p>在此，给一种出现花屏的现象的实例：<br>场景中有两个相机，设置分别为：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">相机</th>
-<th style="text-align:left">clearFlag</th>
-<th style="text-align:left">depth</th>
-<th>Culling Mask</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">gameCam</td>
-<td style="text-align:left">depthOnly</td>
-<td style="text-align:left">-1</td>
-<td>GameScene</td>
-</tr>
-<tr>
-<td style="text-align:left">uiCame</td>
-<td style="text-align:left">depthOnly</td>
-<td style="text-align:left">1</td>
-<td>UI</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p> 渲染顺序为：<br>颜色缓冲上一帧残留(A) -&gt; 当前渲染帧开始 -&gt; gameCame 渲染，修改颜色缓冲区 (B)-&gt; uiCam渲染，修改颜色缓冲(C) -&gt; 显示到屏幕上.<br>最终渲染的是A+B+C</p>
-</blockquote>
-<ul>
-<li><p><strong>拓展：花屏和卡帧</strong></p>
-<blockquote>
-<p>当然，如果在切换界面的时候，不卡帧，其实也不会出现花屏的现象。这一条先占上坑，改天详细说明。</p>
-</blockquote>
-</li>
-<li><p><strong>拓展：花屏和多线程渲染</strong></p>
-<blockquote>
-<p>在我的测试中，如果开启了多线程渲染，一卡帧，很容易就出现花屏。相反，不开启多线程渲染，基本上是不会有花屏现象的。特别是开了垂直同步之后，cpu会等待gup渲染结束再进行下一帧的计算。<br>  ps.Unity3d垂直同步有个坑，和帧率相关<br>  垂直同步QualitySettings.vSyncCount的设置，值可以为0,1,2。</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">vSyncCount</th>
-<th style="text-align:center">是否等待GPU渲染完成</th>
-<th style="text-align:center">游戏帧率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">不影响帧率设置</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">是,一个缓冲buffer</td>
-<td style="text-align:center">影响，强制60fps</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">是，2个缓冲buffer</td>
-<td style="text-align:center">影响，强制30fps</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>拓展：花屏和GL.Clear()</strong><blockquote>
-<p>GL.Clear()当然是可以清除颜色缓冲的。不过，由于不知道卡几帧，每帧都设置GL.Clear()也是挺奇怪的。<br>所以，在切换界面的时候调用一次GL.Clear()不能完全解决花屏的问题。<br>GL.Clear()是使用，参见：<br><a href="http://blog.csdn.net/yanchezuo/article/details/12751917" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/12751917</a></p>
-</blockquote>
-</li>
-</ul>
-
-      
-
-<!-- 版权内容-->
-    
-            
-<! -- 添加版权信息 -->
-<style type="text/css">
-div.article-footer-copyright{
-   border-top:1px solid #d3d3d3;
-   margin: 20px auto;     
-   padding-left:2em;
-   width: 80%;
-}
-div.article-footer-copyright span,.copyright abbr{
-  color:#3d3d3d;
-}
-div.article-footer-copyright{
-	margin-top:2em;
-	padding:1.5em;
-	border:1px solid #d3d3d3;
-	background-color:#DEEBF7;
-}
-div.article-footer-copyright {
-	line-height: 160%;
-	margin: 10px;
-	font-size: 90%;
-    color: #A3A3A3
-}
-</style>
-<br>
-<div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/u3d1/" target="_blank" title="[Unity3D]之Unity3D花屏问题解决">[Unity3D]之Unity3D花屏问题解决</a></b></center>
-
-<center>本文链接为<b><a href="/2018/04/02/u3d1/" target="_blank" title="[Unity3D]之Unity3D花屏问题解决">https://yanchezuo.com/2018/04/02/u3d1/</a></b></center>
-
-</div>
-<! -- 添加版权信息 -->
-
-    
-<!--版权内容结束-->
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持~~<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
         		</li>
       		
 		</ul>
 	</div>
 
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/02/u3d1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/04/02/math_1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          3D向量叉乘的理解和记忆
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "https://yanchezuo.com/2018/04/02/u3d1/",
-  owner: 'Amazer',
-  repo: 'BlogComments',
-  oauth: {
-    client_id: 'e1e268a29dfa6b73a2d2',
-    client_secret: 'c1512e5e5a9f54a5165e7a860a28a1621ff2df4f',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
-
-
+    
 
 
           </div>
@@ -546,9 +240,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

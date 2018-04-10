@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[Unity3D]之Unity3D花屏问题解决 | 延澈左的博客</title>
+  <title>[引擎笔记]理论：使用矩阵进行变换 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
-<meta name="keywords" content="Unity3D">
+  <meta name="description" content="矩阵可以用来执行2D/3D变换。(平移、旋转和缩放变换)">
+<meta name="keywords" content="引擎笔记,矩阵">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Unity3D]之Unity3D花屏问题解决">
-<meta property="og:url" content="https://yanchezuo.com/2018/04/02/u3d1/index.html">
+<meta property="og:title" content="[引擎笔记]理论：使用矩阵进行变换">
+<meta property="og:url" content="https://yanchezuo.com/2018/04/09/en-7/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
+<meta property="og:description" content="矩阵可以用来执行2D/3D变换。(平移、旋转和缩放变换)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T05:26:50.667Z">
+<meta property="og:updated_time" content="2018-04-10T05:48:05.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Unity3D]之Unity3D花屏问题解决">
-<meta name="twitter:description" content="原文地址:http://blog.csdn.net/yanchezuo/article/details/77337755 4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！  你的界面花屏了？      去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？  解决方案">
+<meta name="twitter:title" content="[引擎笔记]理论：使用矩阵进行变换">
+<meta name="twitter:description" content="矩阵可以用来执行2D/3D变换。(平移、旋转和缩放变换)">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -155,14 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-u3d1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-en-7" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [Unity3D]之Unity3D花屏问题解决
+      [引擎笔记]理论：使用矩阵进行变换
     </h1>
   
 
@@ -172,13 +172,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/02/u3d1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/09/en-7/" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/2018/04/02/u3d1/" class="archive-article-date">
-  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+        <a href="/2018/04/09/en-7/" class="archive-article-date">
+  	<time datetime="2018-04-09T10:45:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
 </a>
         
       </header>
@@ -186,131 +186,40 @@
 
 <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用矩阵进行变换"><span class="toc-number">1.</span> <span class="toc-text">1.使用矩阵进行变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用矩阵进行多次变换"><span class="toc-number">2.</span> <span class="toc-text">2.使用矩阵进行多次变换</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文地址:<a href="http://blog.csdn.net/yanchezuo/article/details/77337755" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/77337755</a></p>
-<p>4年前遇到的花屏问题，如今又遇到了。这次通过不断的测试、重现、修改、反思，终于得出了最终原因和最终答案！</p>
-<ul>
-<li><strong>你的界面花屏了？</strong></li>
-</ul>
-<blockquote>
-<p>   去检查一下，你游戏中的相机clearFlag的设置，是不是没有clearFlag设置为SolidColor或者SkyBox的相机？</p>
-</blockquote>
-<p><strong>解决方案：</strong></p>
-<a id="more"></a>
-<blockquote>
-<p>一定要有一个clearFlag设置为SolidColor或者SkyBox的相机，并且这个相机的depth为你所有相机中depth的最小值（保证这相机先渲染）</p>
-</blockquote>
-<ul>
-<li><strong>原理</strong><blockquote>
-<p>Unity每个渲染帧的开始，并不会清空颜色缓冲区和深度缓冲区，是通过设置相机的clearFlag来起作用的,具体如下:</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ClearFlag</th>
-<th style="text-align:left">颜色缓冲区</th>
-<th style="text-align:left">深度缓冲区</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">SkyBox</td>
-<td style="text-align:left">改变，设置为skyBox的颜色</td>
-<td style="text-align:left">不改变</td>
-</tr>
-<tr>
-<td style="text-align:left">SolidColor</td>
-<td style="text-align:left">改变，设置为BackGround颜色</td>
-<td style="text-align:left">不改变</td>
-</tr>
-<tr>
-<td style="text-align:left">DepthOnly</td>
-<td style="text-align:left">不改变</td>
-<td style="text-align:left">改变，清空深度缓冲</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>因此，如果场景中没有一个改变颜色缓冲区的相机，在渲染的初始帧，颜色缓冲区会保留上一帧的结果。</p>
-</blockquote>
-<blockquote>
-<p>在此，给一种出现花屏的现象的实例：<br>场景中有两个相机，设置分别为：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">相机</th>
-<th style="text-align:left">clearFlag</th>
-<th style="text-align:left">depth</th>
-<th>Culling Mask</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">gameCam</td>
-<td style="text-align:left">depthOnly</td>
-<td style="text-align:left">-1</td>
-<td>GameScene</td>
-</tr>
-<tr>
-<td style="text-align:left">uiCame</td>
-<td style="text-align:left">depthOnly</td>
-<td style="text-align:left">1</td>
-<td>UI</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p> 渲染顺序为：<br>颜色缓冲上一帧残留(A) -&gt; 当前渲染帧开始 -&gt; gameCame 渲染，修改颜色缓冲区 (B)-&gt; uiCam渲染，修改颜色缓冲(C) -&gt; 显示到屏幕上.<br>最终渲染的是A+B+C</p>
-</blockquote>
-<ul>
-<li><p><strong>拓展：花屏和卡帧</strong></p>
-<blockquote>
-<p>当然，如果在切换界面的时候，不卡帧，其实也不会出现花屏的现象。这一条先占上坑，改天详细说明。</p>
-</blockquote>
-</li>
-<li><p><strong>拓展：花屏和多线程渲染</strong></p>
-<blockquote>
-<p>在我的测试中，如果开启了多线程渲染，一卡帧，很容易就出现花屏。相反，不开启多线程渲染，基本上是不会有花屏现象的。特别是开了垂直同步之后，cpu会等待gup渲染结束再进行下一帧的计算。<br>  ps.Unity3d垂直同步有个坑，和帧率相关<br>  垂直同步QualitySettings.vSyncCount的设置，值可以为0,1,2。</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">vSyncCount</th>
-<th style="text-align:center">是否等待GPU渲染完成</th>
-<th style="text-align:center">游戏帧率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">否</td>
-<td style="text-align:center">不影响帧率设置</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">是,一个缓冲buffer</td>
-<td style="text-align:center">影响，强制60fps</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">是，2个缓冲buffer</td>
-<td style="text-align:center">影响，强制30fps</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>拓展：花屏和GL.Clear()</strong><blockquote>
-<p>GL.Clear()当然是可以清除颜色缓冲的。不过，由于不知道卡几帧，每帧都设置GL.Clear()也是挺奇怪的。<br>所以，在切换界面的时候调用一次GL.Clear()不能完全解决花屏的问题。<br>GL.Clear()是使用，参见：<br><a href="http://blog.csdn.net/yanchezuo/article/details/12751917" target="_blank" rel="noopener">http://blog.csdn.net/yanchezuo/article/details/12751917</a></p>
-</blockquote>
-</li>
-</ul>
+        <p>矩阵可以用来执行2D/3D变换。(平移、旋转和缩放变换)<br><a id="more"></a></p>
+<h3 id="1-使用矩阵进行变换"><a href="#1-使用矩阵进行变换" class="headerlink" title="1.使用矩阵进行变换"></a>1.使用矩阵进行变换</h3><p><strong>P</strong>为原始点,<strong>P’</strong>为变换后点，<strong>M</strong>变换矩阵,则：</p>
+<center>$$P’=P*M$$</center>
+
+<p>变换矩阵在最右。同理可以推出，当矩阵变换时：<br>$$M=M_1*M_2$$<br>这里的原始矩阵为<strong>M<sub>1</sub></strong>,变换矩阵为<strong>M<sub>2</sub></strong></p>
+<h3 id="2-使用矩阵进行多次变换"><a href="#2-使用矩阵进行多次变换" class="headerlink" title="2.使用矩阵进行多次变换"></a>2.使用矩阵进行多次变换</h3><p><strong>M</strong>矩阵可以是多个变换矩阵相乘的结果：<br>$$M=M_1*M_2*M_3*…*M_n$$</p>
+<p>对<strong>P</strong>进行多个变换的时候，可以一次性计算出<strong>M</strong>。以后的进行通用的变换的时候，直接使用<strong>M</strong>矩阵就可以了。<br>(矩阵乘法满足乘法结合律)</p>
 
       
 
@@ -343,9 +252,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/02/u3d1/" target="_blank" title="[Unity3D]之Unity3D花屏问题解决">[Unity3D]之Unity3D花屏问题解决</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/09/en-7/" target="_blank" title="[引擎笔记]理论：使用矩阵进行变换">[引擎笔记]理论：使用矩阵进行变换</a></b></center>
 
-<center>本文链接为<b><a href="/2018/04/02/u3d1/" target="_blank" title="[Unity3D]之Unity3D花屏问题解决">https://yanchezuo.com/2018/04/02/u3d1/</a></b></center>
+<center>本文链接为<b><a href="/2018/04/09/en-7/" target="_blank" title="[引擎笔记]理论：使用矩阵进行变换">https://yanchezuo.com/2018/04/09/en-7/</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -384,24 +293,17 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -451,7 +353,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/02/u3d1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/09/en-7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -465,15 +367,11 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/2018/04/02/math_1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          3D向量叉乘的理解和记忆
-        
-      </div>
-    </a>
   
+    <a href="/2018/04/09/en_6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]数学：矩阵求三变量方程组</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -490,6 +388,19 @@ div.article-footer-copyright {
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用矩阵进行变换"><span class="toc-number">1.</span> <span class="toc-text">1.使用矩阵进行变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用矩阵进行多次变换"><span class="toc-number">2.</span> <span class="toc-text">2.使用矩阵进行多次变换</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -511,7 +422,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/2018/04/02/u3d1/",
+  id: "https://yanchezuo.com/2018/04/09/en-7/",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
