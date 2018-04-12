@@ -31,3 +31,6 @@ tags: hexo
 - npm install hexo-server --save            // 需要安装hexo-server，否则没有hexo server命令
 
 - npm i hexo-generator-json-content --save  // 所有文章需要
+
+一些插件
+- npm install --save hexo-filter-flowchart  // markdown 流程图插件

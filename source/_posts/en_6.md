@@ -21,9 +21,9 @@ a_{20}&a_{21}&a_{22}\\\
 \end{vmatrix}
 **X**=
 \begin{vmatrix}
-x\\
-y\\
-z\\
+x\\\
+y\\\
+z\\\
 \end{vmatrix}
 **B**=
 \begin{vmatrix}
