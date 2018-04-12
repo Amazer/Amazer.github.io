@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[引擎笔记]之一：windows游戏运行框架 | 延澈左的博客</title>
+  <title>[游戏框架]ECS(Entity-Component-System)个人笔记 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
-<meta name="keywords" content="引擎,笔记">
+  <meta name="description" content="1.无框架实现ECS Entity 是数据(Data) 多个Data的桥梁 唯一标识一个物体">
+<meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[引擎笔记]之一：windows游戏运行框架">
-<meta property="og:url" content="https://yanchezuo.com/2018/04/03/en_4/index.html">
+<meta property="og:title" content="[游戏框架]ECS(Entity-Component-System)个人笔记">
+<meta property="og:url" content="https://yanchezuo.com/2018/04/12/game-frame-2/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
+<meta property="og:description" content="1.无框架实现ECS Entity 是数据(Data) 多个Data的桥梁 唯一标识一个物体">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-08T05:26:50.666Z">
+<meta property="og:updated_time" content="2018-04-12T06:32:58.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[引擎笔记]之一：windows游戏运行框架">
-<meta name="twitter:description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
+<meta name="twitter:title" content="[游戏框架]ECS(Entity-Component-System)个人笔记">
+<meta name="twitter:description" content="1.无框架实现ECS Entity 是数据(Data) 多个Data的桥梁 唯一标识一个物体">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -155,14 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-en_4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-game-frame-2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [引擎笔记]之一：windows游戏运行框架
+      [游戏框架]ECS(Entity-Component-System)个人笔记
     </h1>
   
 
@@ -172,13 +172,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/03/en_4/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/12/game-frame-2/" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/2018/04/03/en_4/" class="archive-article-date">
-  	<time datetime="2018-04-03T07:12:51.796Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+        <a href="/2018/04/12/game-frame-2/" class="archive-article-date">
+  	<time datetime="2018-04-12T05:18:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
 </a>
         
       </header>
@@ -193,7 +193,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-工程配置"><span class="toc-number">1.</span> <span class="toc-text">1.工程配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建Windows窗口"><span class="toc-number">2.</span> <span class="toc-text">2.创建Windows窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0-基础准备知识"><span class="toc-number">2.1.</span> <span class="toc-text">0.基础准备知识</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建WNDCLASSEX结构体"><span class="toc-number">2.2.</span> <span class="toc-text">1.创建WNDCLASSEX结构体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-注册WNDCLASSEX"><span class="toc-number">2.3.</span> <span class="toc-text">2.注册WNDCLASSEX</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建Windows窗口"><span class="toc-number">2.4.</span> <span class="toc-text">3.创建Windows窗口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口事件和游戏主循环"><span class="toc-number">3.</span> <span class="toc-text">3.窗口事件和游戏主循环</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-处理事件"><span class="toc-number">3.1.</span> <span class="toc-text">1.处理事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-主动查询事件"><span class="toc-number">3.2.</span> <span class="toc-text">2.主动查询事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-游戏主循环流程总结"><span class="toc-number">3.3.</span> <span class="toc-text">3. 游戏主循环流程总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-完整程序"><span class="toc-number"></span> <span class="toc-text">4.完整程序</span></a>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-无框架实现ECS"><span class="toc-number">1.</span> <span class="toc-text">1.无框架实现ECS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Unity3D中的框架和ECS的对比"><span class="toc-number">2.</span> <span class="toc-text">2.Unity3D中的框架和ECS的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Entitas-CSharp"><span class="toc-number">3.</span> <span class="toc-text">3.Entitas-CSharp</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -213,76 +213,80 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-工程配置"><a href="#1-工程配置" class="headerlink" title="1.工程配置"></a>1.工程配置</h4><ul>
-<li><p>配置为win32应用程序<br>  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。</p>
+        <h3 id="1-无框架实现ECS"><a href="#1-无框架实现ECS" class="headerlink" title="1.无框架实现ECS"></a>1.<a href="https://zhuanlan.zhihu.com/p/32787878" target="_blank" rel="noopener">无框架实现ECS</a></h3><ol>
+<li>Entity<ul>
+<li>是数据(Data)</li>
+<li>多个Data的桥梁</li>
+<li>唯一标识一个物体</li>
+</ul>
+</li>
+</ol>
 <a id="more"></a>
-</li>
-<li><p>安装DX9.0和DX9.0SDK<br>  DX9.0Sdk是dx的开发工具包，里面提供了调用dx的api。<br>  使用Dx9.0的原因是，作者使用7.0或者8.0的接口，9.0基本上是兼容的。<br>  不要用Dx10,Dx10改动比较大。</p>
-</li>
-<li><p>引用Dx SDK</p>
-<ol start="0">
-<li><strong>注意：将引用的dx目录放到所有引用的最前面</strong>，以免引用到工程默认配置的东西</li>
-<li>要include dxsdk的include。路径：dxsdk安装目录/Include</li>
-<li>要依赖dxsdkd lib库。路径: dxsdk安装目录/Lib/x86<br> 这里使用的是x86的库</li>
-<li>手动包含用到的库,避免找不到库<br> 《windows编程大师技巧》中:ddraw.lib dinput.lib dinput8.lib dsound.lib d3dim.lib dxguid.lib winmm.lib<br> 《3D游戏编程大师技巧》中: ddraw.lib dinput.lib dinput8.lib dsound.lib winmm.lib</li>
-</ol>
-</li>
-</ul>
-<h4 id="2-创建Windows窗口"><a href="#2-创建Windows窗口" class="headerlink" title="2.创建Windows窗口"></a>2.创建Windows窗口</h4><h5 id="0-基础准备知识"><a href="#0-基础准备知识" class="headerlink" title="0.基础准备知识"></a>0.基础准备知识</h5><ul>
-<li><p>console应用的入口是main()</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void main()</span><br></pre></td></tr></table></figure>
-<p>  或者是：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc char *argv[])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>win32应用的入口是WinMain()</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int WINAPI WinMain(HINSTANCE hinstance,</span><br><span class="line">HINSTANCE hprevinstance,</span><br><span class="line">LPSTR lpcmdline,</span><br><span class="line">int ncmdshow)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>win32应用需要包含头文件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define WIN32_LEAN_AND_MEAN             </span><br><span class="line">#include &lt;windows.h&gt;</span><br><span class="line">#include &lt;windowsx.h&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>#defind WIN32_LEAN_AND_MEAN：开发win32应用可以使用MFC和win sdk两种。MFC是比较重量级的api，这里告诉编译器，只是用轻量级的win sdk</li>
-<li>#include &lt;windows.h&gt;     包含旧版win api的头文件 </li>
-<li>#include &lt;windowsx.h&gt;    包含新版win api的头文件</li>
-<li><strong>Windows SDK中带x(Ex)的比较新</strong></li>
-</ul>
-</li>
-</ul>
-<h5 id="1-创建WNDCLASSEX结构体"><a href="#1-创建WNDCLASSEX结构体" class="headerlink" title="1.创建WNDCLASSEX结构体"></a>1.创建WNDCLASSEX结构体</h5><p>首先需要创建一个窗口的模板，如下所示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">WNDCLASSEX  wClass;                         // 使用WNDCLASSEX结构体</span><br><span class="line">wClass.cbSize = sizeof(WNDCLASSEX);         </span><br><span class="line">wClass.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS | CS_OWNDC;</span><br><span class="line">wClass.lpfnWndProc = WinProc;</span><br><span class="line">wClass.cbClsExtra = 0;</span><br><span class="line">wClass.cbWndExtra = 0;</span><br><span class="line">wClass.hInstance = hInstance;</span><br><span class="line">wClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);                    </span><br><span class="line">wClass.hCursor = LoadCursor(NULL, IDC_ARROW);</span><br><span class="line">wClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);</span><br><span class="line">wClass.lpszMenuName = NULL;</span><br><span class="line">wClass.lpszClassName = &quot;CLASSNAME_1&quot;;</span><br><span class="line">wClass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>使用WNDCLASSEX结构体</li>
-<li>cbSize时整个结构体的长度。为了便于指向结构体中的地址</li>
-<li>style是指窗口风格，这里使用的<br> CS_HREDRAW :    若移动或改变了窗口的宽度，则刷新整个窗口<br> CS_VREDRAW :    若移动或改变了窗口的高度，则刷新整个窗口<br> CS_DBLCLKS :    当用户双击鼠标时向窗口程序发送一个双击的信息，同事，光标位于属于该类的窗口中<br> CS_OWNDC   :    为该类中每一个窗口分配一个单值的设备描述表</li>
-<li>lpfnWndProc 是用来处理windows事件的</li>
-<li>hInstance代表应用本身，用于追踪应用本身的资源</li>
-</ol>
-<h5 id="2-注册WNDCLASSEX"><a href="#2-注册WNDCLASSEX" class="headerlink" title="2.注册WNDCLASSEX"></a>2.注册WNDCLASSEX</h5><p>创建完成WNDCLASSEX之后，要将这个模板注册到系统中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegisterClassEx(&amp;wClass);</span><br></pre></td></tr></table></figure>
-<p>这里也使用的是RegisterClassEx(注意有Ex)。</p>
-<h5 id="3-创建Windows窗口"><a href="#3-创建Windows窗口" class="headerlink" title="3.创建Windows窗口"></a>3.创建Windows窗口</h5><p>将模板注册之后，就可以创建这个模板的窗口了。<br>使用CreateWindowEx方法。该方法返回一个HWND窗口的句柄，用于标记创建的窗口。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">HWND hWnd;</span><br><span class="line">if (!(hWnd = CreateWindowEx(</span><br><span class="line">	NULL,</span><br><span class="line">	WNDCLASS_NAME,                          </span><br><span class="line">	WND_NAME, WS_OVERLAPPEDWINDOW | WS_VISIBLE,                 // 窗口的样式</span><br><span class="line">	0, 0,                                                       // 窗口左上角的位置</span><br><span class="line">	400, 800,                                                   // 窗口的宽和高的像素</span><br><span class="line">	NULL,</span><br><span class="line">	NULL,</span><br><span class="line">	hInstance,                                                  // 应用的实例</span><br><span class="line">	NULL)))</span><br><span class="line">&#123;</span><br><span class="line">   // 如果创建失败，弹出一个messagebox</span><br><span class="line">	MessageBox(NULL, &quot;create window error!!&quot;, &quot;Create Window msg&quot;, MB_OK);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   // 如果创建成功，则刷新显示当前窗口</span><br><span class="line">ShowWindow(hWnd, nShowCmd);</span><br><span class="line">UpdateWindow(hWnd);</span><br></pre></td></tr></table></figure>
-<h4 id="3-窗口事件和游戏主循环"><a href="#3-窗口事件和游戏主循环" class="headerlink" title="3.窗口事件和游戏主循环"></a>3.窗口事件和游戏主循环</h4><h5 id="1-处理事件"><a href="#1-处理事件" class="headerlink" title="1.处理事件"></a>1.处理事件</h5><p>Windows是一个事件驱动的操作系统，意思是说，Widnows系统会根据用户的操作产生事件，不用开发者自己去写什么操作产生了什么事件。<br>操作系统发现有事件了之后，会通知监听事件的应用。开发者只要监听系统给发事件，并且处理事件消息就可以了。<br>举个例子，如果我们点击了某个窗口的关闭按钮，系统就会发送一个关闭了某某窗口的事件。<br>WNDCLASSEX中的lpfnWndProc就是用来处理系统发送的事件的。</p>
-<p>处理事件的回调函数是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	PAINTSTRUCT ps;</span><br><span class="line">	HDC hdc;</span><br><span class="line">	switch (msg)</span><br><span class="line">	&#123;</span><br><span class="line">	case WM_CREATE:</span><br><span class="line">	&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">	case WM_PAINT:</span><br><span class="line">	&#123;</span><br><span class="line">		hdc = BeginPaint(hWnd, &amp;ps);</span><br><span class="line">		EndPaint(hWnd, &amp;ps);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">	case WM_DESTROY:</span><br><span class="line">	&#123;</span><br><span class="line">		PostQuitMessage(0);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">	default:</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line">	return (DefWindowProc(hWnd, msg, wParam, lParam));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果是我们监听的需要处理的事件，那么我们在这个函数中，就做相应的处理，并且return 0,消息不在向后传递;<br>如果不是我们感兴趣的事件，那么，就交给系统默认的事件处理函数去处理。</p>
-<p>这里我们只对窗口的创建、窗口的重绘、窗口的销毁事件感兴趣:<br>WM_CREATE: 窗口创建时，我们应该初始化自己的资源<br>WM_PAINT: 窗口需要绘制的时候，我们就重绘一下。<br>    windows的窗口绘制是只绘制需要重画地方，在PAINTSTRUCT的RECT参数代表重绘区域<br>    HDC返回重绘的是哪个设备<br>WM_DESTROY: 当窗口销毁的时候，我们调用PostQuitMessage来告诉系统，应用要停止了。<br>其他的消息我们不处理，而是交给系统默认处理DefWindowProc(hWnd, msg, wParam, lParam).</p>
-<h5 id="2-主动查询事件"><a href="#2-主动查询事件" class="headerlink" title="2.主动查询事件"></a>2.主动查询事件</h5><ol>
-<li>阻塞线程方式：使用GetMessage()函数来主动获取事件。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MSG msg;</span><br><span class="line"></span><br><span class="line">while (GetMessage(&amp;msg, NULL, 0, 0))</span><br><span class="line">&#123;</span><br><span class="line">	TranslateMessage(&amp;msg);     </span><br><span class="line">	DispatchMessage(&amp;msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，GetMessage()会阻塞调用这个函数的线程，直到能够获取到事件<br>TranslateMessage()函数将获取到的事件信息作了处理，是一个虚拟加速键翻译器<br>DispatchMessage()函数是分发消息，将调用WinProc来进一步处理事件</p>
 <ol start="2">
-<li>实时查询方式，不阻塞线程：使用PeekMessage()函数来查询事件</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MSG msg;</span><br><span class="line">while (true)</span><br><span class="line">&#123;</span><br><span class="line">	if (PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))</span><br><span class="line">	&#123;</span><br><span class="line">		if (msg.message == WM_QUIT)</span><br><span class="line">		&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		TranslateMessage(&amp;msg);</span><br><span class="line">		DispatchMessage(&amp;msg);</span><br><span class="line">	&#125;</span><br><span class="line">	Game_Main();        // 游戏主循环</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在主线程中一直查询事件，如果有事件，我们就处理事件。<br>并且，当我们收到WM_QUIT消息的时候，就退出while循环，结束主窗口.</p>
-<ul>
-<li>注意，GetMessage()和PeekMessage()的第二个参数HWND参数都是NULL,这是因为：<br>函数接收属于调用线程的窗口的消息，线程消息由函数PostThreadMessage寄送给调用线程,<br>不接收属于其他线程或其他线程的窗口的消息，即使hWnd为NULL。由PostThreadMessage寄送的线程消息，其消息hWnd值为NULL。<br>我们当前的应用程序只有一个主线程。（每个引用程序都默认会起一个线程，这个线程就是主线程)</li>
+<li>Component<ul>
+<li>存放Data,不允许有逻辑；也没有对外依赖</li>
+<li>依赖于Entity:Entity作为Component的管理者</li>
 </ul>
-<h5 id="3-游戏主循环流程总结"><a href="#3-游戏主循环流程总结" class="headerlink" title="3. 游戏主循环流程总结"></a>3. 游戏主循环流程总结</h5><p>在创建窗口后，在while(true)中实时查询事件和调用游戏主循环Game_Main();</p>
-<p>所有整体的流程是:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">WinMain()</span><br><span class="line">&#123;</span><br><span class="line">    创建WNDCLASSEX模板</span><br><span class="line">    注册WNDCLASSEX模板</span><br><span class="line">    创建窗口</span><br><span class="line">    while(ture)</span><br><span class="line">    &#123;</span><br><span class="line">        查询事件：如果有事件，就处理事件</span><br><span class="line">        Game_Main(): 游戏主循环</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">WinProc():  处理事件的回调函数</span><br><span class="line">Game_Main(): 游戏主循环函数</span><br></pre></td></tr></table></figure>
-<h3 id="4-完整程序"><a href="#4-完整程序" class="headerlink" title="4.完整程序"></a>4.完整程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">#define WIN32_LEAN_AND_MEAN</span><br><span class="line"></span><br><span class="line">#include &lt;windows.h&gt;</span><br><span class="line">#include &lt;windowsx.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">#define WNDCLASS_NAME &quot;WNDCLASS_1&quot;</span><br><span class="line">#define WND_NAME &quot;延澈左 GameEngine&quot;</span><br><span class="line"></span><br><span class="line">LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	PAINTSTRUCT ps;</span><br><span class="line">	HDC hdc;</span><br><span class="line">	switch (msg)</span><br><span class="line">	&#123;</span><br><span class="line">	case WM_CREATE:</span><br><span class="line">	&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">	case WM_PAINT:</span><br><span class="line">	&#123;</span><br><span class="line">		hdc = BeginPaint(hWnd, &amp;ps);</span><br><span class="line">		EndPaint(hWnd, &amp;ps);</span><br><span class="line">		return 0;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">	case WM_DESTROY:</span><br><span class="line">	&#123;</span><br><span class="line">		PostQuitMessage(0);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	break;</span><br><span class="line">	default:</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line">	return (DefWindowProc(hWnd, msg, wParam, lParam));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Game_Main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)</span><br><span class="line">&#123;</span><br><span class="line">	WNDCLASSEX  wClass;</span><br><span class="line">	wClass.cbSize = sizeof(WNDCLASSEX);</span><br><span class="line">	wClass.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS | CS_OWNDC;</span><br><span class="line">	wClass.lpfnWndProc = WinProc;</span><br><span class="line">	wClass.cbClsExtra = 0;</span><br><span class="line">	wClass.cbWndExtra = 0;</span><br><span class="line">	wClass.hInstance = hInstance;</span><br><span class="line">	wClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);</span><br><span class="line">	wClass.hCursor = LoadCursor(NULL, IDC_ARROW);</span><br><span class="line">	wClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);</span><br><span class="line">	wClass.lpszMenuName = NULL;</span><br><span class="line">	wClass.lpszClassName = WNDCLASS_NAME;</span><br><span class="line">	wClass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);</span><br><span class="line"></span><br><span class="line">	RegisterClassEx(&amp;wClass);</span><br><span class="line"></span><br><span class="line">	HWND hWnd;</span><br><span class="line">	if (!(hWnd = CreateWindowEx(</span><br><span class="line">		NULL,</span><br><span class="line">		WNDCLASS_NAME,</span><br><span class="line">		WND_NAME, WS_OVERLAPPEDWINDOW | WS_VISIBLE,</span><br><span class="line">		0, 0,</span><br><span class="line">		400, 800,</span><br><span class="line">		NULL,</span><br><span class="line">		NULL,</span><br><span class="line">		hInstance,</span><br><span class="line">		NULL)))</span><br><span class="line">	&#123;</span><br><span class="line">		MessageBox(NULL, &quot;create window error!!&quot;, &quot;Create Window msg&quot;, MB_OK);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ShowWindow(hWnd, nShowCmd);</span><br><span class="line">	UpdateWindow(hWnd);</span><br><span class="line"></span><br><span class="line">	MSG msg;</span><br><span class="line"></span><br><span class="line">//	while (GetMessage(&amp;msg, NULL, 0, 0))</span><br><span class="line">//	&#123;</span><br><span class="line">//		TranslateMessage(&amp;msg);</span><br><span class="line">//		DispatchMessage(&amp;msg);</span><br><span class="line">//	&#125;</span><br><span class="line"></span><br><span class="line">	while (true)</span><br><span class="line">	&#123;</span><br><span class="line">		if (PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))</span><br><span class="line">		&#123;</span><br><span class="line">			if (msg.message == WM_QUIT)</span><br><span class="line">			&#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">			TranslateMessage(&amp;msg);</span><br><span class="line">			DispatchMessage(&amp;msg);</span><br><span class="line">		&#125;</span><br><span class="line">		Game_Main();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return msg.wParam;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>System:逻辑(方法函数)<br> (将Component的逻辑全部移动到System中)<ul>
+<li>是唯一承载逻辑的敌方</li>
+<li>直接依赖于Component,对数据进行处理</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-Unity3D中的框架和ECS的对比"><a href="#2-Unity3D中的框架和ECS的对比" class="headerlink" title="2.Unity3D中的框架和ECS的对比"></a>2.Unity3D中的框架和ECS的对比</h3><ol start="0">
+<li>参考链接：<a href="https://www.cnblogs.com/yangrouchuan/p/7436533.html" target="_blank" rel="noopener">Unity下的ECS框架 Entitas简介</a></li>
+<li>Unity3D中是GameObject-Component设计</li>
+<li>Unity3D不是ECS设计：<ul>
+<li>Unity中的Component都是一个完整的类，缓存不友好</li>
+<li>Unity中的Component包含逻辑。</li>
+<li>Unity中无法获取所有”有ComponentA和ComponentB”的所有GameObject,而在ECS中这是非常必要的</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-Entitas-CSharp"><a href="#3-Entitas-CSharp" class="headerlink" title="3.Entitas-CSharp"></a>3.<a href="https://github.com/sschmid/Entitas-CSharp" target="_blank" rel="noopener">Entitas-CSharp</a></h3><p><a href="https://zhuanlan.zhihu.com/p/31393681" target="_blank" rel="noopener">Unity3D ECS框架 Entitas 基本概念</a></p>
+<ol>
+<li>Entity<ul>
+<li>数据容器(IComponent的容器)</li>
+</ul>
+</li>
+<li>Context:<ul>
+<li>Factory of Entity<ul>
+<li>创建销毁Entity</li>
+<li>过滤选择感兴趣的Entity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Group<ul>
+<li>为拥有不同Component的Entity分组</li>
+<li>从Context中过滤选择Groups</li>
+</ul>
+</li>
+<li>Matcher<ul>
+<li>从Context中选择过滤Groups</li>
+</ul>
+</li>
+<li>Collector收集器<ul>
+<li>收集处理根据Component过滤选择出来的entities<ul>
+<li>Group</li>
+<li>根据group获得entities</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Systems<ul>
+<li>根据IComponent执行逻辑</li>
+<li>有四种类型：<ul>
+<li>IInitializeSystem: 执行一次</li>
+<li>IExecuteSystem: 每帧执行</li>
+<li>ICleanupSystem: 在别的systems完成后，每帧执行</li>
+<li>ReactiveSystem: 当Group有变换时执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
       
 
@@ -315,9 +319,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/03/en_4/" target="_blank" title="[引擎笔记]之一：windows游戏运行框架">[引擎笔记]之一：windows游戏运行框架</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/12/game-frame-2/" target="_blank" title="[游戏框架]ECS(Entity-Component-System)个人笔记">[游戏框架]ECS(Entity-Component-System)个人笔记</a></b></center>
 
-<center>本文链接为<b><a href="/2018/04/03/en_4/" target="_blank" title="[引擎笔记]之一：windows游戏运行框架">https://yanchezuo.com/2018/04/03/en_4/</a></b></center>
+<center>本文链接为<b><a href="/2018/04/12/game-frame-2/" target="_blank" title="[游戏框架]ECS(Entity-Component-System)个人笔记">https://yanchezuo.com/2018/04/12/game-frame-2/</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -355,10 +359,6 @@ div.article-footer-copyright {
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
@@ -416,7 +416,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/03/en_4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/12/game-frame-2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -430,18 +430,9 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/2018/04/04/hexo-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo yalia主题添加文章阅读量-小白适用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/02/hexo_1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo添加版权信息</div>
+    <a href="/2018/04/11/game-frame-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[游戏框架]笔记之一：记录框架的优秀模块</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -468,7 +459,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-工程配置"><span class="toc-number">1.</span> <span class="toc-text">1.工程配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建Windows窗口"><span class="toc-number">2.</span> <span class="toc-text">2.创建Windows窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0-基础准备知识"><span class="toc-number">2.1.</span> <span class="toc-text">0.基础准备知识</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建WNDCLASSEX结构体"><span class="toc-number">2.2.</span> <span class="toc-text">1.创建WNDCLASSEX结构体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-注册WNDCLASSEX"><span class="toc-number">2.3.</span> <span class="toc-text">2.注册WNDCLASSEX</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建Windows窗口"><span class="toc-number">2.4.</span> <span class="toc-text">3.创建Windows窗口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口事件和游戏主循环"><span class="toc-number">3.</span> <span class="toc-text">3.窗口事件和游戏主循环</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-处理事件"><span class="toc-number">3.1.</span> <span class="toc-text">1.处理事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-主动查询事件"><span class="toc-number">3.2.</span> <span class="toc-text">2.主动查询事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-游戏主循环流程总结"><span class="toc-number">3.3.</span> <span class="toc-text">3. 游戏主循环流程总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-完整程序"><span class="toc-number"></span> <span class="toc-text">4.完整程序</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-无框架实现ECS"><span class="toc-number">1.</span> <span class="toc-text">1.无框架实现ECS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Unity3D中的框架和ECS的对比"><span class="toc-number">2.</span> <span class="toc-text">2.Unity3D中的框架和ECS的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Entitas-CSharp"><span class="toc-number">3.</span> <span class="toc-text">3.Entitas-CSharp</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -494,7 +485,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/2018/04/03/en_4/",
+  id: "https://yanchezuo.com/2018/04/12/game-frame-2/",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
