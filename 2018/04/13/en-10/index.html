@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="1.窗口事件">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-16T03:10:41.673Z">
+<meta property="og:updated_time" content="2018-04-16T06:16:34.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之三：处理重要窗口事件">
 <meta name="twitter:description" content="1.窗口事件">
@@ -193,7 +193,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-窗口事件"><span class="toc-number">1.</span> <span class="toc-text">1.窗口事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-激活窗口消息"><span class="toc-number">1.1.</span> <span class="toc-text">1.激活窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关闭窗口消息"><span class="toc-number">1.2.</span> <span class="toc-text">2.关闭窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口大小改变消息"><span class="toc-number">1.3.</span> <span class="toc-text">3.窗口大小改变消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-窗口移动消息"><span class="toc-number">1.4.</span> <span class="toc-text">4.窗口移动消息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-键盘事件"><span class="toc-number">2.</span> <span class="toc-text">2.键盘事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-鼠标事件"><span class="toc-number">3.</span> <span class="toc-text">3.鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-自定义发送事件"><span class="toc-number">4.</span> <span class="toc-text">4.自定义发送事件</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-窗口事件"><span class="toc-number">1.</span> <span class="toc-text">1.窗口事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-激活窗口消息"><span class="toc-number">1.1.</span> <span class="toc-text">1.激活窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关闭窗口消息"><span class="toc-number">1.2.</span> <span class="toc-text">2.关闭窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口大小改变消息"><span class="toc-number">1.3.</span> <span class="toc-text">3.窗口大小改变消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-窗口移动消息"><span class="toc-number">1.4.</span> <span class="toc-text">4.窗口移动消息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-键盘事件"><span class="toc-number">2.</span> <span class="toc-text">2.键盘事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-WM-CHAR消息："><span class="toc-number">2.1.</span> <span class="toc-text">1.WM_CHAR消息：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-WM-KEYDOWN和WM-KEYUP消息："><span class="toc-number">2.2.</span> <span class="toc-text">2.WM_KEYDOWN和WM_KEYUP消息：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-GetAsyncKeyState-调用查询键盘状态的函数"><span class="toc-number">2.3.</span> <span class="toc-text">3.GetAsyncKeyState():  调用查询键盘状态的函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-鼠标事件"><span class="toc-number">3.</span> <span class="toc-text">3.鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-自定义发送事件"><span class="toc-number">4.</span> <span class="toc-text">4.自定义发送事件</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -374,7 +374,11 @@
 <tbody>
 <tr>
 <td style="text-align:left">WM_MOVE</td>
-<td style="text-align:left">窗口位置发生了变化</td>
+<td style="text-align:left">窗口位置发生了变化之后触发</td>
+</tr>
+<tr>
+<td style="text-align:left">WM_MOVING</td>
+<td style="text-align:left">窗口位置正在发生变化</td>
 </tr>
 </tbody>
 </table>
@@ -398,7 +402,92 @@
 </tbody>
 </table>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xPos = (int) LOWORD(lparam)</span><br><span class="line">yPos = (int) HIWORD(lparam)</span><br></pre></td></tr></table></figure>
-<h3 id="2-键盘事件"><a href="#2-键盘事件" class="headerlink" title="2.键盘事件"></a>2.键盘事件</h3><h3 id="3-鼠标事件"><a href="#3-鼠标事件" class="headerlink" title="3.鼠标事件"></a>3.鼠标事件</h3><h3 id="4-自定义发送事件"><a href="#4-自定义发送事件" class="headerlink" title="4.自定义发送事件"></a>4.自定义发送事件</h3>
+<h3 id="2-键盘事件"><a href="#2-键盘事件" class="headerlink" title="2.键盘事件"></a>2.键盘事件</h3><p>当按下键盘上某个键的时候，将产生两个数据：</p>
+<ul>
+<li>扫描码（Scan Code）:唯一标识键盘上键的ID,eg.VK_SPACE(空格键)</li>
+<li>ASCII码: 按键所代表的字符，eg. a、A(shift和a同时按下的时候)、空格等<br>可以通过监听键盘事件，或者通过访问键盘的状态表来获取键的信息。</li>
+</ul>
+<h4 id="1-WM-CHAR消息："><a href="#1-WM-CHAR消息：" class="headerlink" title="1.WM_CHAR消息："></a>1.WM_CHAR消息：</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">事件值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">WM_CHAR</td>
+<td style="text-align:left">按键后，获得ASCII码</td>
+</tr>
+</tbody>
+</table>
+<p>参数描述:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">wparam</td>
+<td style="text-align:left">按下键的ASCII码</td>
+</tr>
+<tr>
+<td style="text-align:center">lparam</td>
+<td style="text-align:left">按位编码的状态矢量，描述可能被按下的特殊控制键。(p102详细内容)</td>
+</tr>
+</tbody>
+</table>
+<p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#define ALT_STATE_BIT 0x20000000</span><br><span class="line">case WM_CHAR:</span><br><span class="line">&#123;</span><br><span class="line">    int ascii_code = wparam;</span><br><span class="line">    int key_state = lparam;</span><br><span class="line"></span><br><span class="line">    if(key_state &amp; ALT_STATE_BIT)</span><br><span class="line">    &#123;</span><br><span class="line">        // alt键被按下</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">break</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-WM-KEYDOWN和WM-KEYUP消息："><a href="#2-WM-KEYDOWN和WM-KEYUP消息：" class="headerlink" title="2.WM_KEYDOWN和WM_KEYUP消息："></a>2.WM_KEYDOWN和WM_KEYUP消息：</h4><p>消息中传递的是该键的虚拟扫描码。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">事件值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">WM_KEYDOWN</td>
+<td style="text-align:left">键按下触发</td>
+</tr>
+<tr>
+<td style="text-align:center">WM_KEYUP</td>
+<td style="text-align:left">键抬起触发</td>
+</tr>
+</tbody>
+</table>
+<p>参数描述:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">wparam</td>
+<td style="text-align:left">键的虚拟扫描码</td>
+</tr>
+<tr>
+<td style="text-align:center">lparam</td>
+<td style="text-align:left">按位编码的状态矢量，描述可能被按下的特殊控制键。(与WM_CHAR的状态不一样)(p104详细内容)</td>
+</tr>
+</tbody>
+</table>
+<p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">case WM_KEYDOWN:</span><br><span class="line">&#123;</span><br><span class="line">    int virtual_code = (int)wparam;</span><br><span class="line">    int key_state = (int)lparam;</span><br><span class="line"></span><br><span class="line">    switch(virtual_code)</span><br><span class="line">    &#123;</span><br><span class="line">        case VK_RIGHT:&#123;&#125; break;         // 右箭头被按下</span><br><span class="line">        case VK_LEFT:&#123;&#125; break;          // 左箭头被按下</span><br><span class="line">        case VK_UP:&#123;&#125; break;            // 上箭头被按下</span><br><span class="line">        case VK_DOWN:&#123;&#125; break;          // 下箭头被按下</span><br><span class="line">        // .... 其他判断</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">break</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-GetAsyncKeyState-调用查询键盘状态的函数"><a href="#3-GetAsyncKeyState-调用查询键盘状态的函数" class="headerlink" title="3.GetAsyncKeyState():  调用查询键盘状态的函数"></a>3.GetAsyncKeyState():  调用查询键盘状态的函数</h4><p>该函数在键盘的状态跳中跟踪该键的最后已知状态。<br>访问键盘消息可以通过调用查询键盘状态的函数：</p>
+<ul>
+<li>GetKeyboardState()</li>
+<li>GetKeyState()</li>
+<li><strong>GetAsyncKeyState()</strong></li>
+</ul>
+<p>GetAsyncKeyState()作用于单个按键</p>
+<h3 id="3-鼠标事件"><a href="#3-鼠标事件" class="headerlink" title="3.鼠标事件"></a>3.鼠标事件</h3><h3 id="4-自定义发送事件"><a href="#4-自定义发送事件" class="headerlink" title="4.自定义发送事件"></a>4.自定义发送事件</h3>
       
 
 <!-- 版权内容-->
@@ -579,7 +668,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-窗口事件"><span class="toc-number">1.</span> <span class="toc-text">1.窗口事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-激活窗口消息"><span class="toc-number">1.1.</span> <span class="toc-text">1.激活窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关闭窗口消息"><span class="toc-number">1.2.</span> <span class="toc-text">2.关闭窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口大小改变消息"><span class="toc-number">1.3.</span> <span class="toc-text">3.窗口大小改变消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-窗口移动消息"><span class="toc-number">1.4.</span> <span class="toc-text">4.窗口移动消息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-键盘事件"><span class="toc-number">2.</span> <span class="toc-text">2.键盘事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-鼠标事件"><span class="toc-number">3.</span> <span class="toc-text">3.鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-自定义发送事件"><span class="toc-number">4.</span> <span class="toc-text">4.自定义发送事件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-窗口事件"><span class="toc-number">1.</span> <span class="toc-text">1.窗口事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-激活窗口消息"><span class="toc-number">1.1.</span> <span class="toc-text">1.激活窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关闭窗口消息"><span class="toc-number">1.2.</span> <span class="toc-text">2.关闭窗口消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-窗口大小改变消息"><span class="toc-number">1.3.</span> <span class="toc-text">3.窗口大小改变消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-窗口移动消息"><span class="toc-number">1.4.</span> <span class="toc-text">4.窗口移动消息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-键盘事件"><span class="toc-number">2.</span> <span class="toc-text">2.键盘事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-WM-CHAR消息："><span class="toc-number">2.1.</span> <span class="toc-text">1.WM_CHAR消息：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-WM-KEYDOWN和WM-KEYUP消息："><span class="toc-number">2.2.</span> <span class="toc-text">2.WM_KEYDOWN和WM_KEYUP消息：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-GetAsyncKeyState-调用查询键盘状态的函数"><span class="toc-number">2.3.</span> <span class="toc-text">3.GetAsyncKeyState():  调用查询键盘状态的函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-鼠标事件"><span class="toc-number">3.</span> <span class="toc-text">3.鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-自定义发送事件"><span class="toc-number">4.</span> <span class="toc-text">4.自定义发送事件</span></a></li></ol>
                     </div>
                 </span>
             </div>

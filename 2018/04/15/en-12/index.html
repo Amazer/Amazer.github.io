@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://yanchezuo.com">
   <title>[引擎笔记]之五：GDI基本文本显示 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.使用到的函数总结 TextOut">
+  <meta name="description" content="1.使用到的函数总结1. TextOut(): 定点显示字符串">
 <meta name="keywords" content="引擎笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[引擎笔记]之五：GDI基本文本显示">
 <meta property="og:url" content="https://yanchezuo.com/2018/04/15/en-12/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.使用到的函数总结 TextOut">
+<meta property="og:description" content="1.使用到的函数总结1. TextOut(): 定点显示字符串">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-16T03:11:32.328Z">
+<meta property="og:updated_time" content="2018-04-16T05:42:32.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之五：GDI基本文本显示">
-<meta name="twitter:description" content="1.使用到的函数总结 TextOut">
+<meta name="twitter:description" content="1.使用到的函数总结1. TextOut(): 定点显示字符串">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -193,7 +193,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用到的函数总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用到的函数总结</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用到的函数总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用到的函数总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-TextOut-定点显示字符串"><span class="toc-number">1.1.</span> <span class="toc-text">1. TextOut(): 定点显示字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-DrawText-矩形框内显示字符串"><span class="toc-number">1.2.</span> <span class="toc-text">2. DrawText(): 矩形框内显示字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-SetTextColor-设置文字颜色"><span class="toc-number">1.3.</span> <span class="toc-text">3. SetTextColor():设置文字颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-SetBkColor-设置背景颜色"><span class="toc-number">1.4.</span> <span class="toc-text">4. SetBkColor():设置背景颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-SetBkMode-：设置背景的模式"><span class="toc-number">1.5.</span> <span class="toc-text">5. SetBkMode()：设置背景的模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用流程"><span class="toc-number">2.</span> <span class="toc-text">2.使用流程</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -213,30 +213,25 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-使用到的函数总结"><a href="#1-使用到的函数总结" class="headerlink" title="1.使用到的函数总结"></a>1.使用到的函数总结</h3><ol>
-<li>TextOut</li>
-</ol>
-<a id="more"></a>
+        <h3 id="1-使用到的函数总结"><a href="#1-使用到的函数总结" class="headerlink" title="1.使用到的函数总结"></a>1.使用到的函数总结</h3><h4 id="1-TextOut-定点显示字符串"><a href="#1-TextOut-定点显示字符串" class="headerlink" title="1. TextOut(): 定点显示字符串"></a>1. TextOut(): 定点显示字符串</h4><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOL TextOut(HDC hdc,           // 设备描述信息</span><br><span class="line">        int nXStart,            // 显示字符串的x位置</span><br><span class="line">        int nYStart,            // 显示字符串的y位置</span><br><span class="line">        LPCTSTR lpString,       // 显示的字符串</span><br><span class="line">        int cbString);          // 显示的长度</span><br></pre></td></tr></table></figure>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPCTSTR str = &quot;Hello Word!!!&quot;;</span><br><span class="line">TextOut(hdc, 100, 100, str, strlen(str));</span><br></pre></td></tr></table></figure></p>
-<ol start="2">
-<li><p>DrawText</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int DrawText(HDC hdc,       // 设备描述信息</span><br><span class="line">    LPCTSTR lpString,       // 字符串</span><br><span class="line">    int nCount,             // 显示长度</span><br><span class="line">    LPRECT lpRect,          // 显示区域</span><br><span class="line">    UINT uFormat,           // 标记</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>SetTextColor:设置文字颜色</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的颜色值</span><br><span class="line">COLORREF SetTextColor(HDC hdc,      // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h4 id="2-DrawText-矩形框内显示字符串"><a href="#2-DrawText-矩形框内显示字符串" class="headerlink" title="2. DrawText(): 矩形框内显示字符串"></a>2. DrawText(): 矩形框内显示字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int DrawText(HDC hdc,       // 设备描述信息</span><br><span class="line">    LPCTSTR lpString,       // 字符串</span><br><span class="line">    int nCount,             // 显示长度</span><br><span class="line">    LPRECT lpRect,          // 显示区域</span><br><span class="line">    UINT uFormat,           // 标记</span><br></pre></td></tr></table></figure>
+<h4 id="3-SetTextColor-设置文字颜色"><a href="#3-SetTextColor-设置文字颜色" class="headerlink" title="3. SetTextColor():设置文字颜色"></a>3. SetTextColor():设置文字颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的颜色值</span><br><span class="line">COLORREF SetTextColor(HDC hdc,      // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_col = SetTextColor(hdc,RGB(0,255,0));</span><br></pre></td></tr></table></figure></p>
-<ol start="4">
-<li>SetBkColor:设置背景颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的背景颜色值</span><br><span class="line">COLORREF SetBkColor(HDC hdc,        // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h4 id="4-SetBkColor-设置背景颜色"><a href="#4-SetBkColor-设置背景颜色" class="headerlink" title="4. SetBkColor():设置背景颜色"></a>4. SetBkColor():设置背景颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的背景颜色值</span><br><span class="line">COLORREF SetBkColor(HDC hdc,        // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_bcol = SetBkColor(hdc,RGB(0,0,0));</span><br></pre></td></tr></table></figure></p>
-<ol start="5">
-<li>SetBkMode：设置背景的模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int SetMkMode(HDC hdc,</span><br><span class="line">    int iBkMode);           // 背景模式: TRANSPARENT/OQUPA/</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h4 id="5-SetBkMode-：设置背景的模式"><a href="#5-SetBkMode-：设置背景的模式" class="headerlink" title="5. SetBkMode()：设置背景的模式"></a>5. SetBkMode()：设置背景的模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int SetMkMode(HDC hdc,</span><br><span class="line">    int iBkMode);           // 背景模式: TRANSPARENT/OPAQUE/</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用流程"><a href="#2-使用流程" class="headerlink" title="2.使用流程"></a>2.使用流程</h3><p>1.SetTextColor/SetBkColor/SetBkMode都会返回设置之前的值。目的是方便恢复到之前的设置。<br>理解为绘制管线的设置</p>
+<p>2.流程</p>
+<ul>
+<li>1.<strong>GetDC</strong></li>
+<li>2.<strong>设置</strong>绘制管线</li>
+<li>3.绘制文字</li>
+<li>4.<strong>恢复</strong>绘制管线设置</li>
+<li>5.<strong>RleaseDC</strong></li>
+</ul>
+<p>3.demo code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_fcolor,old_bcolor;</span><br><span class="line">int old_bkmode;</span><br><span class="line"></span><br><span class="line">HDC hdc=GetDC(hWnd);</span><br><span class="line"></span><br><span class="line">old_fcolor=SetTextColor(hdc,RGB(0,255,0));</span><br><span class="line">old_bcolor=SetBkColor(hdc,RGB(0,0,0));</span><br><span class="line">old_bkmode=SetBkMode(hdc,TRANSPARENT);</span><br><span class="line"></span><br><span class="line">// 绘制文字</span><br><span class="line">TextOut(hdc,20,30,&quot;Hello!&quot;,strlen(&quot;Hello!&quot;));</span><br><span class="line"></span><br><span class="line">// 恢复设置</span><br><span class="line">SetTextColor(hdc,old_fcolor);</span><br><span class="line">SetBkColor(hdc,old_bcolor);</span><br><span class="line">SetBkMode(hdc,old_bkmode);</span><br><span class="line"></span><br><span class="line">Release(hWnd,hdc);</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -409,7 +404,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用到的函数总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用到的函数总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用到的函数总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用到的函数总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-TextOut-定点显示字符串"><span class="toc-number">1.1.</span> <span class="toc-text">1. TextOut(): 定点显示字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-DrawText-矩形框内显示字符串"><span class="toc-number">1.2.</span> <span class="toc-text">2. DrawText(): 矩形框内显示字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-SetTextColor-设置文字颜色"><span class="toc-number">1.3.</span> <span class="toc-text">3. SetTextColor():设置文字颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-SetBkColor-设置背景颜色"><span class="toc-number">1.4.</span> <span class="toc-text">4. SetBkColor():设置背景颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-SetBkMode-：设置背景的模式"><span class="toc-number">1.5.</span> <span class="toc-text">5. SetBkMode()：设置背景的模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用流程"><span class="toc-number">2.</span> <span class="toc-text">2.使用流程</span></a></li></ol>
                     </div>
                 </span>
             </div>
