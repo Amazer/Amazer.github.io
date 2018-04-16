@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>Tag: 引擎笔记 | 延澈左的博客</title>
+  <title>[引擎笔记]之五：GDI基本文本显示 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="延澈左的博客">
-<meta property="og:url" content="https://yanchezuo.com/tags/引擎笔记/index.html">
+  <meta name="description" content="1.使用到的函数总结 TextOut">
+<meta name="keywords" content="引擎笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[引擎笔记]之五：GDI基本文本显示">
+<meta property="og:url" content="https://yanchezuo.com/2018/04/15/en-12/index.html">
 <meta property="og:site_name" content="延澈左的博客">
+<meta property="og:description" content="1.使用到的函数总结 TextOut">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-16T03:11:32.328Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="延澈左的博客">
+<meta name="twitter:title" content="[引擎笔记]之五：GDI基本文本显示">
+<meta name="twitter:description" content="1.使用到的函数总结 TextOut">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -150,31 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-en-12" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/en-12/" class="archive-article-date">
-  	<time datetime="2018-04-15T08:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/en-12/">[引擎笔记]之五：GDI基本文本显示</a>
+    <h1 class="article-title" itemprop="name">
+      [引擎笔记]之五：GDI基本文本显示
     </h1>
   
 
@@ -188,56 +176,135 @@
   </a>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/13/en-11/" class="archive-article-date">
-  	<time datetime="2018-04-13T11:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+        
+        <a href="/2018/04/15/en-12/" class="archive-article-date">
+  	<time datetime="2018-04-15T08:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
 </a>
+        
+      </header>
+    
+
+<!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用到的函数总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用到的函数总结</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-使用到的函数总结"><a href="#1-使用到的函数总结" class="headerlink" title="1.使用到的函数总结"></a>1.使用到的函数总结</h3><ol>
+<li>TextOut</li>
+</ol>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOL TextOut(HDC hdc,           // 设备描述信息</span><br><span class="line">        int nXStart,            // 显示字符串的x位置</span><br><span class="line">        int nYStart,            // 显示字符串的y位置</span><br><span class="line">        LPCTSTR lpString,       // 显示的字符串</span><br><span class="line">        int cbString);          // 显示的长度</span><br></pre></td></tr></table></figure>
+<p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPCTSTR str = &quot;Hello Word!!!&quot;;</span><br><span class="line">TextOut(hdc, 100, 100, str, strlen(str));</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>DrawText</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int DrawText(HDC hdc,       // 设备描述信息</span><br><span class="line">    LPCTSTR lpString,       // 字符串</span><br><span class="line">    int nCount,             // 显示长度</span><br><span class="line">    LPRECT lpRect,          // 显示区域</span><br><span class="line">    UINT uFormat,           // 标记</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SetTextColor:设置文字颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的颜色值</span><br><span class="line">COLORREF SetTextColor(HDC hdc,      // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_col = SetTextColor(hdc,RGB(0,255,0));</span><br></pre></td></tr></table></figure></p>
+<ol start="4">
+<li>SetBkColor:设置背景颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的背景颜色值</span><br><span class="line">COLORREF SetBkColor(HDC hdc,        // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_bcol = SetBkColor(hdc,RGB(0,0,0));</span><br></pre></td></tr></table></figure></p>
+<ol start="5">
+<li>SetBkMode：设置背景的模式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int SetMkMode(HDC hdc,</span><br><span class="line">    int iBkMode);           // 背景模式: TRANSPARENT/OQUPA/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+<!-- 版权内容-->
+    
+            
+<! -- 添加版权信息 -->
+<style type="text/css">
+div.article-footer-copyright{
+   border-top:1px solid #d3d3d3;
+   margin: 20px auto;     
+   padding-left:2em;
+   width: 80%;
+}
+div.article-footer-copyright span,.copyright abbr{
+  color:#3d3d3d;
+}
+div.article-footer-copyright{
+	margin-top:2em;
+	padding:1.5em;
+	border:1px solid #d3d3d3;
+	background-color:#DEEBF7;
+}
+div.article-footer-copyright {
+	line-height: 160%;
+	margin: 10px;
+	font-size: 90%;
+    color: #A3A3A3
+}
+</style>
+<br>
+<div class="article-footer-copyright">
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/2018/04/15/en-12/" target="_blank" title="[引擎笔记]之五：GDI基本文本显示">[引擎笔记]之五：GDI基本文本显示</a></b></center>
+
+<center>本文链接为<b><a href="/2018/04/15/en-12/" target="_blank" title="[引擎笔记]之五：GDI基本文本显示">https://yanchezuo.com/2018/04/15/en-12/</a></b></center>
+
+</div>
+<! -- 添加版权信息 -->
+
+    
+<!--版权内容结束-->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持~~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/13/en-11/">[引擎笔记]之四：重绘整个窗口</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/13/en-11/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -249,263 +316,138 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/2018/04/15/en-12/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/13/en-10/" class="archive-article-date">
-  	<time datetime="2018-04-13T06:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/13/en-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之四：重绘整个窗口</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/13/en-10/">[引擎笔记]之三：处理重要窗口事件</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/13/en-10/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用到的函数总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用到的函数总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/13/en-9/" class="archive-article-date">
-  	<time datetime="2018-04-13T05:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/13/en-9/">[引擎笔记]之二：创建资源以及菜单</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/13/en-9/" class="pageViews">0</span>次
-  </a>
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/10/en-8/" class="archive-article-date">
-  	<time datetime="2018-04-10T05:49:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/10/en-8/">[引擎笔记]图形及色彩相关概念术语</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/10/en-8/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/09/en-7/" class="archive-article-date">
-  	<time datetime="2018-04-09T10:45:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/09/en-7/">[引擎笔记]理论：使用矩阵进行变换</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/09/en-7/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/09/en_6/" class="archive-article-date">
-  	<time datetime="2018-04-09T05:56:21.428Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/09/en_6/">[引擎笔记]数学：矩阵求三变量方程组</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/04/09/en_6/" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://yanchezuo.com/2018/04/15/en-12/",
+  owner: 'Amazer',
+  repo: 'BlogComments',
+  oauth: {
+    client_id: 'e1e268a29dfa6b73a2d2',
+    client_secret: 'c1512e5e5a9f54a5165e7a860a28a1621ff2df4f',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
+
+
 
 
           </div>
@@ -528,9 +470,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
