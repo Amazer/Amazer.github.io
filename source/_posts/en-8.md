@@ -3,7 +3,7 @@ title: '[引擎笔记]图形及色彩相关概念术语'
 toc: true
 copyright: true
 date: 2018-04-10 13:49:38
-tags: ['引擎笔记']
+tags: ['引擎笔记','笔记']
 ---
 - <a href="#pixel">像素</a>
 - <a href="#resolution">分辨率</a>
