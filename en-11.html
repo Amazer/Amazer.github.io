@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>Category: 笔记 | 延澈左的博客</title>
+  <title>[引擎笔记]之四：重绘整个窗口 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="延澈左的博客">
-<meta property="og:url" content="https://yanchezuo.com/categories/笔记/index.html">
+  <meta name="description" content="1.重绘抛出的问题WM_PAINT事件发生的时候，windows会将当前窗口的状态设置为invalid无效状态。使用BeginPaint()-EndPaint()后，会将窗口恢复到valid有效状态。(个人理解：WM_PAINT就是当窗口为invalid的状态是触发的消息)在响应WM_PAINT事件后，对屏幕进行重绘，使用：">
+<meta name="keywords" content="笔记,引擎笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[引擎笔记]之四：重绘整个窗口">
+<meta property="og:url" content="https://yanchezuo.com/en-11.html">
 <meta property="og:site_name" content="延澈左的博客">
+<meta property="og:description" content="1.重绘抛出的问题WM_PAINT事件发生的时候，windows会将当前窗口的状态设置为invalid无效状态。使用BeginPaint()-EndPaint()后，会将窗口恢复到valid有效状态。(个人理解：WM_PAINT就是当窗口为invalid的状态是触发的消息)在响应WM_PAINT事件后，对屏幕进行重绘，使用：">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-17T06:20:51.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="延澈左的博客">
+<meta name="twitter:title" content="[引擎笔记]之四：重绘整个窗口">
+<meta name="twitter:description" content="1.重绘抛出的问题WM_PAINT事件发生的时候，windows会将当前窗口的状态设置为invalid无效状态。使用BeginPaint()-EndPaint()后，会将窗口恢复到valid有效状态。(个人理解：WM_PAINT就是当窗口为invalid的状态是触发的消息)在响应WM_PAINT事件后，对屏幕进行重绘，使用：">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -156,31 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-en-11" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/en-13.html" class="archive-article-date">
-  	<time datetime="2018-04-17T10:39:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/en-13.html">[引擎笔记]之六：高级GDI绘图</a>
+    <h1 class="article-title" itemprop="name">
+      [引擎笔记]之四：重绘整个窗口
     </h1>
   
 
@@ -190,12 +178,143 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en-13.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/en-11.html" class="pageViews">0</span>次
   </a>
 
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/en-11.html" class="archive-article-date">
+  	<time datetime="2018-04-13T11:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+</a>
+        
+      </header>
+    
+
+<!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-重绘抛出的问题"><span class="toc-number">1.</span> <span class="toc-text">1.重绘抛出的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-获取对整个窗口的访问权"><span class="toc-number">2.</span> <span class="toc-text">2.获取对整个窗口的访问权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-绘制整个窗口方法一"><span class="toc-number">3.</span> <span class="toc-text">3.绘制整个窗口方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-绘制整个窗口方法二"><span class="toc-number">4.</span> <span class="toc-text">4.绘制整个窗口方法二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-总结"><span class="toc-number">5.</span> <span class="toc-text">5.总结</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-重绘抛出的问题"><a href="#1-重绘抛出的问题" class="headerlink" title="1.重绘抛出的问题"></a>1.重绘抛出的问题</h4><p>WM_PAINT事件发生的时候，windows会将当前窗口的状态设置为invalid无效状态。使用BeginPaint()-EndPaint()后，会将窗口恢复到valid有效状态。<br>(个人理解：WM_PAINT就是当窗口为invalid的状态是触发的消息)<br>在响应WM_PAINT事件后，对屏幕进行重绘，使用：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PAINTSTRUCT ps;</span><br><span class="line">HDC hdc;</span><br><span class="line">hdc=BeginPaint(hWnd,&amp;ps);</span><br><span class="line">// 在这里进行重绘....</span><br><span class="line">EndPaint(hwnd,&amp;ps)</span><br></pre></td></tr></table></figure>
+<p>BeginPaint()和EndPaint()中的HWND参数表示要绘画的窗口。<br>BeginPaint(hWnd,&amp;ps)中，会将屏幕需要重绘的部分返回到ps.rcPaint中(也就是说，只重绘需要的部分)<br>但同时，也抛出一个问题，就是我们<strong>只能访问需要重绘的部分</strong>，其他部分获取不到。</p>
+<h4 id="2-获取对整个窗口的访问权"><a href="#2-获取对整个窗口的访问权" class="headerlink" title="2.获取对整个窗口的访问权"></a>2.获取对整个窗口的访问权</h4><p>HDC表示设备描述，在学习过《3D游戏编程大师技巧》之后，作者也是将一堆需要配置的东西写成了一个struct，避免每次添加或者修改配置字段都要改许多地方。<br>同理，HDC就是所有的设置。相关函数根据HDC中的设置进行不同的调用。<br>HDC中含有队整个窗口的图形设备的设置。<br>获取HDC的方法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdc=GetDC(hwnd);        // 获取某个窗口hwnd的hdc</span><br></pre></td></tr></table></figure>
+<p>在处理完成hdc之后，需要归还，调用方法原型是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int ReleaseDC(HWND hwnd,        // 哪个窗口</span><br><span class="line">        HDC hdc);               // release哪个hdc</span><br></pre></td></tr></table></figure>
+<p>这个时候绘制全屏的过程是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HDC hdc=NULL;</span><br><span class="line">if(!(hdc=GetDC(hWnd)))</span><br><span class="line">&#123;</span><br><span class="line">    error();</span><br><span class="line">&#125;</span><br><span class="line">// 使用hdc进行可以访问到窗口全屏</span><br><span class="line">// 这里进行绘制</span><br><span class="line"></span><br><span class="line">ReleaseDC(hWnd,hdc);        // 释放hdc</span><br></pre></td></tr></table></figure>
+<p>出现的<strong>新问题</strong>是，<strong>使用GetDc()-ReleaseDC()并不会触发使窗口valide的设置</strong>。只要窗口没有被设置为valid，那么这个WM_PAINT消息将会一直传递下去。</p>
+<h4 id="3-绘制整个窗口方法一"><a href="#3-绘制整个窗口方法一" class="headerlink" title="3.绘制整个窗口方法一"></a>3.绘制整个窗口方法一</h4><p><strong>GetClientRect()</strong>函数用于获取用户矩形区域的坐标。<br>(窗口坐标是相对于显示器屏幕的坐标，用户坐标是相对于窗口坐上角(0,0)点的)</p>
+<p><strong>ValidateRect()</strong>函数改变窗口状态为valide有效状态：<br>函数原型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BOOL ValidateRect(HWND hWnd,        // 窗口</span><br><span class="line">    CONST RECT *lpRECT);            // 设置为有效状态的rect区域</span><br></pre></td></tr></table></figure></p>
+<p>因此，正确的绘制整个窗口的流程为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PAINTSTRUCT ps;</span><br><span class="line">HDC hdc;</span><br><span class="line">RECT rect;</span><br><span class="line"></span><br><span class="line">hdc=GetDC(hWnd);</span><br><span class="line">// 在这里进行重绘....</span><br><span class="line">ReleaseDC(hWnd,hdc);</span><br><span class="line">GetClientRect(hWnd,&amp;rect);  // 将hWnd窗口的矩形区域获取到rect中</span><br><span class="line">ValidateRect(hWnd,&amp;rect);   // 设置hWnd的rect区域变为valide有效</span><br></pre></td></tr></table></figure>
+<h4 id="4-绘制整个窗口方法二"><a href="#4-绘制整个窗口方法二" class="headerlink" title="4.绘制整个窗口方法二"></a>4.绘制整个窗口方法二</h4><p>先使得整个窗口矩形都变为无效，然后再调用BeginPaint()-EndPaint()</p>
+<p>使窗口矩形变为无效的函数原型是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BOOL InvalidateRect(HWND hWnd,      // 窗口</span><br><span class="line">    CONST RECT *lpRect,             // 矩形区域</span><br><span class="line">    BOOL bErase);                   // 是否擦除背景</span><br></pre></td></tr></table></figure></p>
+<p>当lpRect参数为NULL的时候，将使整个窗口的矩形区域变为无效。<br>流程代码为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PAINTSTRUCT ps;</span><br><span class="line">HDC hdc;</span><br><span class="line">InvalidateRect(hWnd,NULL,FALSE);    // 先使整个窗口矩形都无效</span><br><span class="line">hdc=BeginPaint(hWnd,&amp;ps);</span><br><span class="line">// 在这里进行重绘....</span><br><span class="line">EndPaint(hwnd,&amp;ps)</span><br></pre></td></tr></table></figure>
+<h4 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h4><ul>
+<li>窗口有invalid的部分时，会触发WM_PAINT事件</li>
+<li>BeginPaint()-EndPaint()只会重绘无效区域，并且将无效区域状态设置为valide </li>
+<li>GetDC()-ReleaseDC()获取和释放hdc</li>
+<li>ValidateRect()函数将rect区域设置为有效valid</li>
+<li>InvalidateRect()函数将rect区域设置为无效invalid</li>
+<li>GetClientRect()函数获取窗口的整个区域</li>
+</ul>
+<p>以上。</p>
+
+      
+
+<!-- 版权内容-->
+    
+            
+<! -- 添加版权信息 -->
+<style type="text/css">
+div.article-footer-copyright{
+   border-top:1px solid #d3d3d3;
+   margin: 20px auto;     
+   padding-left:2em;
+   width: 80%;
+}
+div.article-footer-copyright span,.copyright abbr{
+  color:#3d3d3d;
+}
+div.article-footer-copyright{
+	margin-top:2em;
+	padding:1.5em;
+	border:1px solid #d3d3d3;
+	background-color:#DEEBF7;
+}
+div.article-footer-copyright {
+	line-height: 160%;
+	margin: 10px;
+	font-size: 90%;
+    color: #A3A3A3
+}
+</style>
+<br>
+<div class="article-footer-copyright">
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-11.html" target="_blank" title="[引擎笔记]之四：重绘整个窗口">[引擎笔记]之四：重绘整个窗口</a></b></center>
+
+<center>本文链接为<b><a href="/en-11.html" target="_blank" title="[引擎笔记]之四：重绘整个窗口">https://yanchezuo.com/en-11.html</a></b></center>
+
+</div>
+<! -- 添加版权信息 -->
+
+    
+<!--版权内容结束-->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持~~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,30 +330,147 @@
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-11.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/en-12.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [引擎笔记]之五：GDI基本文本显示
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/en-10.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之三：处理重要窗口事件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-重绘抛出的问题"><span class="toc-number">1.</span> <span class="toc-text">1.重绘抛出的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-获取对整个窗口的访问权"><span class="toc-number">2.</span> <span class="toc-text">2.获取对整个窗口的访问权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-绘制整个窗口方法一"><span class="toc-number">3.</span> <span class="toc-text">3.绘制整个窗口方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-绘制整个窗口方法二"><span class="toc-number">4.</span> <span class="toc-text">4.绘制整个窗口方法二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-总结"><span class="toc-number">5.</span> <span class="toc-text">5.总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://yanchezuo.com/en-11.html",
+  owner: 'Amazer',
+  repo: 'BlogComments',
+  oauth: {
+    client_id: 'e1e268a29dfa6b73a2d2',
+    client_secret: 'c1512e5e5a9f54a5165e7a860a28a1621ff2df4f',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
+
+
 
 
           </div>
@@ -257,10 +493,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
