@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="0.前言作者大大在上一章结束的时候非常开心，终于要讲绘图相关的内容了，之后会主要讲Direct X。我也好开心，^_^">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T12:02:35.784Z">
+<meta property="og:updated_time" content="2018-04-18T06:13:01.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之六：高级GDI绘图">
 <meta name="twitter:description" content="0.前言作者大大在上一章结束的时候非常开心，终于要讲绘图相关的内容了，之后会主要讲Direct X。我也好开心，^_^">
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-前言"><span class="toc-number">1.</span> <span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-详述HDC-Handle-to-Device-Context"><span class="toc-number">2.</span> <span class="toc-text">1.详述HDC(Handle to Device Context)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-GDI绘图的流程"><span class="toc-number">3.</span> <span class="toc-text">2.GDI绘图的流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-画笔-HPEN"><span class="toc-number">4.</span> <span class="toc-text">3.画笔(HPEN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获得HPEN"><span class="toc-number">4.1.</span> <span class="toc-text">1.获得HPEN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-存储对象-Stock-Objects"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.存储对象(Stock Objects)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建用户自定义画笔"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 创建用户自定义画笔</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-画刷"><span class="toc-number">5.</span> <span class="toc-text">4.画刷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-函数总结"><span class="toc-number">6.</span> <span class="toc-text">5.函数总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-绘制图形函数"><span class="toc-number">7.</span> <span class="toc-text">6.绘制图形函数</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-前言"><span class="toc-number">1.</span> <span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-详述HDC-Handle-to-Device-Context"><span class="toc-number">2.</span> <span class="toc-text">1.详述HDC(Handle to Device Context)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-GDI绘图的流程"><span class="toc-number">3.</span> <span class="toc-text">2.GDI绘图的流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-画笔-HPEN"><span class="toc-number">4.</span> <span class="toc-text">3.画笔(HPEN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获得HPEN"><span class="toc-number">4.1.</span> <span class="toc-text">1.获得HPEN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-存储对象-Stock-Objects"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.存储对象(Stock Objects)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建用户自定义画笔"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 创建用户自定义画笔</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-选中对象、恢复对象、删除画笔"><span class="toc-number">4.2.</span> <span class="toc-text">2.选中对象、恢复对象、删除画笔</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-画刷"><span class="toc-number">5.</span> <span class="toc-text">4.画刷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-绘制图形函数"><span class="toc-number">6.</span> <span class="toc-text">5.绘制图形函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-点"><span class="toc-number">6.1.</span> <span class="toc-text">1.点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-线"><span class="toc-number">6.2.</span> <span class="toc-text">2.线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-矩形"><span class="toc-number">6.3.</span> <span class="toc-text">3.矩形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-圆"><span class="toc-number">6.4.</span> <span class="toc-text">4.圆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-多边形"><span class="toc-number">6.5.</span> <span class="toc-text">5.多边形</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-函数总结"><span class="toc-number">7.</span> <span class="toc-text">6.函数总结</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -316,8 +316,80 @@
 </tbody>
 </table>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HPEN pen = CreatePen(PS_SOLID,1,RGB(0,255,0));</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-画刷"><a href="#4-画刷" class="headerlink" title="4.画刷"></a>4.画刷</h3><h3 id="5-函数总结"><a href="#5-函数总结" class="headerlink" title="5.函数总结"></a>5.函数总结</h3><p>GetStockedObject:获取存储对象<br>CreatePen:创建画笔<br>CreateSolidBrush:创建实心画刷<br>CreateHatchBrush:创建带阴影线的画刷<br>SelectObject:选中对象<br>DeleteObject:删除对象</p>
-<h3 id="6-绘制图形函数"><a href="#6-绘制图形函数" class="headerlink" title="6.绘制图形函数"></a>6.绘制图形函数</h3>
+<h4 id="2-选中对象、恢复对象、删除画笔"><a href="#2-选中对象、恢复对象、删除画笔" class="headerlink" title="2.选中对象、恢复对象、删除画笔"></a>2.选中对象、恢复对象、删除画笔</h4><p>使用SelectObject()函数选中对象，并且返回旧的对象，以便恢复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回值是旧的对象</span><br><span class="line">HDIOBJ SelectObject(HDC hdc,            // 设备描述</span><br><span class="line">        HGDIOBJ hdgiObj);               // 要选中的对象</span><br></pre></td></tr></table></figure></p>
+<p>所有GDI对象句柄都是HDIOBJ的子类。</p>
+<p>使用DeleteObject()函数删除GDI句柄：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOL DeleteObject(HGDIOBJ hObject);</span><br></pre></td></tr></table></figure></p>
+<p>当选中对象，并且绘画完成之后，记得恢复对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HPEN red_pen = CreatePen(PS_SOLID,1,RGB(255,0,0));</span><br><span class="line">HPEN old_pen = SelectObject(hdc,red_pen);</span><br><span class="line">// 在这里绘制</span><br><span class="line"></span><br><span class="line">SelectObject(hdc, old_pen);     // 恢复对象</span><br><span class="line"></span><br><span class="line">DeleteObject(red_pen);          // 删除对象</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-画刷"><a href="#4-画刷" class="headerlink" title="4.画刷"></a>4.画刷</h3><p>画刷的创建和使用流程和画笔基本一样。简要介绍画刷特有的：</p>
+<p>画刷句柄：HBRUSH</p>
+<p>GDI将画刷分为两类：实心的(Solid)和阴影线的(Hatched)。</p>
+<p>创建实心画刷：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HBRUSH CreateSolidBrush(CORLORREF crColor);     // 参数：画刷颜色</span><br></pre></td></tr></table></figure></p>
+<p>创建阴影线画刷：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HBRUSH CreateHatchBrush(int fnStyle,        // 样式值</span><br><span class="line">        CORLORREF crColor);                 // 参数：画刷颜色</span><br></pre></td></tr></table></figure>
+<center>HatchBrush支持的样式值</center>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">HS_BDIAGONAL</td>
+<td style="text-align:left">从左上到右下的45°阴影线</td>
+</tr>
+<tr>
+<td style="text-align:left">HS_CROSS</td>
+<td style="text-align:left">水平和垂直的交叉阴影线</td>
+</tr>
+<tr>
+<td style="text-align:left">HS_DIAGCROSS</td>
+<td style="text-align:left">45°交叉阴影线</td>
+</tr>
+<tr>
+<td style="text-align:left">HS_FDIAGONAL</td>
+<td style="text-align:left">从左下到右上的45°阴影线</td>
+</tr>
+<tr>
+<td style="text-align:left">HS_HORIZONTAL</td>
+<td style="text-align:left">水平阴影线</td>
+</tr>
+<tr>
+<td style="text-align:left">HS_VERTICAL</td>
+<td style="text-align:left">垂直阴影线</td>
+</tr>
+</tbody>
+</table>
+<p>使用例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HBRUSH red_hbrush = CreateHatchBrush(HS_CROSS,RGB(255,0,0));        // 创建一个红色交叉阴影线的画刷</span><br><span class="line">HBRUSH old_hbrush = SelectObject(hdc,red_hbrush);                   // 选中画刷</span><br><span class="line">// 在这里进行绘制</span><br><span class="line">// ...</span><br><span class="line">SelectObject(hdc,old_hbrush);                                       // 恢复画刷</span><br><span class="line">DeleteObject(red_hbrush);                                           // 删除画刷</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-绘制图形函数"><a href="#5-绘制图形函数" class="headerlink" title="5.绘制图形函数"></a>5.绘制图形函数</h3><h4 id="1-点"><a href="#1-点" class="headerlink" title="1.点"></a>1.点</h4><p>不需要画笔或者画刷。<br>点只是一个像素，只需要HDC、坐标和颜色就可以了。<br>SetPixel()返回实际的绘制颜色：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COLORREF SetPixel(HDC hdc,</span><br><span class="line">            int x,                      // 相对于hdc的x坐标</span><br><span class="line">            int y,                      // 相对于hdc的y坐标</span><br><span class="line">            COLORREF crColor);          // 颜色</span><br></pre></td></tr></table></figure></p>
+<p>GetWindowDC():获得整个窗口。可以在窗口的控件区域绘图。<br>GetDC():获取窗口中用户区域。不可以在窗口的控件区域绘图</p>
+<h4 id="2-线"><a href="#2-线" class="headerlink" title="2.线"></a>2.线</h4><p>步骤：</p>
+<ul>
+<li>1.创建画笔，并选中画笔</li>
+<li>2.设定线段的起始位置(光标位置)</li>
+<li>3.从起始位置绘制到终点位置</li>
+<li>4.重复3</li>
+<li>5.恢复画笔、删除画笔</li>
+</ul>
+<p>设定位置的函数是MoveToEx():<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BOOL MoveToEx(HDC hdc,</span><br><span class="line">        int x,</span><br><span class="line">        int y,</span><br><span class="line">        LPPOINT lpPoint);       // 旧光标位置点，如果不保存，可以设置为NULL</span><br></pre></td></tr></table></figure></p>
+<p>其中LPPOINT是点的数据结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct tagPOINT</span><br><span class="line">&#123;</span><br><span class="line">    LONG x;</span><br><span class="line">    LONG y;</span><br><span class="line">&#125; POINT;</span><br></pre></td></tr></table></figure></p>
+<p>绘制线段的函数是LineTo:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BOOL LineTo(HDC hdc,</span><br><span class="line">        int xEnd,</span><br><span class="line">        int yEnd)</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-矩形"><a href="#3-矩形" class="headerlink" title="3.矩形"></a>3.矩形</h4><h4 id="4-圆"><a href="#4-圆" class="headerlink" title="4.圆"></a>4.圆</h4><h4 id="5-多边形"><a href="#5-多边形" class="headerlink" title="5.多边形"></a>5.多边形</h4><h3 id="6-函数总结"><a href="#6-函数总结" class="headerlink" title="6.函数总结"></a>6.函数总结</h3><ul>
+<li>GetStockedObject:获取存储对象</li>
+<li>CreatePen:创建画笔</li>
+<li>CreateSolidBrush:创建实心画刷</li>
+<li>CreateHatchBrush:创建带阴影线的画刷</li>
+<li>SelectObject:选中对象</li>
+<li>DeleteObject:删除对象</li>
+<li>SetPixel:改变像素颜色</li>
+<li>GetWindowDC:获得整个窗口。可以在窗口的控件区域绘图。</li>
+<li>GetDC:获取窗口中用户区域。不可以在窗口的控件区域绘图</li>
+<li>MoveToEx:移动光标位置</li>
+<li>LineTo:绘制线</li>
+</ul>
+
       
 
 <!-- 版权内容-->
@@ -504,7 +576,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-前言"><span class="toc-number">1.</span> <span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-详述HDC-Handle-to-Device-Context"><span class="toc-number">2.</span> <span class="toc-text">1.详述HDC(Handle to Device Context)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-GDI绘图的流程"><span class="toc-number">3.</span> <span class="toc-text">2.GDI绘图的流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-画笔-HPEN"><span class="toc-number">4.</span> <span class="toc-text">3.画笔(HPEN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获得HPEN"><span class="toc-number">4.1.</span> <span class="toc-text">1.获得HPEN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-存储对象-Stock-Objects"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.存储对象(Stock Objects)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建用户自定义画笔"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 创建用户自定义画笔</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-画刷"><span class="toc-number">5.</span> <span class="toc-text">4.画刷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-函数总结"><span class="toc-number">6.</span> <span class="toc-text">5.函数总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-绘制图形函数"><span class="toc-number">7.</span> <span class="toc-text">6.绘制图形函数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-前言"><span class="toc-number">1.</span> <span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-详述HDC-Handle-to-Device-Context"><span class="toc-number">2.</span> <span class="toc-text">1.详述HDC(Handle to Device Context)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-GDI绘图的流程"><span class="toc-number">3.</span> <span class="toc-text">2.GDI绘图的流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-画笔-HPEN"><span class="toc-number">4.</span> <span class="toc-text">3.画笔(HPEN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-获得HPEN"><span class="toc-number">4.1.</span> <span class="toc-text">1.获得HPEN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-存储对象-Stock-Objects"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.存储对象(Stock Objects)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建用户自定义画笔"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 创建用户自定义画笔</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-选中对象、恢复对象、删除画笔"><span class="toc-number">4.2.</span> <span class="toc-text">2.选中对象、恢复对象、删除画笔</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-画刷"><span class="toc-number">5.</span> <span class="toc-text">4.画刷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-绘制图形函数"><span class="toc-number">6.</span> <span class="toc-text">5.绘制图形函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-点"><span class="toc-number">6.1.</span> <span class="toc-text">1.点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-线"><span class="toc-number">6.2.</span> <span class="toc-text">2.线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-矩形"><span class="toc-number">6.3.</span> <span class="toc-text">3.矩形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-圆"><span class="toc-number">6.4.</span> <span class="toc-text">4.圆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-多边形"><span class="toc-number">6.5.</span> <span class="toc-text">5.多边形</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-函数总结"><span class="toc-number">7.</span> <span class="toc-text">6.函数总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
