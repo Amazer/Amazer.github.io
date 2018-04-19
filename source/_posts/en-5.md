@@ -3,7 +3,7 @@ title: '[引擎]之四：unity中查看简单mesh顶点顺序的小工具——�
 toc: true
 copyright: true
 date: 2018-04-05 14:59:18
-tags: ['引擎笔记','笔记']
+tags: ['引擎','笔记']
 ---
 
 [这里](https://amazer.github.io/2018/04/04/en_2/)制作的小工具，功能有点单薄，只能查看顶点的顺序。

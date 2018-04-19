@@ -2,7 +2,7 @@
 title: '[引擎笔记]之一：windows游戏运行框架'
 toc: true
 copyright: true
-tags: ['引擎','笔记']
+tags: ['引擎笔记','笔记']
 ---
 
 #### 1.工程配置
