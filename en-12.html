@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="1.使用到的函数总结1. TextOut(): 定点显示字符串">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T06:21:00.272Z">
+<meta property="og:updated_time" content="2018-04-24T05:19:16.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之五：GDI基本文本显示">
 <meta name="twitter:description" content="1.使用到的函数总结1. TextOut(): 定点显示字符串">
@@ -223,11 +223,34 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOL TextOut(HDC hdc,           // 设备描述信息</span><br><span class="line">        int nXStart,            // 显示字符串的x位置</span><br><span class="line">        int nYStart,            // 显示字符串的y位置</span><br><span class="line">        LPCTSTR lpString,       // 显示的字符串</span><br><span class="line">        int cbString);          // 显示的长度</span><br></pre></td></tr></table></figure>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LPCTSTR str = &quot;Hello Word!!!&quot;;</span><br><span class="line">TextOut(hdc, 100, 100, str, strlen(str));</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-DrawText-矩形框内显示字符串"><a href="#2-DrawText-矩形框内显示字符串" class="headerlink" title="2. DrawText(): 矩形框内显示字符串"></a>2. DrawText(): 矩形框内显示字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int DrawText(HDC hdc,       // 设备描述信息</span><br><span class="line">    LPCTSTR lpString,       // 字符串</span><br><span class="line">    int nCount,             // 显示长度</span><br><span class="line">    LPRECT lpRect,          // 显示区域</span><br><span class="line">    UINT uFormat,           // 标记</span><br></pre></td></tr></table></figure>
+<p>uFormat支持的类型:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * DrawText() Format Flags</span><br><span class="line"> */</span><br><span class="line">#define DT_TOP                      0x00000000</span><br><span class="line">#define DT_LEFT                     0x00000000</span><br><span class="line">#define DT_CENTER                   0x00000001</span><br><span class="line">#define DT_RIGHT                    0x00000002</span><br><span class="line">#define DT_VCENTER                  0x00000004</span><br><span class="line">#define DT_BOTTOM                   0x00000008</span><br><span class="line">#define DT_WORDBREAK                0x00000010</span><br><span class="line">#define DT_SINGLELINE               0x00000020</span><br><span class="line">#define DT_EXPANDTABS               0x00000040</span><br><span class="line">#define DT_TABSTOP                  0x00000080</span><br><span class="line">#define DT_NOCLIP                   0x00000100</span><br><span class="line">#define DT_EXTERNALLEADING          0x00000200</span><br><span class="line">#define DT_CALCRECT                 0x00000400</span><br><span class="line">#define DT_NOPREFIX                 0x00000800</span><br><span class="line">#define DT_INTERNAL                 0x00001000</span><br><span class="line"></span><br><span class="line">#if(WINVER &gt;= 0x0400)</span><br><span class="line">#define DT_EDITCONTROL              0x00002000</span><br><span class="line">#define DT_PATH_ELLIPSIS            0x00004000</span><br><span class="line">#define DT_END_ELLIPSIS             0x00008000</span><br><span class="line">#define DT_MODIFYSTRING             0x00010000</span><br><span class="line">#define DT_RTLREADING               0x00020000</span><br><span class="line">#define DT_WORD_ELLIPSIS            0x00040000</span><br><span class="line">#if(WINVER &gt;= 0x0500)</span><br><span class="line">#define DT_NOFULLWIDTHCHARBREAK     0x00080000</span><br><span class="line">#if(_WIN32_WINNT &gt;= 0x0500)</span><br><span class="line">#define DT_HIDEPREFIX               0x00100000</span><br><span class="line">#define DT_PREFIXONLY               0x00200000</span><br><span class="line">#endif /* _WIN32_WINNT &gt;= 0x0500 */</span><br><span class="line">#endif /* WINVER &gt;= 0x0500 */</span><br></pre></td></tr></table></figure></p>
 <h4 id="3-SetTextColor-设置文字颜色"><a href="#3-SetTextColor-设置文字颜色" class="headerlink" title="3. SetTextColor():设置文字颜色"></a>3. SetTextColor():设置文字颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的颜色值</span><br><span class="line">COLORREF SetTextColor(HDC hdc,      // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_col = SetTextColor(hdc,RGB(0,255,0));</span><br></pre></td></tr></table></figure></p>
 <h4 id="4-SetBkColor-设置背景颜色"><a href="#4-SetBkColor-设置背景颜色" class="headerlink" title="4. SetBkColor():设置背景颜色"></a>4. SetBkColor():设置背景颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回之前的背景颜色值</span><br><span class="line">COLORREF SetBkColor(HDC hdc,        // 设备描述信息</span><br><span class="line">    COLORREF color);                // 设置颜色</span><br></pre></td></tr></table></figure>
 <p>eg.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COLORREF old_bcol = SetBkColor(hdc,RGB(0,0,0));</span><br></pre></td></tr></table></figure></p>
 <h4 id="5-SetBkMode-：设置背景的模式"><a href="#5-SetBkMode-：设置背景的模式" class="headerlink" title="5. SetBkMode()：设置背景的模式"></a>5. SetBkMode()：设置背景的模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int SetMkMode(HDC hdc,</span><br><span class="line">    int iBkMode);           // 背景模式: TRANSPARENT/OPAQUE/</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">背景mode</th>
+<th style="text-align:left">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">TRANSPARENT</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">OPAQUE</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">BKMODE_LAST</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
 <h3 id="2-使用流程"><a href="#2-使用流程" class="headerlink" title="2.使用流程"></a>2.使用流程</h3><p>1.SetTextColor/SetBkColor/SetBkMode都会返回设置之前的值。目的是方便恢复到之前的设置。<br>理解为绘制管线的设置</p>
 <p>2.流程</p>
 <ul>
@@ -649,11 +672,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">矩阵</a>
+                <a href="javascript:void(0)" class="js-tag color3">引擎</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引擎</a>
+                <a href="javascript:void(0)" class="js-tag color3">矩阵</a>
               </li>
              
               <li class="article-tag-list-item">
