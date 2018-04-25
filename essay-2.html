@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[游戏框架]ECS(Entity-Component-System)个人笔记 | 延澈左的博客</title>
+  <title>学习引擎感悟 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.无框架实现ECS Entity 是数据(Data) 多个Data的桥梁 唯一标识一个物体">
-<meta name="keywords" content="笔记">
+  <meta name="description" content="今天看到在知乎上追的《从零开始敲次世代游戏引擎》已经更新到了五十一，讲的是三角形的像素画过程。当时从第零篇开始追的，对着文章配置了环境，写了代码。但是由于是新手，很多东西都搞不懂，感觉追的云里雾里的。大概追到十几篇的时候，就不再看了。">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[游戏框架]ECS(Entity-Component-System)个人笔记">
-<meta property="og:url" content="https://yanchezuo.com/game-frame-2.html">
+<meta property="og:title" content="学习引擎感悟">
+<meta property="og:url" content="https://yanchezuo.com/essay-2.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.无框架实现ECS Entity 是数据(Data) 多个Data的桥梁 唯一标识一个物体">
+<meta property="og:description" content="今天看到在知乎上追的《从零开始敲次世代游戏引擎》已经更新到了五十一，讲的是三角形的像素画过程。当时从第零篇开始追的，对着文章配置了环境，写了代码。但是由于是新手，很多东西都搞不懂，感觉追的云里雾里的。大概追到十几篇的时候，就不再看了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-12T06:32:58.368Z">
+<meta property="og:updated_time" content="2018-04-25T05:16:44.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[游戏框架]ECS(Entity-Component-System)个人笔记">
-<meta name="twitter:description" content="1.无框架实现ECS Entity 是数据(Data) 多个Data的桥梁 唯一标识一个物体">
+<meta name="twitter:title" content="学习引擎感悟">
+<meta name="twitter:description" content="今天看到在知乎上追的《从零开始敲次世代游戏引擎》已经更新到了五十一，讲的是三角形的像素画过程。当时从第零篇开始追的，对着文章配置了环境，写了代码。但是由于是新手，很多东西都搞不懂，感觉追的云里雾里的。大概追到十几篇的时候，就不再看了。">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-game-frame-2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-essay-2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [游戏框架]ECS(Entity-Component-System)个人笔记
+      学习引擎感悟
     </h1>
   
 
@@ -178,13 +178,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/game-frame-2.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/essay-2.html" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/game-frame-2.html" class="archive-article-date">
-  	<time datetime="2018-04-12T05:18:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
+        <a href="/essay-2.html" class="archive-article-date">
+  	<time datetime="2018-04-25T05:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
 </a>
         
       </header>
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-无框架实现ECS"><span class="toc-number">1.</span> <span class="toc-text">1.无框架实现ECS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Unity3D中的框架和ECS的对比"><span class="toc-number">2.</span> <span class="toc-text">2.Unity3D中的框架和ECS的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Entitas-CSharp"><span class="toc-number">3.</span> <span class="toc-text">3.Entitas-CSharp</span></a></li></ol>
+           
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -219,80 +219,11 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-无框架实现ECS"><a href="#1-无框架实现ECS" class="headerlink" title="1.无框架实现ECS"></a>1.<a href="https://zhuanlan.zhihu.com/p/32787878" target="_blank" rel="noopener">无框架实现ECS</a></h3><ol>
-<li>Entity<ul>
-<li>是数据(Data)</li>
-<li>多个Data的桥梁</li>
-<li>唯一标识一个物体</li>
-</ul>
-</li>
-</ol>
-<a id="more"></a>
-<ol start="2">
-<li>Component<ul>
-<li>存放Data,不允许有逻辑；也没有对外依赖</li>
-<li>依赖于Entity:Entity作为Component的管理者</li>
-</ul>
-</li>
-<li>System:逻辑(方法函数)<br> (将Component的逻辑全部移动到System中)<ul>
-<li>是唯一承载逻辑的敌方</li>
-<li>直接依赖于Component,对数据进行处理</li>
-</ul>
-</li>
-</ol>
-<h3 id="2-Unity3D中的框架和ECS的对比"><a href="#2-Unity3D中的框架和ECS的对比" class="headerlink" title="2.Unity3D中的框架和ECS的对比"></a>2.Unity3D中的框架和ECS的对比</h3><ol start="0">
-<li>参考链接：<a href="https://www.cnblogs.com/yangrouchuan/p/7436533.html" target="_blank" rel="noopener">Unity下的ECS框架 Entitas简介</a></li>
-<li>Unity3D中是GameObject-Component设计</li>
-<li>Unity3D不是ECS设计：<ul>
-<li>Unity中的Component都是一个完整的类，缓存不友好</li>
-<li>Unity中的Component包含逻辑。</li>
-<li>Unity中无法获取所有”有ComponentA和ComponentB”的所有GameObject,而在ECS中这是非常必要的</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-Entitas-CSharp"><a href="#3-Entitas-CSharp" class="headerlink" title="3.Entitas-CSharp"></a>3.<a href="https://github.com/sschmid/Entitas-CSharp" target="_blank" rel="noopener">Entitas-CSharp</a></h3><p><a href="https://zhuanlan.zhihu.com/p/31393681" target="_blank" rel="noopener">Unity3D ECS框架 Entitas 基本概念</a></p>
-<ol>
-<li>Entity<ul>
-<li>数据容器(IComponent的容器)</li>
-</ul>
-</li>
-<li>Context:<ul>
-<li>Factory of Entity<ul>
-<li>创建销毁Entity</li>
-<li>过滤选择感兴趣的Entity</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Group<ul>
-<li>为拥有不同Component的Entity分组</li>
-<li>从Context中过滤选择Groups</li>
-</ul>
-</li>
-<li>Matcher<ul>
-<li>从Context中选择过滤Groups</li>
-</ul>
-</li>
-<li>Collector收集器<ul>
-<li>收集处理根据Component过滤选择出来的entities<ul>
-<li>Group</li>
-<li>根据group获得entities</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Systems<ul>
-<li>根据IComponent执行逻辑</li>
-<li>有四种类型：<ul>
-<li>IInitializeSystem: 执行一次</li>
-<li>IExecuteSystem: 每帧执行</li>
-<li>ICleanupSystem: 在别的systems完成后，每帧执行</li>
-<li>ReactiveSystem: 当Group有变换时执行</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+        <p>今天看到在知乎上追的《从零开始敲次世代游戏引擎》已经更新到了五十一，讲的是三角形的像素画过程。<br>当时从第零篇开始追的，对着文章配置了环境，写了代码。但是由于是新手，很多东西都搞不懂，感觉追的云里雾里的。大概追到十几篇的时候，就不再看了。<br><a id="more"></a><br>也是由于这种云里雾里的感觉很不好，所以，决心开始从基础学习起来，于是搜集资料、推荐什么的，最终选择了游戏引擎入门经典《3D游戏编程大师技巧》上下册。<br>每天只在上下班乘坐地铁的时候看，大概不到30分钟，偶尔会在中午休息的时候，在公司也看。现在已经看完了，大概半年的时间的。当前，三角形的像素画过程早在书中就已经学到了。</p>
+<p>总体来说，还是觉得通过经典书籍入门比较好，比追博客、文章什么的知识要系统的多。<br>经典书籍真的真的是很重要。之前还买过一本其他的教引擎的书，书是都翻过一遍了，但是不从基础和最底层讲起，总觉得是理解不了。</p>
+<p>看完《3D》之后，现在在开始看《Windows游戏编程大师技巧》，是同一位作者。作者实在是太有趣了，书中的内容也是相当赞。</p>
+<p>现在在跟着《Windows游戏编程大师技巧》边看书，边做笔记，边撸代码。虽然每天只能看一点、记一点、撸一点，但是感觉很有收获，很开心。</p>
+<p>特此，记录一下学习引擎给我带来的愉悦~~</p>
 
       
 
@@ -325,9 +256,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/game-frame-2.html" target="_blank" title="[游戏框架]ECS(Entity-Component-System)个人笔记">[游戏框架]ECS(Entity-Component-System)个人笔记</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/essay-2.html" target="_blank" title="学习引擎感悟">学习引擎感悟</a></b></center>
 
-<center>本文链接为<b><a href="/game-frame-2.html" target="_blank" title="[游戏框架]ECS(Entity-Component-System)个人笔记">https://yanchezuo.com/game-frame-2.html</a></b></center>
+<center>本文链接为<b><a href="/essay-2.html" target="_blank" title="学习引擎感悟">https://yanchezuo.com/essay-2.html</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -366,7 +297,7 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -422,7 +353,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/game-frame-2.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/essay-2.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -436,18 +367,9 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/en-9.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          [引擎笔记]之二：创建资源以及菜单
-        
-      </div>
-    </a>
   
-  
-    <a href="/game-frame-1.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[游戏框架]笔记之一：记录框架的优秀模块</div>
+    <a href="/en-14.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之七：定时和锁帧</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -474,7 +396,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-无框架实现ECS"><span class="toc-number">1.</span> <span class="toc-text">1.无框架实现ECS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Unity3D中的框架和ECS的对比"><span class="toc-number">2.</span> <span class="toc-text">2.Unity3D中的框架和ECS的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Entitas-CSharp"><span class="toc-number">3.</span> <span class="toc-text">3.Entitas-CSharp</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -500,7 +422,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/game-frame-2.html",
+  id: "https://yanchezuo.com/essay-2.html",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
