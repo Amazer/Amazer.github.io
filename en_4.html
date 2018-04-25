@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-18T06:15:30.152Z">
+<meta property="og:updated_time" content="2018-04-25T11:44:16.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之一：windows游戏运行框架">
 <meta name="twitter:description" content="1.工程配置 配置为win32应用程序  注意，不是console控制台程序。console控制台程序基于dos,没有窗口。win32应用程序是标准的windows事件响应的程序。">
@@ -230,7 +230,7 @@
 <li><strong>注意：将引用的dx目录放到所有引用的最前面</strong>，以免引用到工程默认配置的东西</li>
 <li>要include dxsdk的include。路径：dxsdk安装目录/Include</li>
 <li>要依赖dxsdkd lib库。路径: dxsdk安装目录/Lib/x86<br> 这里使用的是x86的库</li>
-<li>手动包含用到的库,避免找不到库<br> 《windows编程大师技巧》中:ddraw.lib dinput.lib dinput8.lib dsound.lib d3dim.lib dxguid.lib winmm.lib<br> 《3D游戏编程大师技巧》中: ddraw.lib dinput.lib dinput8.lib dsound.lib winmm.lib</li>
+<li>手动包含用到的库,避免找不到库<br> 《windows编程大师技巧》中:ddraw.lib dinput.lib dinput8.lib dsound.lib d3dim.lib <strong>dxguid.lib</strong> winmm.lib<br> 《3D游戏编程大师技巧》中: ddraw.lib dinput.lib dinput8.lib dsound.lib winmm.lib (<strong>dxguid.lib</strong>)<br> <strong>dxguid.lib</strong>应该是包含了dx com组件的guid。要使用dx,这个库是必须要包含的</li>
 </ol>
 </li>
 </ul>
@@ -724,15 +724,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">3D</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
               </li>
             
             <div class="clearfix"></div>
