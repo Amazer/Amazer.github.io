@@ -23,8 +23,9 @@ tags: ['引擎笔记','笔记']
     2. 要依赖dxsdkd lib库。路径: dxsdk安装目录/Lib/x86
         这里使用的是x86的库
     3. 手动包含用到的库,避免找不到库
-        《windows编程大师技巧》中:ddraw.lib dinput.lib dinput8.lib dsound.lib d3dim.lib dxguid.lib winmm.lib
-        《3D游戏编程大师技巧》中: ddraw.lib dinput.lib dinput8.lib dsound.lib winmm.lib
+        《windows编程大师技巧》中:ddraw.lib dinput.lib dinput8.lib dsound.lib d3dim.lib **dxguid.lib** winmm.lib
+        《3D游戏编程大师技巧》中: ddraw.lib dinput.lib dinput8.lib dsound.lib winmm.lib (**dxguid.lib**)
+        **dxguid.lib**应该是包含了dx com组件的guid。要使用dx,这个库是必须要包含的
 
 #### 2.创建Windows窗口
 
