@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://yanchezuo.com">
   <title>[引擎笔记]之八：深入文本和字体 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.知识要点 用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
-<meta name="keywords" content="引擎笔记,笔记">
+  <meta name="description" content="1.知识要点 1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
+<meta name="keywords" content="笔记,引擎笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[引擎笔记]之八：深入文本和字体">
 <meta property="og:url" content="https://yanchezuo.com/en-16.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.知识要点 用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
+<meta property="og:description" content="1.知识要点 1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-25T12:44:55.861Z">
+<meta property="og:updated_time" content="2018-04-26T05:47:35.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之八：深入文本和字体">
-<meta name="twitter:description" content="1.知识要点 用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
+<meta name="twitter:description" content="1.知识要点 1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -219,13 +219,12 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-知识要点"><a href="#1-知识要点" class="headerlink" title="1.知识要点"></a>1.知识要点</h3><ol>
-<li>用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。</li>
-</ol>
+        <h3 id="1-知识要点"><a href="#1-知识要点" class="headerlink" title="1.知识要点"></a>1.知识要点</h3><ul>
+<li>1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。</li>
+</ul>
 <a id="more"></a>
-<ol start="2">
-<li><p>选定系统中已有的字体：<br> SelectObject(hdc,GetStockObject(SYSTEM_FIXED_FONT);<br> 将SYSTEM_FIXED_FONT字体作为之后文本的字体。</p>
-<p> 系统内置TrueType字体字样名;</p>
+<ul>
+<li><p>2.选定系统中已有的字体：<br>  SelectObject(hdc,GetStockObject(SYSTEM_FIXED_FONT);<br>  将SYSTEM_FIXED_FONT字体作为之后文本的字体。<br>  系统内置TrueType字体字样名;</p>
 <ul>
 <li>Courier New</li>
 <li>Courier New Blod</li>
@@ -242,12 +241,12 @@
 <li>Symbol</li>
 </ul>
 </li>
-<li><p>创建字体函数CreateFont():(p125)</p>
+</ul>
+<ul>
+<li><p>3.创建字体函数CreateFont():(p125)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">HFONT CreateFont(int nHeight,           // </span><br><span class="line">            int nWidth,</span><br><span class="line">            int nEscapement,</span><br><span class="line">            int nOrientation,</span><br><span class="line">            int fnWeight,</span><br><span class="line">            DWORD fdwItalic,</span><br><span class="line">            DWORD fwdUnderline,</span><br><span class="line">            DWORD fwdStrikeOut,</span><br><span class="line">            DWORD fwdCharSet,</span><br><span class="line">            DWORD fwdOutputPrecision,</span><br><span class="line">            DWORD fwdClipPercisiion,</span><br><span class="line">            DWORD fwdQuality,</span><br><span class="line">            DWORD fwdPitchAndFamily,</span><br><span class="line">            LPCTSTR lpszFace);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>字符的构成:(p140)</p>
-</li>
-</ol>
+<li><p>4.字符的构成:(p140)</p>
 <ul>
 <li>高度                  : 字符总高度(单位是像素)</li>
 <li>基线                  : 大写字符的底线</li>
@@ -256,10 +255,13 @@
 <li>内部插入的空行        : 留给重音符号的像素数</li>
 <li>外部插入的空行        : 在该字符上面允许插入的其他字符的像素数</li>
 </ul>
-<ol start="5">
+</li>
+<li><ol start="5">
 <li>获取GDI正在使用的字体信息：GetTextMetrics()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BOOL GetTextMetrics(HDC hdc,</span><br><span class="line">        LPTEXTMETRIC lptm);     // 接收TextMetric的结构</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+</li>
+</ul>
 <p>TEXTMETRIC结构体重包含了所有字体的信息。<br><strong>作者：真是个聪明的小函数呀！</strong>(皮这一下很开心)</p>
 <p>居中文本实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TEXTMETRIC tm;</span><br><span class="line">GetTextMetrics(hdc,&amp;tm);</span><br><span class="line"></span><br><span class="line">int x_pos=WINDOW_WIDTH-</span><br><span class="line">        strlen(&quot;Hello world&quot;)*tm.tmAveCharWidth/2;</span><br><span class="line"></span><br><span class="line">TextOut(hdc,x_pos,&quot;Hello world&quot;,strlen(&quot;Hello world&quot;));</span><br></pre></td></tr></table></figure></p>
 
@@ -335,11 +337,11 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
         		</li>
       		
 		</ul>
@@ -419,6 +421,15 @@ div.article-footer-copyright {
 
   
 <nav id="article-nav">
+  
+    <a href="/en-17.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [引擎笔记]之九：GDI控件使用
+        
+      </div>
+    </a>
   
   
     <a href="/en-15.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -663,7 +674,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">c#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,7 +682,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">c#</a>
+                <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
               </li>
              
               <li class="article-tag-list-item">
