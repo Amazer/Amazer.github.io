@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>Archives: 2018 | 延澈左的博客</title>
+  <title>[Shader]模型沙粒化 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="延澈左的博客">
-<meta property="og:url" content="https://yanchezuo.com/archives/2018/page/3/index.html">
+  <meta name="description" content="参考文章。 1.知识要点">
+<meta name="keywords" content="shader,特效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Shader]模型沙粒化">
+<meta property="og:url" content="https://yanchezuo.com/shader-sand.html">
 <meta property="og:site_name" content="延澈左的博客">
+<meta property="og:description" content="参考文章。 1.知识要点">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-03T06:40:32.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="延澈左的博客">
+<meta name="twitter:title" content="[Shader]模型沙粒化">
+<meta name="twitter:description" content="参考文章。 1.知识要点">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -156,525 +161,301 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-shader-sand" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [Shader]模型沙粒化
+    </h1>
+  
+
+<!--
+#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
+# span 给的 id 是文章的 url 作为唯一的 key 值
+-->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/shader-sand.html" class="pageViews">0</span>次
+  </a>
+
+
+        
+        <a href="/shader-sand.html" class="archive-article-date">
+  	<time datetime="2018-05-03T05:28:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
+</a>
+        
+      </header>
+    
+
+<!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识要点"><span class="toc-number">1.</span> <span class="toc-text">1.知识要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改实例：模型沙粒化掉落效果"><span class="toc-number">2.</span> <span class="toc-text">2.修改实例：模型沙粒化掉落效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-效果如下"><span class="toc-number">3.</span> <span class="toc-text">3.效果如下:</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考<a href="http://m.manew.com/thread-114135-1-1.html" target="_blank" rel="noopener">文章</a>。</p>
+<h2 id="1-知识要点"><a href="#1-知识要点" class="headerlink" title="1.知识要点"></a>1.知识要点</h2><a id="more"></a>
+<ol>
+<li><a href="http://blog.sina.com.cn/s/blog_471132920102w93f.html" target="_blank" rel="noopener">geometry shader</a><br> 基于 shader model 4.0的Geometry shader.<br> Vertex -&gt; Geometry -&gt; Fragment<br><a href="https://docs.unity3d.com/Manual/SL-ShaderPrograms.html" target="_blank" rel="noopener">#pragma geometr</a>:dx10及以上，可以使用。#pragma target 4.0会自动开启。</li>
+<li><a href="https://www.cnblogs.com/lancidie/archive/2011/08/18/2144714.html" target="_blank" rel="noopener">Shader Model 4.0</a><br>DX10中加入的新特性，引入Geometry shader,可以操纵图元。 </li>
+</ol>
+<h2 id="2-修改实例：模型沙粒化掉落效果"><a href="#2-修改实例：模型沙粒化掉落效果" class="headerlink" title="2.修改实例：模型沙粒化掉落效果"></a>2.修改实例：模型沙粒化掉落效果</h2><p>1.确保Unity PlayerSetting -&gt; Graphics APIs (for Windows)选择的了Direct3D10以上，并且在第一个。</p>
+<p>2.shader代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;YanCheZuo/geomSandShader&quot;</span><br><span class="line">&#123;</span><br><span class="line">	Properties</span><br><span class="line">	&#123;</span><br><span class="line">		_MainTex (&quot;Texture&quot;, 2D) = &quot;white&quot; &#123;&#125;</span><br><span class="line">		_Speed(&quot;Speed&quot;, Float) = -3</span><br><span class="line">		_AccelerationValue(&quot;AccelerationValue&quot;, Float) = 10</span><br><span class="line">		_FloorY(&quot;Floor Y&quot;,Float) = -0.5</span><br><span class="line">		_ExploSpeed(&quot;ExploSpeed&quot;,Float) = 0.4			// 风化速度</span><br><span class="line">	&#125;</span><br><span class="line">	SubShader</span><br><span class="line">	&#123;</span><br><span class="line">		Tags &#123; &quot;RenderType&quot;=&quot;Opaque&quot; &#125;</span><br><span class="line">		LOD 100</span><br><span class="line"></span><br><span class="line">		Pass</span><br><span class="line">		&#123;</span><br><span class="line">			CGPROGRAM</span><br><span class="line">			#pragma vertex vert</span><br><span class="line">			#pragma fragment frag</span><br><span class="line">			#pragma geometry geom</span><br><span class="line">			</span><br><span class="line">			#include &quot;UnityCG.cginc&quot;</span><br><span class="line"></span><br><span class="line">			struct appdata</span><br><span class="line">			&#123;</span><br><span class="line">				float4 vertex : POSITION;</span><br><span class="line">				float2 uv : TEXCOORD0;</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">			struct v2g</span><br><span class="line">			&#123;</span><br><span class="line">				float2 uv : TEXCOORD0;</span><br><span class="line">				float4 vertex : POSITION;</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">			struct g2f</span><br><span class="line">			&#123;</span><br><span class="line">				float2 uv : TEXCOORD0;</span><br><span class="line">				float4 vertex : SV_POSITION;</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">			sampler2D _MainTex;</span><br><span class="line"></span><br><span class="line">			float _Speed;</span><br><span class="line">			float _AccelerationValue;</span><br><span class="line">			float _StartTime;</span><br><span class="line">			float _FloorY;</span><br><span class="line">			float _ExploSpeed;</span><br><span class="line">			</span><br><span class="line">			v2g vert (appdata v)</span><br><span class="line">			&#123;</span><br><span class="line">				v2g o;</span><br><span class="line">				o.vertex = v.vertex;</span><br><span class="line">				o.uv = v.uv;</span><br><span class="line">				return o;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			[maxvertexcount(1)]</span><br><span class="line">			void geom(triangle v2g IN[3], inout PointStream&lt;g2f&gt; pointStream)</span><br><span class="line">			&#123;</span><br><span class="line">				g2f o;</span><br><span class="line"></span><br><span class="line">				float3 v1 = IN[1].vertex - IN[0].vertex;</span><br><span class="line">				float3 v2 = IN[2].vertex - IN[0].vertex;</span><br><span class="line"></span><br><span class="line">				float3 norm = normalize(cross(v1, v2));</span><br><span class="line"></span><br><span class="line">				float3 tempPos = (IN[0].vertex + IN[1].vertex + IN[2].vertex) / 3;</span><br><span class="line"></span><br><span class="line">				float realTime = _Time.y - _StartTime;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				// 修改</span><br><span class="line">				float3 worldPos = mul(unity_ObjectToWorld, tempPos).xyz;			// 获取顶点的世界坐标</span><br><span class="line">				worldPos.y -= _Speed * realTime + .5 * _AccelerationValue * pow(realTime, 2);</span><br><span class="line"></span><br><span class="line">				if(_FloorY&lt;worldPos.y)</span><br><span class="line">				&#123;</span><br><span class="line">					tempPos -= norm * (_ExploSpeed * realTime);</span><br><span class="line">					worldPos = mul(unity_ObjectToWorld, tempPos).xyz;			// 再算一次顶点的世界坐标</span><br><span class="line">					worldPos.y -= _Speed * realTime + .5 * _AccelerationValue * pow(realTime, 2);</span><br><span class="line">				&#125;</span><br><span class="line">				else</span><br><span class="line">				&#123;</span><br><span class="line">					worldPos.y = max(_FloorY, worldPos.y);</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				tempPos = mul(unity_WorldToObject, worldPos).xyz;</span><br><span class="line"></span><br><span class="line">				o.vertex = UnityObjectToClipPos(tempPos);</span><br><span class="line"></span><br><span class="line">				o.uv = (IN[0].uv + IN[1].uv + IN[2].uv) / 3;</span><br><span class="line"></span><br><span class="line">				pointStream.Append(o);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			fixed4 frag (g2f i) : SV_Target</span><br><span class="line">			&#123;</span><br><span class="line">				fixed4 col = tex2D(_MainTex, i.uv);</span><br><span class="line">				return col;</span><br><span class="line">			&#125;</span><br><span class="line">			ENDCG</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>：</p>
+<h2 id="3-效果如下"><a href="#3-效果如下" class="headerlink" title="3.效果如下:"></a>3.效果如下:</h2><iframe width="540" height="440" src="img/blog/sand_gif.gif">
+
+</iframe>
+      
+
+<!-- 版权内容-->
+    
             
-  
-  
+<! -- 添加版权信息 -->
+<style type="text/css">
+div.article-footer-copyright{
+   border-top:1px solid #d3d3d3;
+   margin: 20px auto;     
+   padding-left:2em;
+   width: 80%;
+}
+div.article-footer-copyright span,.copyright abbr{
+  color:#3d3d3d;
+}
+div.article-footer-copyright{
+	margin-top:2em;
+	padding:1.5em;
+	border:1px solid #d3d3d3;
+	background-color:#DEEBF7;
+}
+div.article-footer-copyright {
+	line-height: 160%;
+	margin: 10px;
+	font-size: 90%;
+    color: #A3A3A3
+}
+</style>
+<br>
+<div class="article-footer-copyright">
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/shader-sand.html" target="_blank" title="[Shader]模型沙粒化">[Shader]模型沙粒化</a></b></center>
+
+<center>本文链接为<b><a href="/shader-sand.html" target="_blank" title="[Shader]模型沙粒化">https://yanchezuo.com/shader-sand.html</a></b></center>
+
+</div>
+<! -- 添加版权信息 -->
+
     
-    
+<!--版权内容结束-->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持~~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-2.html" class="archive-article-date">
-  	<time datetime="2018-04-04T11:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-2.html">hexo yalia主题添加文章阅读量-小白适用</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/hexo-2.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/en_4.html" class="archive-article-date">
-  	<time datetime="2018-04-03T07:12:51.796Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/en_4.html">[引擎笔记]之一：windows游戏运行框架</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en_4.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">shader</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">特效</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo_1.html" class="archive-article-date">
-  	<time datetime="2018-04-02T09:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo_1.html">hexo添加版权信息</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/hexo_1.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/essay-1.html" class="archive-article-date">
-  	<time datetime="2018-04-02T07:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/essay-1.html">hexo常用命令</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/essay-1.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/en_3.html" class="archive-article-date">
-  	<time datetime="2018-04-02T06:20:37.698Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/en_3.html">[引擎]之三:在Unity3D中自定义CubeMesh</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en_3.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
+        			<a href="/categories/Unity//" class="article-tag-list-link color1">Unity</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/shader-sand.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/en_2.html" class="archive-article-date">
-  	<time datetime="2018-04-02T06:12:48.226Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/en-18.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之十：获取系统信息</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/en_2.html">[引擎]之二：Unity中查看简单mesh顶点顺序的小工具</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en_2.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mesh</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识要点"><span class="toc-number">1.</span> <span class="toc-text">1.知识要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改实例：模型沙粒化掉落效果"><span class="toc-number">2.</span> <span class="toc-text">2.修改实例：模型沙粒化掉落效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-效果如下"><span class="toc-number">3.</span> <span class="toc-text">3.效果如下:</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/en_1.html" class="archive-article-date">
-  	<time datetime="2018-04-02T05:40:43.946Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/en_1.html">[引擎]之一：mesh在Unity中的简单使用</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en_1.html" class="pageViews">0</span>次
-  </a>
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/math_1.html" class="archive-article-date">
-  	<time datetime="2018-04-02T05:25:50.284Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/math_1.html">3D向量叉乘的理解和记忆</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/math_1.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/引擎//" class="article-tag-list-link color3">引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/u3d1.html" class="archive-article-date">
-  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/u3d1.html">[Unity3D]之Unity3D花屏问题解决</a>
-    </h1>
-  
-
-<!--
-#上面是 yilia 主题的标题 下面是我自己添加的阅读量 html 代码
-# span 给的 id 是文章的 url 作为唯一的 key 值
--->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/u3d1.html" class="pageViews">0</span>次
-  </a>
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
+
+  
+
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://yanchezuo.com/shader-sand.html",
+  owner: 'Amazer',
+  repo: 'BlogComments',
+  oauth: {
+    client_id: 'e1e268a29dfa6b73a2d2',
+    client_secret: 'c1512e5e5a9f54a5165e7a860a28a1621ff2df4f',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
+
 
 
 
@@ -698,8 +479,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
