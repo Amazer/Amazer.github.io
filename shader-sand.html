@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="参考文章。 1.知识要点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-03T06:48:57.790Z">
+<meta property="og:updated_time" content="2018-05-03T10:40:57.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Shader]模型沙粒化">
 <meta name="twitter:description" content="参考文章。 1.知识要点">
@@ -222,7 +222,7 @@
         <p>参考<a href="http://m.manew.com/thread-114135-1-1.html" target="_blank" rel="noopener">文章</a>。</p>
 <h2 id="1-知识要点"><a href="#1-知识要点" class="headerlink" title="1.知识要点"></a>1.知识要点</h2><a id="more"></a>
 <ol>
-<li><a href="http://blog.sina.com.cn/s/blog_471132920102w93f.html" target="_blank" rel="noopener">geometry shader</a><br> 基于 shader model 4.0的Geometry shader.<br> Vertex -&gt; Geometry -&gt; Fragment<br><a href="https://docs.unity3d.com/Manual/SL-ShaderPrograms.html" target="_blank" rel="noopener">#pragma geometr</a>:dx10及以上，可以使用。#pragma target 4.0会自动开启。</li>
+<li><a href="http://blog.sina.com.cn/s/blog_471132920102w93f.html" target="_blank" rel="noopener">geometry shader</a><br> 基于 shader model 4.0的Geometry shader.<br> Vertex -&gt; Geometry -&gt; Fragment<br><a href="https://docs.unity3d.com/Manual/SL-ShaderPrograms.html" target="_blank" rel="noopener">#pragma geometry</a>:dx10及以上，可以使用。#pragma target 4.0会自动开启。</li>
 <li><a href="https://www.cnblogs.com/lancidie/archive/2011/08/18/2144714.html" target="_blank" rel="noopener">Shader Model 4.0</a><br>DX10中加入的新特性，引入Geometry shader,可以操纵图元。 </li>
 </ol>
 <h2 id="2-修改实例：模型沙粒化掉落效果"><a href="#2-修改实例：模型沙粒化掉落效果" class="headerlink" title="2.修改实例：模型沙粒化掉落效果"></a>2.修改实例：模型沙粒化掉落效果</h2><p>1.确保Unity PlayerSetting -&gt; Graphics APIs (for Windows)选择的了Direct3D10以上，并且在第一个。</p>
