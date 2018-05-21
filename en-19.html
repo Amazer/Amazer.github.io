@@ -9,14 +9,14 @@
   <title>[引擎笔记]之十一：创建DirectDraw | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0.依赖 dxguid.lib ddraw.lib">
-<meta name="keywords" content="笔记,引擎笔记">
+<meta name="keywords" content="引擎笔记,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[引擎笔记]之十一：创建DirectDraw">
 <meta property="og:url" content="https://yanchezuo.com/en-19.html">
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="0.依赖 dxguid.lib ddraw.lib">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-05T10:37:04.137Z">
+<meta property="og:updated_time" content="2018-05-21T06:01:54.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之十一：创建DirectDraw">
 <meta name="twitter:description" content="0.依赖 dxguid.lib ddraw.lib">
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-依赖"><span class="toc-number">1.</span> <span class="toc-text">0.依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-DirectDraw接口介绍"><span class="toc-number">2.</span> <span class="toc-text">1.DirectDraw接口介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建DirectDraw应用程序的步骤"><span class="toc-number">3.</span> <span class="toc-text">2.创建DirectDraw应用程序的步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数介绍"><span class="toc-number">4.</span> <span class="toc-text">3.函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建DirectDraw对象"><span class="toc-number">4.1.</span> <span class="toc-text">1.创建DirectDraw对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-函数DirectDrawCreateEx"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.函数DirectDrawCreateEx()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-对错误进行处理"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.对错误进行处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-释放接口"><span class="toc-number">4.1.3.</span> <span class="toc-text">3.释放接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-示例代码"><span class="toc-number">4.1.4.</span> <span class="toc-text">4.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-DirectDraw与Windows协作"><span class="toc-number">4.2.</span> <span class="toc-text">2.DirectDraw与Windows协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-设置协作模式"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.设置协作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-示例代码"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DirectDraw设置显卡模式"><span class="toc-number">4.3.</span> <span class="toc-text">3.DirectDraw设置显卡模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建调色板"><span class="toc-number">4.4.</span> <span class="toc-text">4.创建调色板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-创建调色板项"><span class="toc-number">4.4.1.</span> <span class="toc-text">1.创建调色板项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建调色板"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.创建调色板</span></a></li></ol></li></ol></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-依赖"><span class="toc-number">1.</span> <span class="toc-text">0.依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-DirectDraw接口介绍"><span class="toc-number">2.</span> <span class="toc-text">1.DirectDraw接口介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建DirectDraw应用程序的步骤"><span class="toc-number">3.</span> <span class="toc-text">2.创建DirectDraw应用程序的步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数介绍"><span class="toc-number">4.</span> <span class="toc-text">3.函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建DirectDraw对象"><span class="toc-number">4.1.</span> <span class="toc-text">1.创建DirectDraw对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-函数DirectDrawCreateEx"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.函数DirectDrawCreateEx()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-对错误进行处理"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.对错误进行处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-释放接口"><span class="toc-number">4.1.3.</span> <span class="toc-text">3.释放接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-示例代码"><span class="toc-number">4.1.4.</span> <span class="toc-text">4.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-DirectDraw与Windows协作"><span class="toc-number">4.2.</span> <span class="toc-text">2.DirectDraw与Windows协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-设置协作模式"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.设置协作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-示例代码"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DirectDraw设置显卡模式"><span class="toc-number">4.3.</span> <span class="toc-text">3.DirectDraw设置显卡模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建调色板"><span class="toc-number">4.4.</span> <span class="toc-text">4.创建调色板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-创建调色板项"><span class="toc-number">4.4.1.</span> <span class="toc-text">1.创建调色板项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建调色板"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.创建调色板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建显示表面"><span class="toc-number">4.4.3.</span> <span class="toc-text">3.创建显示表面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建显示表面步骤"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">1.创建显示表面步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建显示表面示例代码"><span class="toc-number">4.4.3.2.</span> <span class="toc-text">2.创建显示表面示例代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-关联调色板"><span class="toc-number">4.4.4.</span> <span class="toc-text">4.关联调色板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-绘制像素"><span class="toc-number">4.5.</span> <span class="toc-text">5.绘制像素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-显示内存video-buffer的获取：ddsd-lpSurface"><span class="toc-number">4.5.1.</span> <span class="toc-text">1. 显示内存video_buffer的获取：ddsd.lpSurface</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-内存间距-memory-pitch"><span class="toc-number">4.5.2.</span> <span class="toc-text">2. 内存间距(memory_pitch)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-像素格式"><span class="toc-number">4.5.3.</span> <span class="toc-text">3. 像素格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-LOCK：加锁和解锁"><span class="toc-number">4.5.4.</span> <span class="toc-text">4. LOCK：加锁和解锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-绘制像素的函数"><span class="toc-number">4.5.5.</span> <span class="toc-text">5. 绘制像素的函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-清理资源"><span class="toc-number">4.6.</span> <span class="toc-text">6.清理资源</span></a></li></ol></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -351,8 +351,212 @@
 <h3 id="4-创建调色板"><a href="#4-创建调色板" class="headerlink" title="4.创建调色板"></a>4.创建调色板</h3><p>创建256色调色板的步骤：<br>1.创建调色板数组：大小为256，类型为<strong>PALETTEENTRY</strong>调色板项的数组<br>2.创建调色板对象IDirectDrawPalette。将直接映射到VGA调色板寄存器<br>3.将调色板对象关联到绘图表面(显示表面)<br>4.(可选)改变调色板项或整个调色板</p>
 <h4 id="1-创建调色板项"><a href="#1-创建调色板项" class="headerlink" title="1.创建调色板项"></a>1.创建调色板项</h4><p>调色板项PALETEEENTRY原型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagPALETTEENTRY</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   BYTE peRed;             <span class="comment">// red 8-bit</span></span><br><span class="line">   BYTE peGreen;           <span class="comment">// green 8-bit</span></span><br><span class="line">   BYTE peBlue;            <span class="comment">// blue 8-bit</span></span><br><span class="line">   BYTE peFlags;           <span class="comment">// 控制标记，设置为 PC_NOCOLLAPSE,禁止win32/dx优化调色项</span></span><br><span class="line">&#125;PALETTEENTRY;</span><br></pre></td></tr></table></figure></p>
 <p>创建的256色调色板，一般第0项为黑色，第255项为白色。<br>示随机颜色调色板例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">PALETEENTRY palette[<span class="number">256</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">255</span>;++i)</span><br><span class="line">&#123;</span><br><span class="line">    paletee[i].peRed=rand()%<span class="number">256</span>;</span><br><span class="line">    paletee[i].peGreen=rand()%<span class="number">256</span>;</span><br><span class="line">    paletee[i].peBlue=rand()%<span class="number">256</span>;</span><br><span class="line">    paletee[i].peFlags=PC_NOCOLLAPSE;</span><br><span class="line">&#125;</span><br><span class="line">palette[<span class="number">0</span>].peRed=<span class="number">0</span>;</span><br><span class="line">palette[<span class="number">0</span>].peGreen=<span class="number">0</span>;</span><br><span class="line">palette[<span class="number">0</span>].peBlue=<span class="number">0</span>;</span><br><span class="line">paletee[<span class="number">0</span>].peFlags=PC_NOCOLLAPSE;</span><br><span class="line"></span><br><span class="line">palette[<span class="number">255</span>].peRed=<span class="number">255</span>;</span><br><span class="line">palette[<span class="number">255</span>].peGreen=<span class="number">255</span>;</span><br><span class="line">palette[<span class="number">255</span>].peBlue=<span class="number">255</span>;</span><br><span class="line">paletee[<span class="number">255</span>].peFlags=PC_NOCOLLAPSE;</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-创建调色板"><a href="#2-创建调色板" class="headerlink" title="2.创建调色板"></a>2.创建调色板</h4><p>创建IDirectDrawPalette实例，使用函数：<br>IDirectDraw7::CreatePalette()原型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HRESULT CreatePalette(DWORD dwFlags,</span><br><span class="line">        LPPALETTEENTRY lpColorTable,</span><br><span class="line">        LPDIRECTDRAWPALETTE FAR * lplpDDPalette,</span><br><span class="line">        IUnKnow FAR *pUnkOuter);</span><br></pre></td></tr></table></figure></p>
-<p>page 184 待续…</p>
+<h4 id="2-创建调色板"><a href="#2-创建调色板" class="headerlink" title="2.创建调色板"></a>2.创建调色板</h4><p>创建IDirectDrawPalette实例，使用函数：<br>IDirectDraw7::CreatePalette()原型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">CreatePalette</span><span class="params">(DWORD dwFlags,</span></span></span><br><span class="line"><span class="function"><span class="params">        LPPALETTEENTRY lpColorTable,                <span class="comment">// 调色项表</span></span></span></span><br><span class="line"><span class="function"><span class="params">        LPDIRECTDRAWPALETTE FAR * lplpDDPalette,</span></span></span><br><span class="line"><span class="function"><span class="params">        IUnKnow FAR *pUnkOuter)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<center>dwFlags控制标记表</center>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDPCAPS_1BIT</td>
+<td style="text-align:left">1-位色彩。色彩表包含2项</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_2BIT</td>
+<td style="text-align:left">2-位色彩。色彩表包含4项</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_4BIT</td>
+<td style="text-align:left">4-位色彩。色彩表包含16项</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_8BIT</td>
+<td style="text-align:left">8-位色彩。色彩表包含256项</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_8BITENTRIES</td>
+<td style="text-align:left">用于一个称为索引调色板(indexed palette)的高级特性，适用于1、2和4位调色板</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_ALPHA</td>
+<td style="text-align:left">高级性能。将PALETTEENTRY中的pfFlags翻译成一个控制透明度的8位alpha值。这个标记创建的调色板只能配置到一个用DDSCAPS_TEXTURE性能标记创建的D3D文理表面</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_ALLOW256</td>
+<td style="text-align:left">调色板可以定义所有256项内容。正常情况下，0项和255项分别相应的接收黑和白。</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_INITIALIZE</td>
+<td style="text-align:left">用lpDDColorArray传递的色彩数组中的色彩初始化调色板。使得调色板数据能被传递并下载到硬件调色板</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_PRIMARYSURFACE</td>
+<td style="text-align:left">这个调色板将配置到主显示表面。改变调色板的色表会立即影响显示，除非DDPSETPAL_VSYNC是特定的值并受支持的</td>
+</tr>
+<tr>
+<td style="text-align:left">DDPCAPS_VSYNC</td>
+<td style="text-align:left">强调调色板更新只能在垂直同步的空白期间执行。最小化色彩异常和闪烁。不过还未获完全支持</td>
+</tr>
+</tbody>
+</table>
+<p><strong>8位调色板</strong>需要的控制标记是 DDPCAPS_8BIT|DDPCAPS_ALLOW256|DDPCAPS_INITIALIZE</p>
+<p>创建调色板的示例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LPDIRECTDRAWPALETTE lpddpal =<span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">if</span>(FAILED(lpdd-&gt;CreatePalette(DDPCAPS_8BIT|DDPCAPS_ALLOW256|DDPCAPS_INITIALIZE,</span><br><span class="line">                            palette,</span><br><span class="line">                            &amp;lpddpal,</span><br><span class="line">                        <span class="literal">NULL</span>)))</span><br><span class="line">&#123;</span><br><span class="line">            <span class="comment">// error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-创建显示表面"><a href="#3-创建显示表面" class="headerlink" title="3.创建显示表面"></a>3.创建显示表面</h4><p>显示在屏幕上图像只不过是以某种格式存储在内存中的有色像素组成的矩阵。<br>DirectDraw的设计者将显存的概念予以抽象，从而使得无论用什么显卡，访问视频表面的方法都是一样的。因此，DirectDraw支持显示表面(Surface)。</p>
+<p><strong>显示表面</strong>是能存储位图数据的<strong>矩形内存区域</strong>。</p>
+<p><strong>主显示表面</strong>：被光栅化的实际显存，任何时候都是可见的。指向屏幕图像并常驻VRAM或系统中。只能有一个。<br><strong>从显示表面</strong>：可以有多个。和主显示表面有同样的色彩深度和几何分步。使用下一帧的动画离屏渲染，然后拷贝或者用换页技术奖离屏面切换到主显示面。也可以保存你的位图图像和游戏中表示对象的动画。</p>
+<h5 id="1-创建显示表面步骤"><a href="#1-创建显示表面步骤" class="headerlink" title="1.创建显示表面步骤"></a>1.创建显示表面步骤</h5><ol>
+<li>填充一个DDSURFACEDESC2数据结构，用于描述创建的显示表面</li>
+<li>调用IDirectDraw7::CreateSurface()来创建显示表面</li>
+</ol>
+<p>1.CreateSurface()函数原型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">CreateSurface</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    LPDDSURFACEDESC2 lpDDSurfaceDesc2,          <span class="comment">// 显示表面描述</span></span></span></span><br><span class="line"><span class="function"><span class="params">    LPDIRECTDRAWSURFACE4 FAR *lplpDDSurface,    <span class="comment">// 显示表面</span></span></span></span><br><span class="line"><span class="function"><span class="params">    IUnknow Far *pUnOuter)</span></span>;                     <span class="comment">// 设置为NULL</span></span><br></pre></td></tr></table></figure></p>
+<p>2.DDSURFACEDESC2描述结构</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">DDSURFACEDESC2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    DWORD               dwSize;                 <span class="comment">// size of the DDSURFACEDESC structure</span></span><br><span class="line">    DWORD               dwFlags;                <span class="comment">// determines what fields are valid</span></span><br><span class="line">    DWORD               dwHeight;               <span class="comment">// height of surface to be created</span></span><br><span class="line">    DWORD               dwWidth;                <span class="comment">// width of input surface</span></span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    &#123;</span><br><span class="line">        LONG            lPitch;                 <span class="comment">// distance to start of next line (return value only)</span></span><br><span class="line">        DWORD           dwLinearSize;           <span class="comment">// Formless late-allocated optimized surface size</span></span><br><span class="line">    &#125; DUMMYUNIONNAMEN(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    &#123;</span><br><span class="line">        DWORD           dwBackBufferCount;      <span class="comment">// number of back buffers requested</span></span><br><span class="line">        DWORD           dwDepth;                <span class="comment">// the depth if this is a volume texture </span></span><br><span class="line">    &#125; DUMMYUNIONNAMEN(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    &#123;</span><br><span class="line">        DWORD           dwMipMapCount;          <span class="comment">// number of mip-map levels requestde</span></span><br><span class="line">                                                <span class="comment">// dwZBufferBitDepth removed, use ddpfPixelFormat one instead</span></span><br><span class="line">        DWORD           dwRefreshRate;          <span class="comment">// refresh rate (used when display mode is described)</span></span><br><span class="line">        DWORD           dwSrcVBHandle;          <span class="comment">// The source used in VB::Optimize</span></span><br><span class="line">    &#125; DUMMYUNIONNAMEN(<span class="number">2</span>);</span><br><span class="line">    DWORD               dwAlphaBitDepth;        <span class="comment">// depth of alpha buffer requested</span></span><br><span class="line">    DWORD               dwReserved;             <span class="comment">// reserved</span></span><br><span class="line">    LPVOID              lpSurface;              <span class="comment">// pointer to the associated surface memory</span></span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    &#123;</span><br><span class="line">        DDCOLORKEY      ddckCKDestOverlay;      <span class="comment">// color key for destination overlay use</span></span><br><span class="line">        DWORD           dwEmptyFaceColor;       <span class="comment">// Physical color for empty cubemap faces</span></span><br><span class="line">    &#125; DUMMYUNIONNAMEN(<span class="number">3</span>);</span><br><span class="line">    DDCOLORKEY          ddckCKDestBlt;          <span class="comment">// color key for destination blt use</span></span><br><span class="line">    DDCOLORKEY          ddckCKSrcOverlay;       <span class="comment">// color key for source overlay use</span></span><br><span class="line">    DDCOLORKEY          ddckCKSrcBlt;           <span class="comment">// color key for source blt use</span></span><br><span class="line">    <span class="keyword">union</span></span><br><span class="line">    &#123;</span><br><span class="line">        DDPIXELFORMAT   ddpfPixelFormat;        <span class="comment">// pixel format description of the surface</span></span><br><span class="line">        DWORD           dwFVF;                  <span class="comment">// vertex format description of vertex buffers</span></span><br><span class="line">    &#125; DUMMYUNIONNAMEN(<span class="number">4</span>);</span><br><span class="line">    DDSCAPS2            ddsCaps;                <span class="comment">// direct draw surface capabilities</span></span><br><span class="line">    DWORD               dwTextureStage;         <span class="comment">// stage in multitexture cascade</span></span><br><span class="line">&#125; DDSURFACEDESC2;</span><br></pre></td></tr></table></figure>
+<p>其中几个关键的字段的具体功能如下：</p>
+<ul>
+<li><p><strong>dwsize</strong>:所有的DirectX数据结构里面最重要的一个字段。很多DirectX数据结构都是通过地址传递的。因此，先通过dwsize设置数据结构的大小，接收函数就知道传过来的内容有多少数据需要处理了。<br>  举例：</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DDSURFACEDESC2 ddsd;</span><br><span class="line">ddsd.size=<span class="keyword">sizeof</span>(DDSURFACEDESC2);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dwFlags:用于指定，把有效数据填充到哪个字段。<br>  举例：</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ddsd.dwFlags=DDSD_WIDTH|DDSD_HEIGHT;</span><br></pre></td></tr></table></figure>
+<p>  表明dwWidth和dwHeight字段是有效数据。<br>  可选标志的命名规则是<strong>DDSD_XXX</strong></p>
+</li>
+<li>dwWidth:像素计数的宽度</li>
+<li>dwHeight:像素计数的高度</li>
+<li><p><strong>lPitch</strong>:所在显示模式的水平内存跨距。该显示模式中每行的字节数。(详细内容在page 188)<br>  注意，lPitch可能不等于设置的显示模式的水平分辨率。</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 8位颜色模式下，使用示例</span></span><br><span class="line">ddsd.lpSurface[x+y*ddsd.lPitch]=color;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lpSurface:指向所创建的显示表面所驻留的实际内存的指针。</p>
+</li>
+<li>dwBackBufferCount:设置或者是读取后备缓冲或主显示表面的二级从属离屏切换缓冲的数目。<br>  为实现动画的平滑显示，通过创建一个主缓冲，一个或多个后备缓冲。渲染是在后备缓冲离屏渲染的，之后将渲染结果快速拷贝到主缓冲。<br>  使用一个后备缓冲的技术称为<strong>双缓冲(Double Buffering)</strong>,使用两个后备缓冲的技术称为<strong>三缓冲(Triple Buffer)</strong>.</li>
+<li>ddckCKDestBlt:控制目标<strong>色键(color key)</strong>。即在位块传输操作中控制可以写入的<strong>色彩部件</strong>。</li>
+<li>ddckCKSrcBlt:指示源色键,即基本上是执行位图操作是不希望进行位块传输的颜色。是为位图设置透明颜色的方法。</li>
+<li>ddpfPixelFormat:显示表面的像素格式。(数据结构：DDPIXLFORMAT)<br>  DDPIXLFORMAT中几个重要的字段：dwSize/dwFlags/dwRGBBitCount</li>
+<li><p>ddsCaps:返回显示表面的一些未在别处定义的属性。(数据结构：DDSCAPS2)<br>  另外，还有dwCaps2字段是给3D内容使用的，dwCap3和dwCaps4是留给将来扩展的。<br>  设置主显示表面的示例：</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ddsd.ddsCaps.dwCaps=DDSCAPS_PRIMARYSURFACE;</span><br></pre></td></tr></table></figure>
+<p>  其中，dwCaps标志控制显示表面的容量控制：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDSCAPS_BACKBUFFER</td>
+<td style="text-align:left">表示该显示表面是一个屏幕翻转结构的后备缓冲(是个后备缓冲)</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_COMPLEX</td>
+<td style="text-align:left">是个复杂的显示表面，即该表面拥有一个主显示缓冲和一个或多个后备缓冲以生成翻转链</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_FLIP</td>
+<td style="text-align:left">显示表面是一个平面翻转结构的一部分。当这个标记传递给CreateSurface()方法时，将会创建一个前端缓冲和一个或多个后备缓冲</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_LOCALVIDMEM</td>
+<td style="text-align:left">显示表面存在于<strong>本地显存</strong>。使用时DDSCAPS_VIDEOMEMORY也必须指定。</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_MODEX</td>
+<td style="text-align:left">是一个Mode X显示表面</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_NONLOCALVIDMEM</td>
+<td style="text-align:left">显示表面存在于<strong>非本地显存</strong>。使用时DDSCAPS_VIDEOMEMORY也必须指定</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_OFFSCREENPLAN</td>
+<td style="text-align:left">是个离屏表面。不是一个特殊表面如覆盖、纹理、z-缓冲、前端缓冲、后端缓冲或者alpha缓冲表面。通常用于<strong>图元精灵</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_OWNDC</td>
+<td style="text-align:left">该表面有一个长期的设备环境描述</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_PRIMARYSURFACE</td>
+<td style="text-align:left">是个主显示表面</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_STANDARDVGAMODE</td>
+<td style="text-align:left">标准的VGA平面，而不是Mode X平面。不能与DDSCAPS_MODEX同时使用</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_SYSTEMMEMORY</td>
+<td style="text-align:left">该显示表面内存从<strong>系统内存</strong>中分配</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSCAPS_VIDEOMEMORY</td>
+<td style="text-align:left">显示表面存在于<strong>显存</strong>中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-创建显示表面示例代码"><a href="#2-创建显示表面示例代码" class="headerlink" title="2.创建显示表面示例代码"></a>2.创建显示表面示例代码</h5><p>创建一个和显示模式有同样的大小和色彩深度的简单主显示表面的示例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">LPDIRECTDRAWSURFACE7 lpddsprimary=<span class="literal">NULL</span>;</span><br><span class="line">DDSURFACEDESCS2 ddsd;</span><br><span class="line"></span><br><span class="line"><span class="built_in">memset</span>(&amp;ddsd,<span class="number">0</span>,<span class="keyword">sizeof</span>(DDSURFACEDESCS2));</span><br><span class="line">ddsd.dwSize= <span class="keyword">sizeof</span>(ddsd);</span><br><span class="line"></span><br><span class="line">ddsd.dwFlags=DDSD_CAPS;</span><br><span class="line"></span><br><span class="line">ddsd.ddsCaps=DDSCAPS_PRIMARYSURFACE;</span><br><span class="line"><span class="keyword">if</span>(FAILED(lpdd-&gt;CreateSurface(&amp;ddsd,&amp;lpddsprimary,<span class="literal">NULL</span>)))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// error....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-关联调色板"><a href="#4-关联调色板" class="headerlink" title="4.关联调色板"></a>4.关联调色板</h4><p>调用IDirectDrawSurface7::SetPalette()函数：<br>示例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lpddsprimary-&gt;SetPalette(lpddpal)</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-绘制像素"><a href="#5-绘制像素" class="headerlink" title="5.绘制像素"></a>5.绘制像素</h3><p><strong>关键字</strong>：video_buffer 内存间距 像素格式 Lock</p>
+<h4 id="1-显示内存video-buffer的获取：ddsd-lpSurface"><a href="#1-显示内存video-buffer的获取：ddsd-lpSurface" class="headerlink" title="1. 显示内存video_buffer的获取：ddsd.lpSurface"></a>1. 显示内存video_buffer的获取：ddsd.lpSurface</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UCHAR *video_buffer = (UCHAR *)ddsd.lpSurface;</span><br></pre></td></tr></table></figure>
+<p>其中，lpSurface是LPVOID类型，可以转为UCHAR类型，也可以转为USHORT类型。<br>具体根据像素的位深来决定，有利于找到像素的地址。</p>
+<h4 id="2-内存间距-memory-pitch"><a href="#2-内存间距-memory-pitch" class="headerlink" title="2. 内存间距(memory_pitch)"></a>2. 内存间距(memory_pitch)</h4><p>内存间距代表了实际硬件中每行的字节数。<br>但是，我们设定的显示分辨率width，有可能并不是和内存间距一样的。<br>在找(x,y)像素的地址的时候，就需要使用到内存间距去计算了。<br>eg. 8位位深的像素设置color的时候：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">video_buffer[x+y*memory_pitch]=color;</span><br></pre></td></tr></table></figure></p>
+<p>如果不是一个字节的位深，例如，使用了16位位深的color16。<br>memory_pitch是字节数，而一个像素是2个字节。所以，memory_pitch&gt;&gt;1为内存间距每行的USHORT数。<br>此时设置像素的代码为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USHORT *video_buffer16=(USHORT *)ddsd.lpSurface;      <span class="comment">// 转为USHORT,两个字节</span></span><br><span class="line">video_buffer16[x+y*memory_pitch&gt;&gt;<span class="number">1</span>]=color16;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-像素格式"><a href="#3-像素格式" class="headerlink" title="3. 像素格式"></a>3. 像素格式</h4><p>8位位深的时候，使用调色板，8位位深的值代表了调色板的index。<br>16位位深像素的格式有一下几种：</p>
+<ul>
+<li><p>RGB16BIT555:最高一位不使用，或者用作alpha。其他以此是5位red,5位green,5位blue.<br>  blue不用移位；green左移5位；red左移10位。<br>  定义宏：</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RGB16BIT555(r,g,b) ((b&amp;31)+((g&amp;31)&lt;&lt;5)+((r&amp;31)&lt;&lt;10))</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RGB16BIT565:5位red,6位green,5位blue。 绿色多一位是因为人眼对绿色比较敏感。<br>  blue不用移位；green左移5位；red左移11位。<br>  定义宏:</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RGB16BIT565(r,g,b) ((b&amp;31)+((g&amp;63)&lt;&lt;5)+((r&amp;31)&lt;&lt;11))</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-LOCK：加锁和解锁"><a href="#4-LOCK：加锁和解锁" class="headerlink" title="4. LOCK：加锁和解锁"></a>4. LOCK：加锁和解锁</h4><p>无论是主显示表面还是从显示表面, 在使用video_buffer之前，要先对其进行加锁；使用完毕之后，进行解锁释放。<br>加锁原因：</p>
+<pre><code>1. 告诉DirectDraw已经控制内存了
+2. 指示显示设备不能在被操作期间移动catch和虚拟内存缓冲区。（如果显存是虚拟的，可能会移动）
+</code></pre><p>加锁和解锁函数：</p>
+<ol>
+<li>IDirectDrawSurface7::Lock()原型：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">Lock</span><span class="params">(LPRECT lpDestRect,             <span class="comment">// 加锁的rect。设置为NULL的时候表示全部加锁</span></span></span></span><br><span class="line"><span class="function"><span class="params">    LPDDSURFACEDESC lpDDSurfaceDesc,        <span class="comment">// 要加锁的表面</span></span></span></span><br><span class="line"><span class="function"><span class="params">    DWORD dwFlags,                          <span class="comment">// 控制标记</span></span></span></span><br><span class="line"><span class="function"><span class="params">    HANDLE hEvent)</span></span>;                         <span class="comment">// 高级事件，设置为NULL</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<center>dwFlags控制标记</center>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDLOCK_READONLY</td>
+<td style="text-align:left">被锁的显示表面是只读的</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>DDLOCK_SURFACEMEMORYPTR</strong></td>
+<td style="text-align:left">将返回一个有效的内存指针，指向特定的RECT顶部。如果没有指定矩形，将会返回一个指向显示表面顶部的指针</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>DDLOCK_WAIT</strong></td>
+<td style="text-align:left">如果由于正在进行一个位块传输操作或者有另外的错误发生而不能获得一个锁，将会一直重试，直到得到锁。</td>
+</tr>
+<tr>
+<td style="text-align:left">DDLOCK_WRITEONLY</td>
+<td style="text-align:left">被锁的显示表面是只写的</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>IDirectDrawSurface7::UnLock()原型：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">UnLock</span><span class="params">(LPRECT lpDestRect,             <span class="comment">// 解锁的rect。设置为NULL的时候表示全部解锁</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="5-绘制像素的函数"><a href="#5-绘制像素的函数" class="headerlink" title="5. 绘制像素的函数"></a>5. 绘制像素的函数</h4><p>显示表面内存为ddsd.lpSurface,内存跨距为ddsd.lPitch<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 8位位深(调色板)模式下的绘制像素函数：</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Plot8</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR color,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR *buffer,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> mempitch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	buffer[x + y * mempitch] = color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 16位555格式下的绘制像素函数：</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Plot16BIT555</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR red,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR green,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR blue,</span></span></span><br><span class="line"><span class="function"><span class="params">	USHORT *buffer,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> mempitch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	buffer[x + y * mempitch &gt;&gt; <span class="number">1</span>] = RGB16BIT555(red,green,blue);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 16位565格式下的绘制像素函数：</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Plot16BIT565</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR red,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR green,</span></span></span><br><span class="line"><span class="function"><span class="params">	UCHAR blue,</span></span></span><br><span class="line"><span class="function"><span class="params">	USHORT *buffer,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> mempitch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	buffer[x + y * mempitch &gt;&gt; <span class="number">1</span>] = RGB16BIT565(red,green,blue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-清理资源"><a href="#6-清理资源" class="headerlink" title="6.清理资源"></a>6.清理资源</h3><p>在Game_Exit的时候，要清空占用的资源。需要注意的是，清空资源的时候，按照创建资源的反向顺序执行。(资源栈，先进后出)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Game_Exit</span><span class="params">(<span class="keyword">void</span> *params , <span class="keyword">int</span> num_parms )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lpddpal)</span><br><span class="line">	&#123;</span><br><span class="line">		lpddpal-&gt;Release();</span><br><span class="line">		lpddpal = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (lpddsprimary)</span><br><span class="line">	&#123;</span><br><span class="line">		lpddsprimary-&gt;Release();</span><br><span class="line">		lpddsprimary = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(lpdd)</span><br><span class="line">	&#123;</span><br><span class="line">		lpdd-&gt;Release();</span><br><span class="line">		lpdd = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -426,11 +630,11 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -511,6 +715,15 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
+    <a href="/essay-3.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [设计模式]推迟使用抽象
+        
+      </div>
+    </a>
+  
   
     <a href="/shader-sand.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">[Shader]模型沙粒化</div>
@@ -540,7 +753,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-依赖"><span class="toc-number">1.</span> <span class="toc-text">0.依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-DirectDraw接口介绍"><span class="toc-number">2.</span> <span class="toc-text">1.DirectDraw接口介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建DirectDraw应用程序的步骤"><span class="toc-number">3.</span> <span class="toc-text">2.创建DirectDraw应用程序的步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数介绍"><span class="toc-number">4.</span> <span class="toc-text">3.函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建DirectDraw对象"><span class="toc-number">4.1.</span> <span class="toc-text">1.创建DirectDraw对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-函数DirectDrawCreateEx"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.函数DirectDrawCreateEx()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-对错误进行处理"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.对错误进行处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-释放接口"><span class="toc-number">4.1.3.</span> <span class="toc-text">3.释放接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-示例代码"><span class="toc-number">4.1.4.</span> <span class="toc-text">4.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-DirectDraw与Windows协作"><span class="toc-number">4.2.</span> <span class="toc-text">2.DirectDraw与Windows协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-设置协作模式"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.设置协作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-示例代码"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DirectDraw设置显卡模式"><span class="toc-number">4.3.</span> <span class="toc-text">3.DirectDraw设置显卡模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建调色板"><span class="toc-number">4.4.</span> <span class="toc-text">4.创建调色板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-创建调色板项"><span class="toc-number">4.4.1.</span> <span class="toc-text">1.创建调色板项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建调色板"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.创建调色板</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-依赖"><span class="toc-number">1.</span> <span class="toc-text">0.依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-DirectDraw接口介绍"><span class="toc-number">2.</span> <span class="toc-text">1.DirectDraw接口介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建DirectDraw应用程序的步骤"><span class="toc-number">3.</span> <span class="toc-text">2.创建DirectDraw应用程序的步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数介绍"><span class="toc-number">4.</span> <span class="toc-text">3.函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建DirectDraw对象"><span class="toc-number">4.1.</span> <span class="toc-text">1.创建DirectDraw对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-函数DirectDrawCreateEx"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.函数DirectDrawCreateEx()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-对错误进行处理"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.对错误进行处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-释放接口"><span class="toc-number">4.1.3.</span> <span class="toc-text">3.释放接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-示例代码"><span class="toc-number">4.1.4.</span> <span class="toc-text">4.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-DirectDraw与Windows协作"><span class="toc-number">4.2.</span> <span class="toc-text">2.DirectDraw与Windows协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-设置协作模式"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.设置协作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-示例代码"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.示例代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DirectDraw设置显卡模式"><span class="toc-number">4.3.</span> <span class="toc-text">3.DirectDraw设置显卡模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建调色板"><span class="toc-number">4.4.</span> <span class="toc-text">4.创建调色板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-创建调色板项"><span class="toc-number">4.4.1.</span> <span class="toc-text">1.创建调色板项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建调色板"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.创建调色板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建显示表面"><span class="toc-number">4.4.3.</span> <span class="toc-text">3.创建显示表面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建显示表面步骤"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">1.创建显示表面步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建显示表面示例代码"><span class="toc-number">4.4.3.2.</span> <span class="toc-text">2.创建显示表面示例代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-关联调色板"><span class="toc-number">4.4.4.</span> <span class="toc-text">4.关联调色板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-绘制像素"><span class="toc-number">4.5.</span> <span class="toc-text">5.绘制像素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-显示内存video-buffer的获取：ddsd-lpSurface"><span class="toc-number">4.5.1.</span> <span class="toc-text">1. 显示内存video_buffer的获取：ddsd.lpSurface</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-内存间距-memory-pitch"><span class="toc-number">4.5.2.</span> <span class="toc-text">2. 内存间距(memory_pitch)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-像素格式"><span class="toc-number">4.5.3.</span> <span class="toc-text">3. 像素格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-LOCK：加锁和解锁"><span class="toc-number">4.5.4.</span> <span class="toc-text">4. LOCK：加锁和解锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-绘制像素的函数"><span class="toc-number">4.5.5.</span> <span class="toc-text">5. 绘制像素的函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-清理资源"><span class="toc-number">4.6.</span> <span class="toc-text">6.清理资源</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -754,15 +967,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">c#</a>
+                <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,7 +987,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,7 +995,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,6 +1015,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">shader</a>
               </li>
              
@@ -806,7 +1027,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Unity3D</a>
+                <a href="javascript:void(0)" class="js-tag color3">c#</a>
               </li>
             
             <div class="clearfix"></div>
