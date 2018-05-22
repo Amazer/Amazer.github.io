@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[C#笔记]IDisposable接口 | 延澈左的博客</title>
+  <title>[引擎笔记]之十三：双缓冲 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IDisposable接口  在System命名空间下">
-<meta name="keywords" content="c#,笔记">
+  <meta name="description" content="关键字:双缓冲技术   页面切换技术    内存拷贝">
+<meta name="keywords" content="笔记,引擎笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[C#笔记]IDisposable接口">
-<meta property="og:url" content="https://yanchezuo.com/csharp-1.html">
+<meta property="og:title" content="[引擎笔记]之十三：双缓冲">
+<meta property="og:url" content="https://yanchezuo.com/en-21.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="IDisposable接口  在System命名空间下">
+<meta property="og:description" content="关键字:双缓冲技术   页面切换技术    内存拷贝">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T06:20:30.551Z">
+<meta property="og:updated_time" content="2018-05-22T05:22:48.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[C#笔记]IDisposable接口">
-<meta name="twitter:description" content="IDisposable接口  在System命名空间下">
+<meta name="twitter:title" content="[引擎笔记]之十三：双缓冲">
+<meta name="twitter:description" content="关键字:双缓冲技术   页面切换技术    内存拷贝">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-csharp-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-en-21" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [C#笔记]IDisposable接口
+      [引擎笔记]之十三：双缓冲
     </h1>
   
 
@@ -178,13 +178,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/csharp-1.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/en-21.html" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/csharp-1.html" class="archive-article-date">
-  	<time datetime="2018-04-16T08:46:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
+        <a href="/en-21.html" class="archive-article-date">
+  	<time datetime="2018-05-21T10:52:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
 </a>
         
       </header>
@@ -192,30 +192,38 @@
 
 <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-双缓冲技术"><span class="toc-number">1.</span> <span class="toc-text">1.双缓冲技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-内存拷贝"><span class="toc-number">1.1.</span> <span class="toc-text">1.内存拷贝</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-页面切换技术"><span class="toc-number">2.</span> <span class="toc-text">2.页面切换技术</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>IDisposable接口</p>
-<ul>
-<li>在System命名空间下</li>
-</ul>
+        <p><strong>关键字</strong>:双缓冲技术   页面切换技术    内存拷贝</p>
 <a id="more"></a>
-<ol>
-<li>void Disposable()</li>
-<li>这个接口的存在原因是，为了可以释放Object做占用的内存资源,可以帮助GC减少计算引用Object的时候，</li>
-<li><strong>官方建议</strong>，类都定义一个调用了Disposable()方法的析构函数。（在gc的时候应该会调用析构函数。在析构函数中释放了资源之后，gc计算这个Object引用的其他Object就少了）</li>
-</ol>
-<ul>
-<li>使用using(){}的时候，会调用Dispose方法</li>
-<li>对于Dispose,官方给的建议是满足下列条件：</li>
-</ul>
-<ol>
-<li>即使调用多次，也是安全的 （多次调用的时候，不要出错）</li>
-<li>释放此实例用到的资源</li>
-<li>如果需要，调用父类的Dispose方法</li>
-<li>减少Gc finalization队列里面的对象数量</li>
-<li>Dispose方法中一般不要抛出异常。除非是非常严重的异常，比如OutOfMemoryException</li>
-</ol>
+<h4 id="1-双缓冲技术"><a href="#1-双缓冲技术" class="headerlink" title="1.双缓冲技术"></a>1.双缓冲技术</h4><p>在离屏缓冲中绘制图像，然后将离屏缓冲拷贝到显示表面的处理过程叫做双缓冲技术(Double Buffering)。<br>双缓冲技术可以避免图像的绘制过程被看到，并且可以平滑的显示动画。<br>需要额外分配一块同主DirectDraw表面具有相同储存的内存。每帧都是先在这块内存上进行绘制，然后拷贝到主显示表面。</p>
+<h5 id="1-内存拷贝"><a href="#1-内存拷贝" class="headerlink" title="1.内存拷贝"></a>1.内存拷贝</h5><p>使用memcpy进行内存的拷贝。<br>当分辨率的宽度和内存跨距相同的时候，可以直接使用memcpy拷贝整块的内存；<br>否则，只能一行一行的拷贝。<br>示例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">UCHAR *second_buff = <span class="keyword">new</span> UCHAR[WINDOW_W*WINDOW_H];</span><br><span class="line"></span><br><span class="line">   <span class="comment">///......../////</span></span><br><span class="line"></span><br><span class="line">UCHAR *double_buffer = second_buff;</span><br><span class="line">UCHAR *primary_buffer = (UCHAR *)ddsd.lpSurface;</span><br><span class="line"><span class="keyword">int</span> mempitch = ddsd.lPitch;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(WINDOW_W==mempitch)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">memcpy</span>((<span class="keyword">void</span>*)primary_buffer, (<span class="keyword">void</span>*)double_buffer, WINDOW_W*WINDOW_H));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; WINDOW_H; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memcpy</span>((<span class="keyword">void</span>*)primary_buffer, (<span class="keyword">void</span>*)double_buffer, WINDOW_W);</span><br><span class="line">		double_buffer += WINDOW_W;</span><br><span class="line">		primary_buffer += mempitch;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-页面切换技术"><a href="#2-页面切换技术" class="headerlink" title="2.页面切换技术"></a>2.页面切换技术</h4><p>在使用了硬件加速的情况下，画出下一两帧备用的显示表面之后，直接操作硬件激活其他显示表面。<br>免除了内存块拷贝的开销。因为硬件寻址系统直接将视频光栅指向了不同的内存部分。</p>
 
       
 
@@ -248,9 +256,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/csharp-1.html" target="_blank" title="[C#笔记]IDisposable接口">[C#笔记]IDisposable接口</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-21.html" target="_blank" title="[引擎笔记]之十三：双缓冲">[引擎笔记]之十三：双缓冲</a></b></center>
 
-<center>本文链接为<b><a href="/csharp-1.html" target="_blank" title="[C#笔记]IDisposable接口">https://yanchezuo.com/csharp-1.html</a></b></center>
+<center>本文链接为<b><a href="/en-21.html" target="_blank" title="[引擎笔记]之十三：双缓冲">https://yanchezuo.com/en-21.html</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -289,17 +297,28 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">c#</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -349,7 +368,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/csharp-1.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-21.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,18 +382,18 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/en-13.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/en-22.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [引擎笔记]之六：高级GDI绘图
+          [引擎笔记]之十四：后备缓冲(Back Buffer)
         
       </div>
     </a>
   
   
-    <a href="/en-12.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[引擎笔记]之五：GDI基本文本显示</div>
+    <a href="/en-20.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之十二：色彩模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -393,6 +412,19 @@ div.article-footer-copyright {
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-双缓冲技术"><span class="toc-number">1.</span> <span class="toc-text">1.双缓冲技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-内存拷贝"><span class="toc-number">1.1.</span> <span class="toc-text">1.内存拷贝</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-页面切换技术"><span class="toc-number">2.</span> <span class="toc-text">2.页面切换技术</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -414,7 +446,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/csharp-1.html",
+  id: "https://yanchezuo.com/en-21.html",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {

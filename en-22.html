@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[C#笔记]IDisposable接口 | 延澈左的博客</title>
+  <title>[引擎笔记]之十四：后备缓冲(Back Buffer) | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IDisposable接口  在System命名空间下">
-<meta name="keywords" content="c#,笔记">
+  <meta name="description" content="关键字：创建后备缓冲    页面切换">
+<meta name="keywords" content="笔记,引擎笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[C#笔记]IDisposable接口">
-<meta property="og:url" content="https://yanchezuo.com/csharp-1.html">
+<meta property="og:title" content="[引擎笔记]之十四：后备缓冲(Back Buffer)">
+<meta property="og:url" content="https://yanchezuo.com/en-22.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="IDisposable接口  在System命名空间下">
+<meta property="og:description" content="关键字：创建后备缓冲    页面切换">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T06:20:30.551Z">
+<meta property="og:updated_time" content="2018-05-22T06:34:24.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[C#笔记]IDisposable接口">
-<meta name="twitter:description" content="IDisposable接口  在System命名空间下">
+<meta name="twitter:title" content="[引擎笔记]之十四：后备缓冲(Back Buffer)">
+<meta name="twitter:description" content="关键字：创建后备缓冲    页面切换">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-csharp-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-en-22" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [C#笔记]IDisposable接口
+      [引擎笔记]之十四：后备缓冲(Back Buffer)
     </h1>
   
 
@@ -178,13 +178,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/csharp-1.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/en-22.html" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/csharp-1.html" class="archive-article-date">
-  	<time datetime="2018-04-16T08:46:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
+        <a href="/en-22.html" class="archive-article-date">
+  	<time datetime="2018-05-22T05:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-22</time>
 </a>
         
       </header>
@@ -192,30 +192,57 @@
 
 <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后备缓冲"><span class="toc-number">1.</span> <span class="toc-text">1.后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建后备缓冲"><span class="toc-number">2.</span> <span class="toc-text">2.创建后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-切换链"><span class="toc-number">3.</span> <span class="toc-text">3.切换链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#页面切换"><span class="toc-number">3.1.</span> <span class="toc-text">页面切换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-其他"><span class="toc-number">4.</span> <span class="toc-text">4.其他</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>IDisposable接口</p>
-<ul>
-<li>在System命名空间下</li>
-</ul>
+        <p><strong>关键字</strong>：创建后备缓冲    页面切换</p>
 <a id="more"></a>
+<h4 id="1-后备缓冲"><a href="#1-后备缓冲" class="headerlink" title="1.后备缓冲"></a>1.后备缓冲</h4><p>在双缓冲技术中，分配了一块缓冲区作为一个double_buffer，绘制的时候，先在doublue_buffer中完全绘制完成，然后再将内存块拷贝到主表面的内存区。<br>后备缓冲(back buffer)是指创建一个和主表面有着相同尺寸和色深的表面(direct draw surface)，来实现双缓冲。<br>如果显存足够，后备缓冲区也将分配到VRAM，这样和主表面进行内存拷贝的速度会快得多。</p>
+<h4 id="2-创建后备缓冲"><a href="#2-创建后备缓冲" class="headerlink" title="2.创建后备缓冲"></a>2.创建后备缓冲</h4><p>在DX中，后备缓冲是和主表面相关联的。<br>创建后备缓冲的步骤是：<br>    1.ddsd.dwFlags追加DDSD_BACKBUFFERCOUNT(表示设置后备缓冲数量backCount字段有效)<br>    2.ddsd.ddsCaps.dwCaps字段追加 DDSCAPS_COMPLEX | DDSCAPS_FLIP (表示要创建复杂表面，并且会切换表面)<br>    3.创建完成主表面后，调用 lpddsprimary-&gt;GetAttachedSurface获取到和主表面关联的后备缓冲表面。<br>    HRESULT GetAttachedSurface()函数原型：<br>    <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">GetAttachedSurface</span><span class="params">(LPDDSCAPS lpDDSCaps,     <span class="comment">// DDSCAPS2表达显示面属性的结构,需要设置为DDSCAPS_BACKBUFFER</span></span></span></span><br><span class="line"><span class="function"><span class="params">LPDIRECTDRAWSURFACE FAR *lplpDDAttackedSurface)</span></span>;    <span class="comment">// 接收后备缓冲显示表面的指针</span></span><br></pre></td></tr></table></figure></p>
+<pre><code>4.要对后备缓冲进行修改，需要对后备缓冲显示表面进行加锁和解锁
+</code></pre><p>创建后备缓冲界面的示例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">	LPDIRECTDRAWSURFACE7 lpddsprimary = <span class="literal">NULL</span>;</span><br><span class="line">	LPDIRECTDRAWSURFACE7 lpddsback = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	DDSURFACEDESC2 ddsd;</span><br><span class="line">	DDRAW_INIT_STRUCT(ddsd);</span><br><span class="line"></span><br><span class="line">	ddsd.dwFlags = DDSD_CAPS | DDSD_BACKBUFFERCOUNT;</span><br><span class="line">	ddsd.dwBackBufferCount = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE | DDSCAPS_COMPLEX | DDSCAPS_FLIP;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(FAILED(lpdd-&gt;CreateSurface(&amp;ddsd,&amp;lpddsprimary,<span class="literal">NULL</span>)))</span><br><span class="line">	&#123; </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 方法一：使用ddsd的ddsCaps字段</span></span><br><span class="line"><span class="comment">//	ddsd.ddsCaps.dwCaps = DDSCAPS_BACKBUFFER;</span></span><br><span class="line"><span class="comment">//	if (FAILED(lpddsprimary-&gt;GetAttachedSurface(&amp;ddsd.ddsCaps, &amp;lpddsback)))</span></span><br><span class="line"><span class="comment">//	&#123;</span></span><br><span class="line"><span class="comment">//		return 0;</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 方法二：使用一个新的DDSCAPS结构</span></span><br><span class="line">	DDSCAPS2 ddsCaps;</span><br><span class="line">	ddsCaps.dwCaps = DDSCAPS_BACKBUFFER;</span><br><span class="line">	<span class="keyword">if</span> (FAILED(lpddsprimary-&gt;GetAttachedSurface(&amp;ddsCaps, &amp;lpddsback)))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-切换链"><a href="#3-切换链" class="headerlink" title="3.切换链"></a>3.切换链</h4><p>和主表面相关联可以有多个备用表面，它们一起组成一个切换链。</p>
+<h5 id="页面切换"><a href="#页面切换" class="headerlink" title="页面切换"></a>页面切换</h5><p>当创建了拥有后备缓冲表面的复杂表面之后，可以进行页面的切换,以实现双缓冲技术。<br>调用IDIRECTDRAWSURFACE7::FLIP()方法进行显示表面的切换。</p>
+<p>标准的双缓冲页面切换的步骤是：</p>
 <ol>
-<li>void Disposable()</li>
-<li>这个接口的存在原因是，为了可以释放Object做占用的内存资源,可以帮助GC减少计算引用Object的时候，</li>
-<li><strong>官方建议</strong>，类都定义一个调用了Disposable()方法的析构函数。（在gc的时候应该会调用析构函数。在析构函数中释放了资源之后，gc计算这个Object引用的其他Object就少了）</li>
+<li>清除后备缓冲</li>
+<li>将创景渲染到后备缓冲</li>
+<li>用后备缓冲表面切换掉主表面</li>
+<li>锁定在某个帧率</li>
+<li>重复步骤 1</li>
 </ol>
-<ul>
-<li>使用using(){}的时候，会调用Dispose方法</li>
-<li>对于Dispose,官方给的建议是满足下列条件：</li>
-</ul>
-<ol>
-<li>即使调用多次，也是安全的 （多次调用的时候，不要出错）</li>
-<li>释放此实例用到的资源</li>
-<li>如果需要，调用父类的Dispose方法</li>
-<li>减少Gc finalization队列里面的对象数量</li>
-<li>Dispose方法中一般不要抛出异常。除非是非常严重的异常，比如OutOfMemoryException</li>
-</ol>
+<p>IDIRECTDRAWSURFACE7::FLIP()如果调用成功，将返回DD_OK,否则返回错误代码。<br>函数原型:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">Flip</span><span class="params">(LPDIRECTDRAWSURFACE7 lpDDSurfaceTargetOverride,    <span class="comment">// 高级参数。用来覆盖切换链，实现切换到另外一个表面，而不是切换到同主表面相关联的后备缓冲。设置为NULL</span></span></span></span><br><span class="line"><span class="function"><span class="params">            DWORD dwFlags)</span></span>;                                     <span class="comment">// 控制标记</span></span><br></pre></td></tr></table></figure></p>
+<p>page 221 待续…</p>
+<h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h4><p>1.xxxcaps字段<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DDSCAPS     ddsCaps;       <span class="comment">// DDSCAPS structure has all the general capabilities</span></span><br></pre></td></tr></table></figure></p>
+<p>这里的Caps是capabilities的简写。表示拥有哪些功能。</p>
+<p>2.DDSCAPS_COMPLEX<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Indicates a complex surface structure is being described.  A</span></span><br><span class="line"><span class="comment"> * complex surface structure results in the creation of more than</span></span><br><span class="line"><span class="comment"> * one surface.  The additional surfaces are attached to the root</span></span><br><span class="line"><span class="comment"> * surface.  The complex structure can only be destroyed by</span></span><br><span class="line"><span class="comment"> * destroying the root.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DDSCAPS_COMPLEX                         0x00000008l</span></span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>复杂表面将创建多个surface。附加的表面会附在根表面上。只有根表面销毁的时候，附加表面才会被销毁。</p>
+<p>3.DDSCAPS_FLIP<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Indicates that this surface is a part of a surface flipping structure.</span></span><br><span class="line"><span class="comment"> * When it is passed to CreateSurface the DDSCAPS_FRONTBUFFER and</span></span><br><span class="line"><span class="comment"> * DDSCAP_BACKBUFFER bits are not set.  They are set by CreateSurface</span></span><br><span class="line"><span class="comment"> * on the resulting creations.  The dwBackBufferCount field in the</span></span><br><span class="line"><span class="comment"> * DDSURFACEDESC structure must be set to at least 1 in order for</span></span><br><span class="line"><span class="comment"> * the CreateSurface call to succeed.  The DDSCAPS_COMPLEX capability</span></span><br><span class="line"><span class="comment"> * must always be set with creating multiple surfaces through CreateSurface.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DDSCAPS_FLIP                            0x00000010l</span></span><br></pre></td></tr></table></figure></p>
+<p>和表面切换有关系。<br>创建多个表面的时候，必须设置这个标识。<br>并且，dwBackBufferCount字段必需被设置为大于等于1的数。<br>(有多个表面才能切换)</p>
 
       
 
@@ -248,9 +275,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/csharp-1.html" target="_blank" title="[C#笔记]IDisposable接口">[C#笔记]IDisposable接口</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-22.html" target="_blank" title="[引擎笔记]之十四：后备缓冲(Back Buffer)">[引擎笔记]之十四：后备缓冲(Back Buffer)</a></b></center>
 
-<center>本文链接为<b><a href="/csharp-1.html" target="_blank" title="[C#笔记]IDisposable接口">https://yanchezuo.com/csharp-1.html</a></b></center>
+<center>本文链接为<b><a href="/en-22.html" target="_blank" title="[引擎笔记]之十四：后备缓冲(Back Buffer)">https://yanchezuo.com/en-22.html</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -289,17 +316,28 @@ div.article-footer-copyright {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">c#</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -349,7 +387,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/csharp-1.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-22.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,18 +401,9 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/en-13.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          [引擎笔记]之六：高级GDI绘图
-        
-      </div>
-    </a>
   
-  
-    <a href="/en-12.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[引擎笔记]之五：GDI基本文本显示</div>
+    <a href="/en-21.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之十三：双缓冲</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -393,6 +422,19 @@ div.article-footer-copyright {
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后备缓冲"><span class="toc-number">1.</span> <span class="toc-text">1.后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建后备缓冲"><span class="toc-number">2.</span> <span class="toc-text">2.创建后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-切换链"><span class="toc-number">3.</span> <span class="toc-text">3.切换链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#页面切换"><span class="toc-number">3.1.</span> <span class="toc-text">页面切换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-其他"><span class="toc-number">4.</span> <span class="toc-text">4.其他</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -414,7 +456,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/csharp-1.html",
+  id: "https://yanchezuo.com/en-22.html",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
