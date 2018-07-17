@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="关键字：创建后备缓冲    页面切换">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-22T06:34:24.690Z">
+<meta property="og:updated_time" content="2018-06-22T08:35:48.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之十四：后备缓冲(Back Buffer)">
 <meta name="twitter:description" content="关键字：创建后备缓冲    页面切换">
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后备缓冲"><span class="toc-number">1.</span> <span class="toc-text">1.后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建后备缓冲"><span class="toc-number">2.</span> <span class="toc-text">2.创建后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-切换链"><span class="toc-number">3.</span> <span class="toc-text">3.切换链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#页面切换"><span class="toc-number">3.1.</span> <span class="toc-text">页面切换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-其他"><span class="toc-number">4.</span> <span class="toc-text">4.其他</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后备缓冲"><span class="toc-number">1.</span> <span class="toc-text">1.后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建后备缓冲"><span class="toc-number">2.</span> <span class="toc-text">2.创建后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-切换链"><span class="toc-number">3.</span> <span class="toc-text">3.切换链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-页面切换"><span class="toc-number">3.1.</span> <span class="toc-text">1.页面切换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-示例代码"><span class="toc-number">3.2.</span> <span class="toc-text">2.示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#初始化代码"><span class="toc-number">3.2.1.</span> <span class="toc-text">初始化代码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#释放资源代码"><span class="toc-number">3.2.2.</span> <span class="toc-text">释放资源代码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#每帧调用代码"><span class="toc-number">3.2.3.</span> <span class="toc-text">每帧调用代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-其他"><span class="toc-number">4.</span> <span class="toc-text">4.其他</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -226,16 +226,67 @@
 <pre><code>4.要对后备缓冲进行修改，需要对后备缓冲显示表面进行加锁和解锁
 </code></pre><p>创建后备缓冲界面的示例代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">	LPDIRECTDRAWSURFACE7 lpddsprimary = <span class="literal">NULL</span>;</span><br><span class="line">	LPDIRECTDRAWSURFACE7 lpddsback = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	DDSURFACEDESC2 ddsd;</span><br><span class="line">	DDRAW_INIT_STRUCT(ddsd);</span><br><span class="line"></span><br><span class="line">	ddsd.dwFlags = DDSD_CAPS | DDSD_BACKBUFFERCOUNT;</span><br><span class="line">	ddsd.dwBackBufferCount = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE | DDSCAPS_COMPLEX | DDSCAPS_FLIP;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(FAILED(lpdd-&gt;CreateSurface(&amp;ddsd,&amp;lpddsprimary,<span class="literal">NULL</span>)))</span><br><span class="line">	&#123; </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 方法一：使用ddsd的ddsCaps字段</span></span><br><span class="line"><span class="comment">//	ddsd.ddsCaps.dwCaps = DDSCAPS_BACKBUFFER;</span></span><br><span class="line"><span class="comment">//	if (FAILED(lpddsprimary-&gt;GetAttachedSurface(&amp;ddsd.ddsCaps, &amp;lpddsback)))</span></span><br><span class="line"><span class="comment">//	&#123;</span></span><br><span class="line"><span class="comment">//		return 0;</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 方法二：使用一个新的DDSCAPS结构</span></span><br><span class="line">	DDSCAPS2 ddsCaps;</span><br><span class="line">	ddsCaps.dwCaps = DDSCAPS_BACKBUFFER;</span><br><span class="line">	<span class="keyword">if</span> (FAILED(lpddsprimary-&gt;GetAttachedSurface(&amp;ddsCaps, &amp;lpddsback)))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
 <h4 id="3-切换链"><a href="#3-切换链" class="headerlink" title="3.切换链"></a>3.切换链</h4><p>和主表面相关联可以有多个备用表面，它们一起组成一个切换链。</p>
-<h5 id="页面切换"><a href="#页面切换" class="headerlink" title="页面切换"></a>页面切换</h5><p>当创建了拥有后备缓冲表面的复杂表面之后，可以进行页面的切换,以实现双缓冲技术。<br>调用IDIRECTDRAWSURFACE7::FLIP()方法进行显示表面的切换。</p>
+<h5 id="1-页面切换"><a href="#1-页面切换" class="headerlink" title="1.页面切换"></a>1.页面切换</h5><p>当创建了拥有后备缓冲表面的复杂表面之后，可以进行页面的切换,以实现双缓冲技术。<br>调用IDIRECTDRAWSURFACE7::FLIP()方法进行显示表面的切换。</p>
 <p>标准的双缓冲页面切换的步骤是：</p>
 <ol>
 <li>清除后备缓冲</li>
-<li>将创景渲染到后备缓冲</li>
+<li>将场景渲染到后备缓冲</li>
 <li>用后备缓冲表面切换掉主表面</li>
 <li>锁定在某个帧率</li>
 <li>重复步骤 1</li>
 </ol>
 <p>IDIRECTDRAWSURFACE7::FLIP()如果调用成功，将返回DD_OK,否则返回错误代码。<br>函数原型:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">Flip</span><span class="params">(LPDIRECTDRAWSURFACE7 lpDDSurfaceTargetOverride,    <span class="comment">// 高级参数。用来覆盖切换链，实现切换到另外一个表面，而不是切换到同主表面相关联的后备缓冲。设置为NULL</span></span></span></span><br><span class="line"><span class="function"><span class="params">            DWORD dwFlags)</span></span>;                                     <span class="comment">// 控制标记</span></span><br></pre></td></tr></table></figure></p>
+<center>Flip控制标记</center>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">垂直逆程值(默认为1)</th>
+<th style="text-align:center">描述(默认1次垂直逆程后切换)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DDFLIP_INTERVAL2</td>
+<td style="text-align:center">2次垂直逆程（Vertical Retrace）后切换</td>
+</tr>
+<tr>
+<td style="text-align:center">DDFLIP_INTERVAL3</td>
+<td style="text-align:center">3次垂直逆程（Vertical Retrace）后切换</td>
+</tr>
+<tr>
+<td style="text-align:center">DDFLIP_INTERVAL4</td>
+<td style="text-align:center">4次垂直逆程（Vertical Retrace）后切换</td>
+</tr>
+</tbody>
+</table>
+<p>仅仅当<strong>DDCAPS</strong>结构中设置了<strong>DDCAPS2_FLIPINTERVAL</strong>设置了才起作用</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DDFLIP_NOVSYNC</td>
+<td style="text-align:center">DirectDraw执行物理切换时，尽量靠近下一条扫描线</td>
+</tr>
+<tr>
+<td style="text-align:center">DDFLIP_WAIT</td>
+<td style="text-align:center">强迫硬件不出现问题时立即返回，而是等待知道页面切换能够进行位置</td>
+</tr>
+</tbody>
+</table>
+<p>一般使用<strong>DDFLIP_WAIT</strong></p>
+<p><em>注意1</em>：最后都是调用<strong>主</strong>显示表面的Flip()方法。因为主表面是 parent ，后备缓冲表面都是child,是挂在parent下的。<br><em>注意2</em>：绘制后备表面的时候，也需要对表面进行加锁，使用完成之后解锁释放</p>
+<h5 id="2-示例代码"><a href="#2-示例代码" class="headerlink" title="2.示例代码"></a>2.示例代码</h5><h6 id="初始化代码"><a href="#初始化代码" class="headerlink" title="初始化代码"></a>初始化代码</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局变量</span></span><br><span class="line">LPDIRECTDRAW7 lpdd=<span class="literal">NULL</span>;</span><br><span class="line">LPDIRECTDRAWSURFACE7 lpddsprimary = <span class="literal">NULL</span>;		<span class="comment">// 主显示表面(主表面)</span></span><br><span class="line">LPDIRECTDRAWSURFACE7 lpddsback = <span class="literal">NULL</span>;			<span class="comment">// 后备表面(主表面的子表面)</span></span><br><span class="line">DDSURFACEDESC2 ddsd;</span><br><span class="line">LPDIRECTDRAWPALETTE lpddpal;</span><br><span class="line">PALETTEENTRY palette[<span class="number">256</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... 其他</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Game_Init</span><span class="params">(<span class="keyword">void</span> *params , <span class="keyword">int</span> num_parms )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (FAILED(DirectDrawCreateEx(<span class="literal">NULL</span>, (<span class="keyword">void</span> **)&amp;lpdd, IID_IDirectDraw7, <span class="literal">NULL</span>)))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	lpdd-&gt;SetCooperativeLevel(main_window_handle, </span><br><span class="line">		DDSCL_FULLSCREEN|</span><br><span class="line">		DDSCL_ALLOWMODEX|</span><br><span class="line">		DDSCL_EXCLUSIVE | </span><br><span class="line">		DDSCL_ALLOWREBOOT);</span><br><span class="line"></span><br><span class="line">	lpdd-&gt;SetDisplayMode(WINDOW_W, WINDOW_H, SCREEN_BPP, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(&amp;ddsd, <span class="number">0</span>, <span class="keyword">sizeof</span>(ddsd));</span><br><span class="line">	ddsd.dwSize = <span class="keyword">sizeof</span>(ddsd);</span><br><span class="line"></span><br><span class="line">	ddsd.dwFlags = DDSD_CAPS | DDSD_BACKBUFFERCOUNT;</span><br><span class="line"></span><br><span class="line">	ddsd.dwBackBufferCount = <span class="number">1</span>;</span><br><span class="line">	ddsd.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE </span><br><span class="line">						| DDSCAPS_COMPLEX | DDSCAPS_FLIP;	<span class="comment">// 后备表面，设置复杂表面和页面切换功能</span></span><br><span class="line"></span><br><span class="line">	lpdd-&gt;CreateSurface(&amp;ddsd, &amp;lpddsprimary, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 为主表面附加后备表面</span></span><br><span class="line">	ddsd.ddsCaps.dwCaps = DDSCAPS_BACKBUFFER;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(FAILED(lpddsprimary-&gt;GetAttachedSurface(&amp;ddsd.ddsCaps,&amp;lpddsback)))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 如果创建失败....</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建调色板项</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">255</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		palette[i].peRed = rand() % <span class="number">256</span>;</span><br><span class="line">		palette[i].peGreen = rand() % <span class="number">256</span>;</span><br><span class="line">		palette[i].peBlue = rand() % <span class="number">256</span>;</span><br><span class="line">		palette[i].peFlags = PC_NOCOLLAPSE;</span><br><span class="line">	&#125;</span><br><span class="line">	palette[<span class="number">0</span>].peRed = <span class="number">0</span>;</span><br><span class="line">	palette[<span class="number">0</span>].peGreen = <span class="number">0</span>;</span><br><span class="line">	palette[<span class="number">0</span>].peBlue = <span class="number">0</span>;</span><br><span class="line">	palette[<span class="number">0</span>].peFlags = PC_NOCOLLAPSE;</span><br><span class="line"></span><br><span class="line">	palette[<span class="number">255</span>].peRed = <span class="number">255</span>;</span><br><span class="line">	palette[<span class="number">255</span>].peGreen = <span class="number">255</span>;</span><br><span class="line">	palette[<span class="number">255</span>].peBlue = <span class="number">255</span>;</span><br><span class="line">	palette[<span class="number">255</span>].peFlags = PC_NOCOLLAPSE;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建调色板</span></span><br><span class="line">	lpdd-&gt;CreatePalette(DDPCAPS_8BIT | DDPCAPS_ALLOW256 | DDPCAPS_INITIALIZE,</span><br><span class="line">		palette, &amp;lpddpal, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">	lpddsprimary-&gt;SetPalette(lpddpal);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="释放资源代码"><a href="#释放资源代码" class="headerlink" title="释放资源代码"></a>释放资源代码</h6><ul>
+<li>释放资源:依次释放调色板、后备缓冲、主缓冲、directDraw<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Game_Exit</span><span class="params">(<span class="keyword">void</span> *params , <span class="keyword">int</span> num_parms )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(lpddpal)                     </span><br><span class="line">	&#123;</span><br><span class="line">		lpddpal-&gt;Release();</span><br><span class="line">		lpddpal = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(lpddsback)</span><br><span class="line">	&#123;</span><br><span class="line">		lpddsback-&gt;Release();</span><br><span class="line">		lpddsback = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (lpddsprimary)</span><br><span class="line">	&#123;</span><br><span class="line">		lpddsprimary-&gt;Release();</span><br><span class="line">		lpddsprimary = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(lpdd)</span><br><span class="line">	&#123;</span><br><span class="line">		lpdd-&gt;Release();</span><br><span class="line">		lpdd = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="每帧调用代码"><a href="#每帧调用代码" class="headerlink" title="每帧调用代码"></a>每帧调用代码</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每帧调用</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">TestBackBuffer</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DDRAW_INIT_STRUCT(ddsd);</span><br><span class="line">    <span class="comment">// 加锁</span></span><br><span class="line">	<span class="keyword">if</span>(FAILED(lpddsback-&gt;Lock(<span class="literal">NULL</span>, &amp;ddsd, DDLOCK_SURFACEMEMORYPTR | DDLOCK_WAIT,<span class="literal">NULL</span>)))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	UCHAR *back_buffer = (UCHAR *)ddsd.lpSurface;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 1.清空备用缓冲</span></span><br><span class="line">	<span class="keyword">if</span> (ddsd.lPitch == WINDOW_W)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(back_buffer, <span class="number">0</span>, WINDOW_W*WINDOW_H);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>   <span class="comment">// 如果不是正好等于Widnw_w，一行一行清空</span></span><br><span class="line">	&#123;</span><br><span class="line">		UCHAR* dest_ptr = back_buffer;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> y=<span class="number">0</span>;y&lt;WINDOW_H;++y)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">memset</span>(dest_ptr, <span class="number">0</span>, WINDOW_W);</span><br><span class="line">			dest_ptr += ddsd.lPitch;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2.将内容绘制到back_buffer</span></span><br><span class="line">    <span class="comment">// 此处绘制了5000个像素点</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5000</span>;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		UCHAR color = rand() % <span class="number">255</span>;</span><br><span class="line">		<span class="keyword">int</span> x = rand() % WINDOW_W;</span><br><span class="line">		<span class="keyword">int</span> y = rand() % WINDOW_H;</span><br><span class="line">		Plot8(x, y, color, back_buffer, ddsd.lPitch);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解锁</span></span><br><span class="line">	lpddsback-&gt;Unlock(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3.页面切换</span></span><br><span class="line">	<span class="keyword">while</span>(FAILED(lpddsprimary-&gt;Flip(<span class="literal">NULL</span>, DDFLIP_WAIT)))</span><br><span class="line">	&#123;</span><br><span class="line">		Sleep(<span class="number">500</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>page 221 待续…</p>
 <h4 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h4><p>1.xxxcaps字段<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DDSCAPS     ddsCaps;       <span class="comment">// DDSCAPS structure has all the general capabilities</span></span><br></pre></td></tr></table></figure></p>
 <p>这里的Caps是capabilities的简写。表示拥有哪些功能。</p>
@@ -401,6 +452,15 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
+    <a href="/cpp-1.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++基础：string
+        
+      </div>
+    </a>
+  
   
     <a href="/en-21.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">[引擎笔记]之十三：双缓冲</div>
@@ -430,7 +490,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后备缓冲"><span class="toc-number">1.</span> <span class="toc-text">1.后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建后备缓冲"><span class="toc-number">2.</span> <span class="toc-text">2.创建后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-切换链"><span class="toc-number">3.</span> <span class="toc-text">3.切换链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#页面切换"><span class="toc-number">3.1.</span> <span class="toc-text">页面切换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-其他"><span class="toc-number">4.</span> <span class="toc-text">4.其他</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后备缓冲"><span class="toc-number">1.</span> <span class="toc-text">1.后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建后备缓冲"><span class="toc-number">2.</span> <span class="toc-text">2.创建后备缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-切换链"><span class="toc-number">3.</span> <span class="toc-text">3.切换链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-页面切换"><span class="toc-number">3.1.</span> <span class="toc-text">1.页面切换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-示例代码"><span class="toc-number">3.2.</span> <span class="toc-text">2.示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#初始化代码"><span class="toc-number">3.2.1.</span> <span class="toc-text">初始化代码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#释放资源代码"><span class="toc-number">3.2.2.</span> <span class="toc-text">释放资源代码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#每帧调用代码"><span class="toc-number">3.2.3.</span> <span class="toc-text">每帧调用代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-其他"><span class="toc-number">4.</span> <span class="toc-text">4.其他</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -652,6 +712,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C++ Primer Plus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
               </li>
              
@@ -668,10 +732,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -680,11 +740,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习方法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习方法</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,6 +757,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
