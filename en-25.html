@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[引擎笔记]之二：创建资源以及菜单 | 延澈左的博客</title>
+  <title>[引擎笔记]之十七：离屏表面和色彩键 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.资源概括 资源最终将会被打包成.res文件。">
+  <meta name="description" content="关键字：离屏表面 色彩键">
 <meta name="keywords" content="笔记,引擎笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[引擎笔记]之二：创建资源以及菜单">
-<meta property="og:url" content="https://yanchezuo.com/en-9.html">
+<meta property="og:title" content="[引擎笔记]之十七：离屏表面和色彩键">
+<meta property="og:url" content="https://yanchezuo.com/en-25.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.资源概括 资源最终将会被打包成.res文件。">
+<meta property="og:description" content="关键字：离屏表面 色彩键">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T06:21:53.049Z">
+<meta property="og:updated_time" content="2018-08-29T08:16:53.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[引擎笔记]之二：创建资源以及菜单">
-<meta name="twitter:description" content="1.资源概括 资源最终将会被打包成.res文件。">
+<meta name="twitter:title" content="[引擎笔记]之十七：离屏表面和色彩键">
+<meta name="twitter:description" content="关键字：离屏表面 色彩键">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-en-9" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-en-25" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [引擎笔记]之二：创建资源以及菜单
+      [引擎笔记]之十七：离屏表面和色彩键
     </h1>
   
 
@@ -178,13 +178,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en-9.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/en-25.html" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/en-9.html" class="archive-article-date">
-  	<time datetime="2018-04-13T05:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+        <a href="/en-25.html" class="archive-article-date">
+  	<time datetime="2018-08-29T06:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
 </a>
         
       </header>
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-资源概括"><span class="toc-number">1.</span> <span class="toc-text">1.资源概括</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-资源类型和资源加载"><span class="toc-number">2.</span> <span class="toc-text">2.资源类型和资源加载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ico图标资源-ICON"><span class="toc-number">2.1.</span> <span class="toc-text">1 .ico图标资源(ICON)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-cur光标资源-CURSOR"><span class="toc-number">2.2.</span> <span class="toc-text">2 .cur光标资源(CURSOR)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-字符串资源"><span class="toc-number">2.3.</span> <span class="toc-text">3 字符串资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-WAV声音资源-WAVE"><span class="toc-number">2.4.</span> <span class="toc-text">4 .WAV声音资源(WAVE)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-菜单资源-MENU"><span class="toc-number">3.</span> <span class="toc-text">3.菜单资源(MENU)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建菜单资源"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-加载菜单资源"><span class="toc-number">3.2.</span> <span class="toc-text">2.加载菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-响应菜单事件-page-82"><span class="toc-number">3.3.</span> <span class="toc-text">3.响应菜单事件(page 82)</span></a></li></ol></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-前情总结"><span class="toc-number">1.</span> <span class="toc-text">1.前情总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-离屏表面"><span class="toc-number">2.</span> <span class="toc-text">2.离屏表面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-创建离屏表面"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 创建离屏表面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-色彩键-ColorKey"><span class="toc-number">3.</span> <span class="toc-text">3.色彩键(ColorKey)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-源色彩键"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 源色彩键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-目标色彩键"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 目标色彩键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-其他"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 其他</span></a></li></ol></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -219,65 +219,97 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-资源概括"><a href="#1-资源概括" class="headerlink" title="1.资源概括"></a>1.资源概括</h4><ul>
-<li>资源最终将会被打包成.res文件。</li>
-</ul>
+        <p><strong>关键字</strong>：<strong>离屏表面</strong> <strong>色彩键</strong></p>
 <a id="more"></a>
+<h3 id="1-前情总结"><a href="#1-前情总结" class="headerlink" title="1.前情总结"></a>1.前情总结</h3><p>至此，已经学习在显存中创建主显示表面(primarySurface)、备用缓冲表面(backSurface),以及在使用双缓冲的时候，在系统内存中创建的double_buffer。<br>使用double_buffer的时候，通过现将内容渲染到double_buffer，在blit到primarySurface,获取平滑的图像切换（不会看到绘制的过程）；<br>使用backSurface的时候，既可以通过blt进行内存的拷贝，也可以使用页面切换，直接交换主显示表面和备用缓冲表面。</p>
+<p>其中，创建备用缓冲表面的时候，需要创建复杂主显示表面（DDSCAPS_COMPLEX），并且，通过获取附加(GetAttachedSurface)后备表面的方式得到备用缓冲表面。这里，得到的附加表面是可以用于页面切换的。</p>
+<h3 id="2-离屏表面"><a href="#2-离屏表面" class="headerlink" title="2.离屏表面"></a>2.离屏表面</h3><p>为什么需要离屏表面？<br>在系统内存或者显存中创建离屏表面，有了离屏表面，才能堆砌位图，而后利用blitter将它们blit到屏幕。</p>
+<p>即，当读取了bmp文件后，将位图像素渲染至离屏表面之后，就可以释放bmp文件所占内存了。bmp文件中的buffer中保存的像素信息对于引擎来说是没有用的。<br>之后，可以使用blitter将任意我们需要的sprite或者说是图像Rect blit到显示表面。</p>
+<h4 id="2-1-创建离屏表面"><a href="#2-1-创建离屏表面" class="headerlink" title="2.1 创建离屏表面"></a>2.1 创建离屏表面</h4><p>创建离屏表面和创建主显示表面几乎是一样的,都是使用LPDIRECTDRAW7::CreateSurface()进行创建。(DirectDraw创建表面)<br>区别在于，因为我们创建的不是主显示表面，因此，在创建表面的描述信息(DDSURFACEDESC2)中，需要做不同的设置：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DDSURFACEDESC2 ddsd;         <span class="comment">// 表面描述嘻嘻</span></span><br><span class="line">LPDIRECTDRAWSURFACE7 lpdds;  <span class="comment">// 临时表面指针</span></span><br><span class="line"></span><br><span class="line">DDRAW_INIT_STRUCT(ddsd);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置起作用的字段DDSD_WIDTH /DDSD_HEIGHT 表面的宽度/高度（像素）</span></span><br><span class="line">ddsd.dwFlags = DDSD_CAPS | DDSD_WIDTH | DDSD_HEIGHT;      </span><br><span class="line"></span><br><span class="line">ddsd.dwWidth = width;</span><br><span class="line">ddsd.dwHeight = height;</span><br><span class="line"></span><br><span class="line"><span class="comment">// surface的能力是DDSCAPS_OFFSCREENPLAIN离屏表面，mem_flags是内存位置。0表示显存，1表示系统内存。</span></span><br><span class="line">ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN | mem_flags;</span><br></pre></td></tr></table></figure></p>
+<p>其中，mem_flags表示表面创建的位置，0表示显存，1表示系统内存。但是，如果显存不够，会将表面创建到系统内存。</p>
+<p>创建离屏表面的完整函数：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建离屏表面</span></span><br><span class="line"><span class="function">LPDIRECTDRAWSURFACE7 <span class="title">DDraw_Create_Surface</span>(<span class="params"><span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">int</span> mem_flags, <span class="keyword">int</span> color_key = <span class="number">0</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	DDSURFACEDESC2 ddsd;         <span class="comment">// working description</span></span><br><span class="line">	LPDIRECTDRAWSURFACE7 lpdds;  <span class="comment">// temporary surface</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// set to access caps, width, and height</span></span><br><span class="line">	DDRAW_INIT_STRUCT(ddsd);</span><br><span class="line">	ddsd.dwSize = <span class="keyword">sizeof</span>(ddsd);</span><br><span class="line">	ddsd.dwFlags = DDSD_CAPS | DDSD_WIDTH | DDSD_HEIGHT;</span><br><span class="line"></span><br><span class="line">	ddsd.dwWidth = width;</span><br><span class="line">	ddsd.dwHeight = height;</span><br><span class="line"></span><br><span class="line">	ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN | mem_flags;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (FAILED(lpdd-&gt;CreateSurface(&amp;ddsd, &amp;lpdds, NULL)))</span><br><span class="line">		<span class="keyword">return</span>(NULL);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (color_key &gt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		DDCOLORKEY color_key;</span><br><span class="line">		<span class="keyword">if</span> (SCREEN_BPP == <span class="number">8</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			color_key.dwColorSpaceLowValue = <span class="number">0</span>;				<span class="comment">// 从Low到High都是透明键</span></span><br><span class="line">			color_key.dwColorSpaceHighValue = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			color_key.dwColorSpaceLowValue = __RGB16BIT565(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);				<span class="comment">// 从Low到High都是透明键</span></span><br><span class="line">			color_key.dwColorSpaceHighValue = __RGB16BIT565(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		lpdds-&gt;SetColorKey(DDCKEY_SRCBLT, &amp;color_key);</span><br><span class="line">	&#125; <span class="comment">// end if</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// return surface</span></span><br><span class="line">	<span class="keyword">return</span>(lpdds);</span><br><span class="line">&#125; <span class="comment">// end DDraw_Create_Surface</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-色彩键-ColorKey"><a href="#3-色彩键-ColorKey" class="headerlink" title="3.色彩键(ColorKey)"></a>3.色彩键(ColorKey)</h3><p>当我们将离屏表面的Sprite blit到显示表面的时候，可以选择一个色彩范围，不被blit到目标。</p>
+<p>DDCOLORKEY:<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * DDCOLORKEY</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">typedef <span class="keyword">struct</span> _DDCOLORKEY</span><br><span class="line">&#123;</span><br><span class="line">    DWORD       dwColorSpaceLowValue;   <span class="comment">// low boundary of color space that is to</span></span><br><span class="line">                                        <span class="comment">// be treated as Color Key, inclusive</span></span><br><span class="line">    DWORD       dwColorSpaceHighValue;  <span class="comment">// high boundary of color space that is</span></span><br><span class="line">                                        <span class="comment">// to be treated as Color Key, inclusive</span></span><br><span class="line">&#125; DDCOLORKEY;</span><br><span class="line"></span><br><span class="line">typedef DDCOLORKEY FAR* LPDDCOLORKEY;</span><br></pre></td></tr></table></figure></p>
+<p>表示从dwColorSpaceLowValue到dwColorSpaceHighValue的颜色都为透明色。<br>如果是8位深度，是两个index，否则是两个RGB颜色值。</p>
+<p>为表面设置色彩键有两种方式：一种是创建表面的时候就指定，另外一种是设置表面的色彩键</p>
 <ul>
-<li><p>自定义资源:</p>
+<li>创建表面的时候就指定的时候，在表面描述结构(DDSURFACEDESC2)中:<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DDSURFACEDESC2 ddsd;         </span><br><span class="line">DDRAW_INIT_STRUCT(ddsd);</span><br><span class="line">   ...</span><br><span class="line">   ddsd.dwFlags = ...| ... | DDSD_CKSRCBLT;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上述例子中，ddsd指定了DDSD_CKSRCBLT字段起作用，之后再设置ddsd.ddckCKSrcBlt.dwColorSpaceLowValue和ddsd.ddckCKSrcBlt.dwColorSpaceHighValue。</p>
 <ul>
-<li>创建.rc文件和.h文件<br>  myresource.h<br>  myres.rc</li>
-<li><p>.h文件中定义资源的const id<br>  eg. myresource.h中内容：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define IDX_XXX    1000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>.rc文件中,引入.h，并且定义资源的类型和位置<br>  eg.myres.rc文件中的内容<br>  IDX_XXX &ensp; &ensp;   资源类型    &ensp; &ensp;   资源名称/资源全路径</p>
-</li>
-<li>或者.rc文件中，使用名称定义资源<br>  eg.myres.rc文件中的内容<br>  RES_NAME  &ensp; &ensp;  资源类型   &ensp; &ensp;    资源名称/资源全路径</li>
+<li>在创建表面之后，设置表面的色彩键：使用DDCOLORKEY结构描述色彩范围，然后调用 LPDIRECTDRAWSURFACE7::SetColorKey();</li>
 </ul>
-</li>
-<li>加载资源<ul>
-<li>用字符串名字定义的</li>
-<li>用ID定义的，使用<strong>MAKEINTRESOURCE(ID)</strong></li>
-</ul>
-</li>
-</ul>
-<h4 id="2-资源类型和资源加载"><a href="#2-资源类型和资源加载" class="headerlink" title="2.资源类型和资源加载"></a>2.资源类型和资源加载</h4><h5 id="1-ico图标资源-ICON"><a href="#1-ico图标资源-ICON" class="headerlink" title="1 .ico图标资源(ICON)"></a>1 .ico图标资源(<strong>ICON</strong>)</h5><p>1.定义图标资源<br>    icon_name/ICON_ID &ensp; &ensp; <strong>ICON</strong> &ensp; &ensp; icoName.ico<br>2.加载图标资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">LoadICON(hInstance,icon_name);                      // 资源定义的名称是字符串</span><br><span class="line">LoadICON(hInstance,MAKEINTRESOURCE(ICON_ID));       // 资源用ID定义的</span><br></pre></td></tr></table></figure></p>
-<h5 id="2-cur光标资源-CURSOR"><a href="#2-cur光标资源-CURSOR" class="headerlink" title="2 .cur光标资源(CURSOR)"></a>2 .cur光标资源(<strong>CURSOR</strong>)</h5><p>1.定义光标资源资源<br>    cur_name/CUR_ID &ensp; &ensp; <strong>CURSOR</strong> &ensp; &ensp; curName.ico<br>2.加载图标资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">LoadCursor(hInstance,cur_name);                      // 资源定义的名称是字符串</span><br><span class="line">LoadCursor(hInstance,MAKEINTRESOURCE(CUR_ID));       // 资源用ID定义的</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-字符串资源"><a href="#3-字符串资源" class="headerlink" title="3 字符串资源"></a>3 字符串资源</h5><p>1.定义字符串资源：在.rc文件中，格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STRINGTABLE</span><br><span class="line">&#123;</span><br><span class="line">    ID_STRING_1, &quot;string 1&quot;</span><br><span class="line">    ID_STRING_2, &quot;string 2&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>每条字符串资源长度不能超过255个字符。</p>
-<p>2.加载字符串资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">int bufferCount=80;</span><br><span class="line">char load_str[bufferCount]</span><br><span class="line">LoadString(hInstance,</span><br><span class="line">    ID_STRING_1,                // 字符串的id</span><br><span class="line">    load_str,                   // 加载字符串的指针</span><br><span class="line">    bufferCount                 // buffer的长度</span><br><span class="line">    )</span><br></pre></td></tr></table></figure></p>
-<h5 id="4-WAV声音资源-WAVE"><a href="#4-WAV声音资源-WAVE" class="headerlink" title="4 .WAV声音资源(WAVE)"></a>4 .WAV声音资源(<strong>WAVE</strong>)</h5><p>1.定义声音资源<br>wave_name/WAVE_ID <strong>WAVE</strong> file_name.wav</p>
-<p>2.加载/播放声音资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">PlaySound(&quot;wave_name&quot;,hInstance,</span><br><span class="line">    SND_XXX | SND_YYY);</span><br><span class="line"></span><br><span class="line">PlaySound(MAKEINTRESOURCE(WAVE_ID),hInstance,</span><br><span class="line">    SND_XXX | SND_YYY);</span><br><span class="line">// 停止所有声音</span><br><span class="line">PlaySound(NULL,hInstance,</span><br><span class="line">    SND_PURGE);</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-菜单资源-MENU"><a href="#3-菜单资源-MENU" class="headerlink" title="3.菜单资源(MENU)"></a>3.菜单资源(<strong>MENU</strong>)</h4><h5 id="1-创建菜单资源"><a href="#1-创建菜单资源" class="headerlink" title="1.创建菜单资源"></a>1.创建菜单资源</h5><p>在.rc文件中,创建一个常见的菜单，包含File和Help<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MainMenu  MENU  DISCRADABLE</span><br><span class="line">&#123;</span><br><span class="line">    POPUP  &quot;&amp;File&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        MENUITEM &quot;Open&quot;,    MENU_FILE_ID_OPEN</span><br><span class="line">        // ......</span><br><span class="line"></span><br><span class="line">        MENUITEM &quot;E&amp;xit&quot;,    MENU_FILE_ID_EXIT</span><br><span class="line">    &#125;</span><br><span class="line">    POPUP &quot;Help&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        MENUITEM &quot;About&quot;,    MENU_FILE_ID_EXIT</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LPDIRECTDRAWSURFACE7 lpdds;  </span><br><span class="line">   ...</span><br><span class="line"></span><br><span class="line">   DDCOLORKEY color_key;</span><br><span class="line">   <span class="keyword">if</span> (SCREEN_BPP == <span class="number">8</span>)</span><br><span class="line">   &#123;</span><br><span class="line">       color_key.dwColorSpaceLowValue = <span class="number">0</span>;				<span class="comment">// 从Low到High都是透明键</span></span><br><span class="line">       color_key.dwColorSpaceHighValue = <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">   &#123;</span><br><span class="line">       color_key.dwColorSpaceLowValue = __RGB16BIT565(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);				<span class="comment">// 从Low到High都是透明键</span></span><br><span class="line">       color_key.dwColorSpaceHighValue = __RGB16BIT565(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   lpdds-&gt;SetColorKey(DDCKEY_SRCBLT, &amp;color_key);</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-源色彩键"><a href="#3-1-源色彩键" class="headerlink" title="3.1 源色彩键"></a>3.1 源色彩键</h4><p>source中的色键色彩不被blit到目标。</p>
 <ul>
-<li>POPUP：弹出菜单</li>
-<li>MENUITEM: 菜单项</li>
-<li>使用&amp;符号，定义&amp;后的字母为Alt快捷键<br>在myres.h中定义使用到的id:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define  MENU_FILE_ID_OPEN    20000</span><br><span class="line">#define  MENU_FILE_ID_XXXX    20000</span><br><span class="line">// ......</span><br></pre></td></tr></table></figure>
+<li>描述表面能力时候的色彩键标志：<center>表面能力的色彩键标志</center>
+
 </li>
 </ul>
-<h5 id="2-加载菜单资源"><a href="#2-加载菜单资源" class="headerlink" title="2.加载菜单资源"></a>2.加载菜单资源</h5><ol>
-<li>方法1：Windows类winClass定义中：<br> winClass.lpszMenuName = “MainMenu”<br> winClass.lpszMenuName = MAKEINTRESOURCE(MAIN_MENU_ID)</li>
-<li>方法2:先加载菜单资源，再赋值</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMENU hMenu = LoadMenu(hInstance, &quot;MainMenu&quot;);</span><br></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMENU hMenu = LoadMenu(hInstance, MAKEINTRESOURCE(MAIN_MENU_ID));</span><br></pre></td></tr></table></figure>
-<p>赋值：<br>给hWnd赋值hMenu菜单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SetMenu(hWnd,hMenu);</span><br></pre></td></tr></table></figure>
-<h5 id="3-响应菜单事件-page-82"><a href="#3-响应菜单事件-page-82" class="headerlink" title="3.响应菜单事件(page 82)"></a>3.响应菜单事件(page 82)</h5><ul>
-<li>1.WM_COMMAND消息<ul>
-<li>响应系统按键</li>
-<li>消息结构：msg、lparam、wparam<br>  对于响应菜单点击事件:<ul>
-<li>msg:WM_COMMAND</li>
-<li>lparam:发出消息的窗口句柄</li>
-<li>wparam:选中的菜单项的ID(LOWORD(wparam))</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDSD_CKSRCBLT</td>
+<td style="text-align:left">表面描述的ddckCKSrcBlt成员有效，包含源色彩键的色彩键信息</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSD_CKDESTBLT</td>
+<td style="text-align:left">表面描述的ddckCKDestBlt成员有效，包含目标色彩键的色彩键信息</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSD_CKSRCOVERLAY</td>
+<td style="text-align:left">表面描述的ddckCKSrcOverlay成员有效，包含源叠加色彩键的色彩信息</td>
+</tr>
+<tr>
+<td style="text-align:left">DDSD_CKDESTOVERLAY</td>
+<td style="text-align:left">表面描述的ddckCKDestOverlay成员有效，包含目标叠加色彩键的色彩信息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>表面SetColorKey()的有效标志：<center>表面SetColorKey()的有效标志</center>
+
 </li>
 </ul>
-</li>
-<li>2.实例代码<br>在WinProc处理程序中：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">case  WM_COMMAND:</span><br><span class="line">&#123;</span><br><span class="line">    switch(LOWORD(wparam)</span><br><span class="line">    &#123;</span><br><span class="line">        case MENU_FILE_ID_OPEN:</span><br><span class="line">        &#123;</span><br><span class="line">            // clicked open</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line">        case MENU_FILE_ID_EXIT:</span><br><span class="line">        &#123;</span><br><span class="line">            // clicked exit</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line"></span><br><span class="line">        // ......</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">break;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDCKEY_COLORSPACE</td>
+<td style="text-align:left">描述一个色彩空间。在此色彩空间内的值才会被blit</td>
+</tr>
+<tr>
+<td style="text-align:left">DDCKEY_SRCBLT</td>
+<td style="text-align:left">源色彩键</td>
+</tr>
+<tr>
+<td style="text-align:left">DDCKEY_DESTBLT</td>
+<td style="text-align:left">目标色彩键</td>
+</tr>
+<tr>
+<td style="text-align:left">DDCKEY_SRCOVERLAY</td>
+<td style="text-align:left">叠加源色彩键</td>
+</tr>
+<tr>
+<td style="text-align:left">DDCKEY_DESTOVERLAY</td>
+<td style="text-align:left">叠加目标色彩键</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-2-目标色彩键"><a href="#3-2-目标色彩键" class="headerlink" title="3.2 目标色彩键"></a>3.2 目标色彩键</h4><p>如果目标位置的色彩是色键色彩,source中的色彩不被blit到目标。</p>
+<h4 id="3-3-其他"><a href="#3-3-其他" class="headerlink" title="3.3 其他"></a>3.3 其他</h4><p>目标色彩键只在HAL(硬件抽象层)可用，在HEL中不行。<br>叠加色彩键用于视频处理。详情参见DirectX SDK.</p>
 
       
 
@@ -310,9 +342,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-9.html" target="_blank" title="[引擎笔记]之二：创建资源以及菜单">[引擎笔记]之二：创建资源以及菜单</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-25.html" target="_blank" title="[引擎笔记]之十七：离屏表面和色彩键">[引擎笔记]之十七：离屏表面和色彩键</a></b></center>
 
-<center>本文链接为<b><a href="/en-9.html" target="_blank" title="[引擎笔记]之二：创建资源以及菜单">https://yanchezuo.com/en-9.html</a></b></center>
+<center>本文链接为<b><a href="/en-25.html" target="_blank" title="[引擎笔记]之十七：离屏表面和色彩键">https://yanchezuo.com/en-25.html</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -411,7 +443,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-9.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-25.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -425,18 +457,18 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/en-10.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/en-26.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [引擎笔记]之三：处理重要窗口事件
+          [引擎笔记]之十八：Blitter的使用总结和示例
         
       </div>
     </a>
   
   
-    <a href="/game-frame-2.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[游戏框架]ECS(Entity-Component-System)个人笔记</div>
+    <a href="/u3d4.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[Unity3D]记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -463,7 +495,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-资源概括"><span class="toc-number">1.</span> <span class="toc-text">1.资源概括</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-资源类型和资源加载"><span class="toc-number">2.</span> <span class="toc-text">2.资源类型和资源加载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ico图标资源-ICON"><span class="toc-number">2.1.</span> <span class="toc-text">1 .ico图标资源(ICON)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-cur光标资源-CURSOR"><span class="toc-number">2.2.</span> <span class="toc-text">2 .cur光标资源(CURSOR)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-字符串资源"><span class="toc-number">2.3.</span> <span class="toc-text">3 字符串资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-WAV声音资源-WAVE"><span class="toc-number">2.4.</span> <span class="toc-text">4 .WAV声音资源(WAVE)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-菜单资源-MENU"><span class="toc-number">3.</span> <span class="toc-text">3.菜单资源(MENU)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建菜单资源"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-加载菜单资源"><span class="toc-number">3.2.</span> <span class="toc-text">2.加载菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-响应菜单事件-page-82"><span class="toc-number">3.3.</span> <span class="toc-text">3.响应菜单事件(page 82)</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-前情总结"><span class="toc-number">1.</span> <span class="toc-text">1.前情总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-离屏表面"><span class="toc-number">2.</span> <span class="toc-text">2.离屏表面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-创建离屏表面"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 创建离屏表面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-色彩键-ColorKey"><span class="toc-number">3.</span> <span class="toc-text">3.色彩键(ColorKey)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-源色彩键"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 源色彩键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-目标色彩键"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 目标色彩键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-其他"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 其他</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -489,7 +521,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/en-9.html",
+  id: "https://yanchezuo.com/en-25.html",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {

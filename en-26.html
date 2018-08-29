@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[引擎笔记]之二：创建资源以及菜单 | 延澈左的博客</title>
+  <title>[引擎笔记]之十八：Blitter的使用总结和示例 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.资源概括 资源最终将会被打包成.res文件。">
+  <meta name="description" content="1.使用总结">
 <meta name="keywords" content="笔记,引擎笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[引擎笔记]之二：创建资源以及菜单">
-<meta property="og:url" content="https://yanchezuo.com/en-9.html">
+<meta property="og:title" content="[引擎笔记]之十八：Blitter的使用总结和示例">
+<meta property="og:url" content="https://yanchezuo.com/en-26.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.资源概括 资源最终将会被打包成.res文件。">
+<meta property="og:description" content="1.使用总结">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T06:21:53.049Z">
+<meta property="og:updated_time" content="2018-08-29T08:43:46.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[引擎笔记]之二：创建资源以及菜单">
-<meta name="twitter:description" content="1.资源概括 资源最终将会被打包成.res文件。">
+<meta name="twitter:title" content="[引擎笔记]之十八：Blitter的使用总结和示例">
+<meta name="twitter:description" content="1.使用总结">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-en-9" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-en-26" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [引擎笔记]之二：创建资源以及菜单
+      [引擎笔记]之十八：Blitter的使用总结和示例
     </h1>
   
 
@@ -178,13 +178,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en-9.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/en-26.html" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/en-9.html" class="archive-article-date">
-  	<time datetime="2018-04-13T05:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+        <a href="/en-26.html" class="archive-article-date">
+  	<time datetime="2018-08-29T08:17:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-29</time>
 </a>
         
       </header>
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-资源概括"><span class="toc-number">1.</span> <span class="toc-text">1.资源概括</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-资源类型和资源加载"><span class="toc-number">2.</span> <span class="toc-text">2.资源类型和资源加载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ico图标资源-ICON"><span class="toc-number">2.1.</span> <span class="toc-text">1 .ico图标资源(ICON)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-cur光标资源-CURSOR"><span class="toc-number">2.2.</span> <span class="toc-text">2 .cur光标资源(CURSOR)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-字符串资源"><span class="toc-number">2.3.</span> <span class="toc-text">3 字符串资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-WAV声音资源-WAVE"><span class="toc-number">2.4.</span> <span class="toc-text">4 .WAV声音资源(WAVE)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-菜单资源-MENU"><span class="toc-number">3.</span> <span class="toc-text">3.菜单资源(MENU)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建菜单资源"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-加载菜单资源"><span class="toc-number">3.2.</span> <span class="toc-text">2.加载菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-响应菜单事件-page-82"><span class="toc-number">3.3.</span> <span class="toc-text">3.响应菜单事件(page 82)</span></a></li></ol></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用示例"><span class="toc-number">2.</span> <span class="toc-text">2.使用示例</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -219,65 +219,23 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-资源概括"><a href="#1-资源概括" class="headerlink" title="1.资源概括"></a>1.资源概括</h4><ul>
-<li>资源最终将会被打包成.res文件。</li>
-</ul>
-<a id="more"></a>
+        <h3 id="1-使用总结"><a href="#1-使用总结" class="headerlink" title="1.使用总结"></a>1.使用总结</h3><a id="more"></a>
 <ul>
-<li><p>自定义资源:</p>
-<ul>
-<li>创建.rc文件和.h文件<br>  myresource.h<br>  myres.rc</li>
-<li><p>.h文件中定义资源的const id<br>  eg. myresource.h中内容：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define IDX_XXX    1000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>.rc文件中,引入.h，并且定义资源的类型和位置<br>  eg.myres.rc文件中的内容<br>  IDX_XXX &ensp; &ensp;   资源类型    &ensp; &ensp;   资源名称/资源全路径</p>
-</li>
-<li>或者.rc文件中，使用名称定义资源<br>  eg.myres.rc文件中的内容<br>  RES_NAME  &ensp; &ensp;  资源类型   &ensp; &ensp;    资源名称/资源全路径</li>
+<li>1.首先，blitter是表面的方法：LPDIRECTDRAWSURFACE7::Blt()</li>
+<li>2.其次，方法参数lpdds-&gt;Blt(destRect,srcSurface,srcRect,dwFlags,LPDDBLTFX描述信息).dwFlags不可以缺少<strong>DDBLT_WAIT</strong></li>
+<li>3.整个表面Blt的时候，destRect和srcRect都设置为NULL。</li>
+<li>4.使用Blt颜色填充时，设置DDBLTFX.dwFillColor颜色索引或者RGB值，同时，dwFlags记得增加<strong>DDBLT_COLORFILL</strong>,否则填充颜色不起作用。</li>
+<li>5.使用Blt，设置Rect的时候，会自动进行到目标Rect的缩放。</li>
+<li>6.DDBLTFX结构中描述了Blt的功能参数。(颜色填充、旋转、ZBuffer等)</li>
 </ul>
+<h3 id="2-使用示例"><a href="#2-使用示例" class="headerlink" title="2.使用示例"></a>2.使用示例</h3><ul>
+<li><p>将Source blt到 dest. 目标位置是x,y;目标的宽度和高度是width,height; transparent表示是否使用色键</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> 将Source blt到 dest. 目标位置是x,y;目标的宽度和高度是width,height; transparent表示是否使用色键</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DDraw_Draw_Surface</span>(<span class="params">LPDIRECTDRAWSURFACE7 source, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height, LPDIRECTDRAWSURFACE7 dest, <span class="keyword">int</span> transparent = <span class="number">1</span>, <span class="keyword">float</span> scale = <span class="number">1.0</span>f</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	RECT dest_rect;</span><br><span class="line">	RECT src_rect;</span><br><span class="line"></span><br><span class="line">	src_rect.left = <span class="number">0</span>;</span><br><span class="line">	src_rect.top = <span class="number">0</span>;</span><br><span class="line">	src_rect.right = width - <span class="number">1</span>;</span><br><span class="line">	src_rect.bottom = height - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	dest_rect.left = x;</span><br><span class="line">	dest_rect.top = y;</span><br><span class="line">	dest_rect.right = x + width*scale - <span class="number">1</span>;</span><br><span class="line">	dest_rect.bottom = y + height*scale - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (transparent)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (FAILED(dest-&gt;Blt(&amp;dest_rect, source, &amp;src_rect, (DDBLT_WAIT | DDBLT_KEYSRC), NULL)))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (FAILED(dest-&gt;Blt(&amp;dest_rect, source, &amp;src_rect, (DDBLT_WAIT), NULL)))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>加载资源<ul>
-<li>用字符串名字定义的</li>
-<li>用ID定义的，使用<strong>MAKEINTRESOURCE(ID)</strong></li>
-</ul>
+<li><p>填充颜色的简单示例</p>
 </li>
 </ul>
-<h4 id="2-资源类型和资源加载"><a href="#2-资源类型和资源加载" class="headerlink" title="2.资源类型和资源加载"></a>2.资源类型和资源加载</h4><h5 id="1-ico图标资源-ICON"><a href="#1-ico图标资源-ICON" class="headerlink" title="1 .ico图标资源(ICON)"></a>1 .ico图标资源(<strong>ICON</strong>)</h5><p>1.定义图标资源<br>    icon_name/ICON_ID &ensp; &ensp; <strong>ICON</strong> &ensp; &ensp; icoName.ico<br>2.加载图标资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">LoadICON(hInstance,icon_name);                      // 资源定义的名称是字符串</span><br><span class="line">LoadICON(hInstance,MAKEINTRESOURCE(ICON_ID));       // 资源用ID定义的</span><br></pre></td></tr></table></figure></p>
-<h5 id="2-cur光标资源-CURSOR"><a href="#2-cur光标资源-CURSOR" class="headerlink" title="2 .cur光标资源(CURSOR)"></a>2 .cur光标资源(<strong>CURSOR</strong>)</h5><p>1.定义光标资源资源<br>    cur_name/CUR_ID &ensp; &ensp; <strong>CURSOR</strong> &ensp; &ensp; curName.ico<br>2.加载图标资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">LoadCursor(hInstance,cur_name);                      // 资源定义的名称是字符串</span><br><span class="line">LoadCursor(hInstance,MAKEINTRESOURCE(CUR_ID));       // 资源用ID定义的</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-字符串资源"><a href="#3-字符串资源" class="headerlink" title="3 字符串资源"></a>3 字符串资源</h5><p>1.定义字符串资源：在.rc文件中，格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STRINGTABLE</span><br><span class="line">&#123;</span><br><span class="line">    ID_STRING_1, &quot;string 1&quot;</span><br><span class="line">    ID_STRING_2, &quot;string 2&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>每条字符串资源长度不能超过255个字符。</p>
-<p>2.加载字符串资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">int bufferCount=80;</span><br><span class="line">char load_str[bufferCount]</span><br><span class="line">LoadString(hInstance,</span><br><span class="line">    ID_STRING_1,                // 字符串的id</span><br><span class="line">    load_str,                   // 加载字符串的指针</span><br><span class="line">    bufferCount                 // buffer的长度</span><br><span class="line">    )</span><br></pre></td></tr></table></figure></p>
-<h5 id="4-WAV声音资源-WAVE"><a href="#4-WAV声音资源-WAVE" class="headerlink" title="4 .WAV声音资源(WAVE)"></a>4 .WAV声音资源(<strong>WAVE</strong>)</h5><p>1.定义声音资源<br>wave_name/WAVE_ID <strong>WAVE</strong> file_name.wav</p>
-<p>2.加载/播放声音资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">PlaySound(&quot;wave_name&quot;,hInstance,</span><br><span class="line">    SND_XXX | SND_YYY);</span><br><span class="line"></span><br><span class="line">PlaySound(MAKEINTRESOURCE(WAVE_ID),hInstance,</span><br><span class="line">    SND_XXX | SND_YYY);</span><br><span class="line">// 停止所有声音</span><br><span class="line">PlaySound(NULL,hInstance,</span><br><span class="line">    SND_PURGE);</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-菜单资源-MENU"><a href="#3-菜单资源-MENU" class="headerlink" title="3.菜单资源(MENU)"></a>3.菜单资源(<strong>MENU</strong>)</h4><h5 id="1-创建菜单资源"><a href="#1-创建菜单资源" class="headerlink" title="1.创建菜单资源"></a>1.创建菜单资源</h5><p>在.rc文件中,创建一个常见的菜单，包含File和Help<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MainMenu  MENU  DISCRADABLE</span><br><span class="line">&#123;</span><br><span class="line">    POPUP  &quot;&amp;File&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        MENUITEM &quot;Open&quot;,    MENU_FILE_ID_OPEN</span><br><span class="line">        // ......</span><br><span class="line"></span><br><span class="line">        MENUITEM &quot;E&amp;xit&quot;,    MENU_FILE_ID_EXIT</span><br><span class="line">    &#125;</span><br><span class="line">    POPUP &quot;Help&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        MENUITEM &quot;About&quot;,    MENU_FILE_ID_EXIT</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>POPUP：弹出菜单</li>
-<li>MENUITEM: 菜单项</li>
-<li>使用&amp;符号，定义&amp;后的字母为Alt快捷键<br>在myres.h中定义使用到的id:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define  MENU_FILE_ID_OPEN    20000</span><br><span class="line">#define  MENU_FILE_ID_XXXX    20000</span><br><span class="line">// ......</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="2-加载菜单资源"><a href="#2-加载菜单资源" class="headerlink" title="2.加载菜单资源"></a>2.加载菜单资源</h5><ol>
-<li>方法1：Windows类winClass定义中：<br> winClass.lpszMenuName = “MainMenu”<br> winClass.lpszMenuName = MAKEINTRESOURCE(MAIN_MENU_ID)</li>
-<li>方法2:先加载菜单资源，再赋值</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMENU hMenu = LoadMenu(hInstance, &quot;MainMenu&quot;);</span><br></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMENU hMenu = LoadMenu(hInstance, MAKEINTRESOURCE(MAIN_MENU_ID));</span><br></pre></td></tr></table></figure>
-<p>赋值：<br>给hWnd赋值hMenu菜单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SetMenu(hWnd,hMenu);</span><br></pre></td></tr></table></figure>
-<h5 id="3-响应菜单事件-page-82"><a href="#3-响应菜单事件-page-82" class="headerlink" title="3.响应菜单事件(page 82)"></a>3.响应菜单事件(page 82)</h5><ul>
-<li>1.WM_COMMAND消息<ul>
-<li>响应系统按键</li>
-<li>消息结构：msg、lparam、wparam<br>  对于响应菜单点击事件:<ul>
-<li>msg:WM_COMMAND</li>
-<li>lparam:发出消息的窗口句柄</li>
-<li>wparam:选中的菜单项的ID(LOWORD(wparam))</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>2.实例代码<br>在WinProc处理程序中：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">case  WM_COMMAND:</span><br><span class="line">&#123;</span><br><span class="line">    switch(LOWORD(wparam)</span><br><span class="line">    &#123;</span><br><span class="line">        case MENU_FILE_ID_OPEN:</span><br><span class="line">        &#123;</span><br><span class="line">            // clicked open</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line">        case MENU_FILE_ID_EXIT:</span><br><span class="line">        &#123;</span><br><span class="line">            // clicked exit</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line"></span><br><span class="line">        // ......</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">break;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">TestBlitFillColor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DDBLTFX ddbltfx;</span><br><span class="line">	RECT dest_rect;</span><br><span class="line">	DDRAW_INIT_STRUCT(ddbltfx);</span><br><span class="line">    <span class="keyword">if</span>(SCREEN_BPP==<span class="number">8</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ddbltfx.dwFillColor = rand()%<span class="number">255</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(SCREEN_BPP==<span class="number">16</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ddbltfx.dwFillColor = RandomRGB16BIT565();</span><br><span class="line">    &#125;</span><br><span class="line">	dest_rect.left = rand() % SCREEN_WIDTH;</span><br><span class="line">	dest_rect.right = rand() % SCREEN_WIDTH;</span><br><span class="line">	dest_rect.top = rand() % SCREEN_HEIGHT;</span><br><span class="line">	dest_rect.bottom = rand() % SCREEN_HEIGHT;</span><br><span class="line"></span><br><span class="line">	lpddsprimary-&gt;Blt(&amp;dest_rect, NULL, NULL, DDBLT_COLORFILL | DDBLT_WAIT, &amp;ddbltfx);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -310,9 +268,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-9.html" target="_blank" title="[引擎笔记]之二：创建资源以及菜单">[引擎笔记]之二：创建资源以及菜单</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-26.html" target="_blank" title="[引擎笔记]之十八：Blitter的使用总结和示例">[引擎笔记]之十八：Blitter的使用总结和示例</a></b></center>
 
-<center>本文链接为<b><a href="/en-9.html" target="_blank" title="[引擎笔记]之二：创建资源以及菜单">https://yanchezuo.com/en-9.html</a></b></center>
+<center>本文链接为<b><a href="/en-26.html" target="_blank" title="[引擎笔记]之十八：Blitter的使用总结和示例">https://yanchezuo.com/en-26.html</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -411,7 +369,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-9.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-26.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -425,18 +383,9 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/en-10.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          [引擎笔记]之三：处理重要窗口事件
-        
-      </div>
-    </a>
   
-  
-    <a href="/game-frame-2.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[游戏框架]ECS(Entity-Component-System)个人笔记</div>
+    <a href="/en-25.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之十七：离屏表面和色彩键</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -463,7 +412,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-资源概括"><span class="toc-number">1.</span> <span class="toc-text">1.资源概括</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-资源类型和资源加载"><span class="toc-number">2.</span> <span class="toc-text">2.资源类型和资源加载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ico图标资源-ICON"><span class="toc-number">2.1.</span> <span class="toc-text">1 .ico图标资源(ICON)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-cur光标资源-CURSOR"><span class="toc-number">2.2.</span> <span class="toc-text">2 .cur光标资源(CURSOR)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-字符串资源"><span class="toc-number">2.3.</span> <span class="toc-text">3 字符串资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-WAV声音资源-WAVE"><span class="toc-number">2.4.</span> <span class="toc-text">4 .WAV声音资源(WAVE)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-菜单资源-MENU"><span class="toc-number">3.</span> <span class="toc-text">3.菜单资源(MENU)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建菜单资源"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-加载菜单资源"><span class="toc-number">3.2.</span> <span class="toc-text">2.加载菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-响应菜单事件-page-82"><span class="toc-number">3.3.</span> <span class="toc-text">3.响应菜单事件(page 82)</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用总结"><span class="toc-number">1.</span> <span class="toc-text">1.使用总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用示例"><span class="toc-number">2.</span> <span class="toc-text">2.使用示例</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -489,7 +438,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/en-9.html",
+  id: "https://yanchezuo.com/en-26.html",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {

@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[引擎笔记]之二：创建资源以及菜单 | 延澈左的博客</title>
+  <title>Archives | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.资源概括 资源最终将会被打包成.res文件。">
-<meta name="keywords" content="笔记,引擎笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[引擎笔记]之二：创建资源以及菜单">
-<meta property="og:url" content="https://yanchezuo.com/en-9.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="延澈左的博客">
+<meta property="og:url" content="https://yanchezuo.com/archives/page/6/index.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.资源概括 资源最终将会被打包成.res文件。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-17T06:21:53.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[引擎笔记]之二：创建资源以及菜单">
-<meta name="twitter:description" content="1.资源概括 资源最终将会被打包成.res文件。">
+<meta name="twitter:title" content="延澈左的博客">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +156,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-en-9" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      [引擎笔记]之二：创建资源以及菜单
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/u3d1.html" class="archive-article-date">
+  	<time datetime="2018-04-02T05:05:54.660Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/u3d1.html">[Unity3D]之Unity3D花屏问题解决</a>
     </h1>
   
 
@@ -178,329 +190,51 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en-9.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/u3d1.html" class="pageViews">0</span>次
   </a>
 
 
-        
-        <a href="/en-9.html" class="archive-article-date">
-  	<time datetime="2018-04-13T05:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
-</a>
-        
-      </header>
-    
-
-<!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-资源概括"><span class="toc-number">1.</span> <span class="toc-text">1.资源概括</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-资源类型和资源加载"><span class="toc-number">2.</span> <span class="toc-text">2.资源类型和资源加载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ico图标资源-ICON"><span class="toc-number">2.1.</span> <span class="toc-text">1 .ico图标资源(ICON)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-cur光标资源-CURSOR"><span class="toc-number">2.2.</span> <span class="toc-text">2 .cur光标资源(CURSOR)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-字符串资源"><span class="toc-number">2.3.</span> <span class="toc-text">3 字符串资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-WAV声音资源-WAVE"><span class="toc-number">2.4.</span> <span class="toc-text">4 .WAV声音资源(WAVE)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-菜单资源-MENU"><span class="toc-number">3.</span> <span class="toc-text">3.菜单资源(MENU)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建菜单资源"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-加载菜单资源"><span class="toc-number">3.2.</span> <span class="toc-text">2.加载菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-响应菜单事件-page-82"><span class="toc-number">3.3.</span> <span class="toc-text">3.响应菜单事件(page 82)</span></a></li></ol></li></ol>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-资源概括"><a href="#1-资源概括" class="headerlink" title="1.资源概括"></a>1.资源概括</h4><ul>
-<li>资源最终将会被打包成.res文件。</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><p>自定义资源:</p>
-<ul>
-<li>创建.rc文件和.h文件<br>  myresource.h<br>  myres.rc</li>
-<li><p>.h文件中定义资源的const id<br>  eg. myresource.h中内容：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define IDX_XXX    1000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>.rc文件中,引入.h，并且定义资源的类型和位置<br>  eg.myres.rc文件中的内容<br>  IDX_XXX &ensp; &ensp;   资源类型    &ensp; &ensp;   资源名称/资源全路径</p>
-</li>
-<li>或者.rc文件中，使用名称定义资源<br>  eg.myres.rc文件中的内容<br>  RES_NAME  &ensp; &ensp;  资源类型   &ensp; &ensp;    资源名称/资源全路径</li>
-</ul>
-</li>
-<li>加载资源<ul>
-<li>用字符串名字定义的</li>
-<li>用ID定义的，使用<strong>MAKEINTRESOURCE(ID)</strong></li>
-</ul>
-</li>
-</ul>
-<h4 id="2-资源类型和资源加载"><a href="#2-资源类型和资源加载" class="headerlink" title="2.资源类型和资源加载"></a>2.资源类型和资源加载</h4><h5 id="1-ico图标资源-ICON"><a href="#1-ico图标资源-ICON" class="headerlink" title="1 .ico图标资源(ICON)"></a>1 .ico图标资源(<strong>ICON</strong>)</h5><p>1.定义图标资源<br>    icon_name/ICON_ID &ensp; &ensp; <strong>ICON</strong> &ensp; &ensp; icoName.ico<br>2.加载图标资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">LoadICON(hInstance,icon_name);                      // 资源定义的名称是字符串</span><br><span class="line">LoadICON(hInstance,MAKEINTRESOURCE(ICON_ID));       // 资源用ID定义的</span><br></pre></td></tr></table></figure></p>
-<h5 id="2-cur光标资源-CURSOR"><a href="#2-cur光标资源-CURSOR" class="headerlink" title="2 .cur光标资源(CURSOR)"></a>2 .cur光标资源(<strong>CURSOR</strong>)</h5><p>1.定义光标资源资源<br>    cur_name/CUR_ID &ensp; &ensp; <strong>CURSOR</strong> &ensp; &ensp; curName.ico<br>2.加载图标资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">LoadCursor(hInstance,cur_name);                      // 资源定义的名称是字符串</span><br><span class="line">LoadCursor(hInstance,MAKEINTRESOURCE(CUR_ID));       // 资源用ID定义的</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-字符串资源"><a href="#3-字符串资源" class="headerlink" title="3 字符串资源"></a>3 字符串资源</h5><p>1.定义字符串资源：在.rc文件中，格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STRINGTABLE</span><br><span class="line">&#123;</span><br><span class="line">    ID_STRING_1, &quot;string 1&quot;</span><br><span class="line">    ID_STRING_2, &quot;string 2&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>每条字符串资源长度不能超过255个字符。</p>
-<p>2.加载字符串资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">int bufferCount=80;</span><br><span class="line">char load_str[bufferCount]</span><br><span class="line">LoadString(hInstance,</span><br><span class="line">    ID_STRING_1,                // 字符串的id</span><br><span class="line">    load_str,                   // 加载字符串的指针</span><br><span class="line">    bufferCount                 // buffer的长度</span><br><span class="line">    )</span><br></pre></td></tr></table></figure></p>
-<h5 id="4-WAV声音资源-WAVE"><a href="#4-WAV声音资源-WAVE" class="headerlink" title="4 .WAV声音资源(WAVE)"></a>4 .WAV声音资源(<strong>WAVE</strong>)</h5><p>1.定义声音资源<br>wave_name/WAVE_ID <strong>WAVE</strong> file_name.wav</p>
-<p>2.加载/播放声音资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;myresource.h&quot;</span><br><span class="line">PlaySound(&quot;wave_name&quot;,hInstance,</span><br><span class="line">    SND_XXX | SND_YYY);</span><br><span class="line"></span><br><span class="line">PlaySound(MAKEINTRESOURCE(WAVE_ID),hInstance,</span><br><span class="line">    SND_XXX | SND_YYY);</span><br><span class="line">// 停止所有声音</span><br><span class="line">PlaySound(NULL,hInstance,</span><br><span class="line">    SND_PURGE);</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-菜单资源-MENU"><a href="#3-菜单资源-MENU" class="headerlink" title="3.菜单资源(MENU)"></a>3.菜单资源(<strong>MENU</strong>)</h4><h5 id="1-创建菜单资源"><a href="#1-创建菜单资源" class="headerlink" title="1.创建菜单资源"></a>1.创建菜单资源</h5><p>在.rc文件中,创建一个常见的菜单，包含File和Help<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MainMenu  MENU  DISCRADABLE</span><br><span class="line">&#123;</span><br><span class="line">    POPUP  &quot;&amp;File&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        MENUITEM &quot;Open&quot;,    MENU_FILE_ID_OPEN</span><br><span class="line">        // ......</span><br><span class="line"></span><br><span class="line">        MENUITEM &quot;E&amp;xit&quot;,    MENU_FILE_ID_EXIT</span><br><span class="line">    &#125;</span><br><span class="line">    POPUP &quot;Help&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        MENUITEM &quot;About&quot;,    MENU_FILE_ID_EXIT</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>POPUP：弹出菜单</li>
-<li>MENUITEM: 菜单项</li>
-<li>使用&amp;符号，定义&amp;后的字母为Alt快捷键<br>在myres.h中定义使用到的id:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define  MENU_FILE_ID_OPEN    20000</span><br><span class="line">#define  MENU_FILE_ID_XXXX    20000</span><br><span class="line">// ......</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="2-加载菜单资源"><a href="#2-加载菜单资源" class="headerlink" title="2.加载菜单资源"></a>2.加载菜单资源</h5><ol>
-<li>方法1：Windows类winClass定义中：<br> winClass.lpszMenuName = “MainMenu”<br> winClass.lpszMenuName = MAKEINTRESOURCE(MAIN_MENU_ID)</li>
-<li>方法2:先加载菜单资源，再赋值</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMENU hMenu = LoadMenu(hInstance, &quot;MainMenu&quot;);</span><br></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMENU hMenu = LoadMenu(hInstance, MAKEINTRESOURCE(MAIN_MENU_ID));</span><br></pre></td></tr></table></figure>
-<p>赋值：<br>给hWnd赋值hMenu菜单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SetMenu(hWnd,hMenu);</span><br></pre></td></tr></table></figure>
-<h5 id="3-响应菜单事件-page-82"><a href="#3-响应菜单事件-page-82" class="headerlink" title="3.响应菜单事件(page 82)"></a>3.响应菜单事件(page 82)</h5><ul>
-<li>1.WM_COMMAND消息<ul>
-<li>响应系统按键</li>
-<li>消息结构：msg、lparam、wparam<br>  对于响应菜单点击事件:<ul>
-<li>msg:WM_COMMAND</li>
-<li>lparam:发出消息的窗口句柄</li>
-<li>wparam:选中的菜单项的ID(LOWORD(wparam))</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>2.实例代码<br>在WinProc处理程序中：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">case  WM_COMMAND:</span><br><span class="line">&#123;</span><br><span class="line">    switch(LOWORD(wparam)</span><br><span class="line">    &#123;</span><br><span class="line">        case MENU_FILE_ID_OPEN:</span><br><span class="line">        &#123;</span><br><span class="line">            // clicked open</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line">        case MENU_FILE_ID_EXIT:</span><br><span class="line">        &#123;</span><br><span class="line">            // clicked exit</span><br><span class="line">        &#125;</span><br><span class="line">        break;</span><br><span class="line"></span><br><span class="line">        // ......</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">break;</span><br></pre></td></tr></table></figure>
-
-      
-
-<!-- 版权内容-->
-    
-            
-<! -- 添加版权信息 -->
-<style type="text/css">
-div.article-footer-copyright{
-   border-top:1px solid #d3d3d3;
-   margin: 20px auto;     
-   padding-left:2em;
-   width: 80%;
-}
-div.article-footer-copyright span,.copyright abbr{
-  color:#3d3d3d;
-}
-div.article-footer-copyright{
-	margin-top:2em;
-	padding:1.5em;
-	border:1px solid #d3d3d3;
-	background-color:#DEEBF7;
-}
-div.article-footer-copyright {
-	line-height: 160%;
-	margin: 10px;
-	font-size: 90%;
-    color: #A3A3A3
-}
-</style>
-<br>
-<div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-9.html" target="_blank" title="[引擎笔记]之二：创建资源以及菜单">[引擎笔记]之二：创建资源以及菜单</a></b></center>
-
-<center>本文链接为<b><a href="/en-9.html" target="_blank" title="[引擎笔记]之二：创建资源以及菜单">https://yanchezuo.com/en-9.html</a></b></center>
-
-</div>
-<! -- 添加版权信息 -->
-
-    
-<!--版权内容结束-->
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的支持~~<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity3D</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Unity3D//" class="article-tag-list-link color3">Unity3D</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
 
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-9.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/en-10.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          [引擎笔记]之三：处理重要窗口事件
-        
-      </div>
-    </a>
   
   
-    <a href="/game-frame-2.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[游戏框架]ECS(Entity-Component-System)个人笔记</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-资源概括"><span class="toc-number">1.</span> <span class="toc-text">1.资源概括</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-资源类型和资源加载"><span class="toc-number">2.</span> <span class="toc-text">2.资源类型和资源加载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ico图标资源-ICON"><span class="toc-number">2.1.</span> <span class="toc-text">1 .ico图标资源(ICON)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-cur光标资源-CURSOR"><span class="toc-number">2.2.</span> <span class="toc-text">2 .cur光标资源(CURSOR)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-字符串资源"><span class="toc-number">2.3.</span> <span class="toc-text">3 字符串资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-WAV声音资源-WAVE"><span class="toc-number">2.4.</span> <span class="toc-text">4 .WAV声音资源(WAVE)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-菜单资源-MENU"><span class="toc-number">3.</span> <span class="toc-text">3.菜单资源(MENU)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建菜单资源"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-加载菜单资源"><span class="toc-number">3.2.</span> <span class="toc-text">2.加载菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-响应菜单事件-page-82"><span class="toc-number">3.3.</span> <span class="toc-text">3.响应菜单事件(page 82)</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
+    </nav>
   
-
-  
-
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "https://yanchezuo.com/en-9.html",
-  owner: 'Amazer',
-  repo: 'BlogComments',
-  oauth: {
-    client_id: 'e1e268a29dfa6b73a2d2',
-    client_secret: 'c1512e5e5a9f54a5165e7a860a28a1621ff2df4f',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
-
 
 
 
@@ -524,8 +258,8 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="延澈左的博客">
 <meta property="og:description" content="关键字： 位图结构 位图加载 注意：8位位图设置调色板项的时候不起作用。需要在每帧调用的时候，都调用设置调色板项才起作用！！123456789// 每帧调用int Game_Main()&amp;#123;    ...    ...    lpddpal-&amp;gt;SetEntries(0, 0, MAX_COLORS_PALETTE, bitmap.palette);    ...    ...&amp;#12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-29T03:18:12.937Z">
+<meta property="og:updated_time" content="2018-08-29T06:50:37.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[引擎笔记]之十六：位图">
 <meta name="twitter:description" content="关键字： 位图结构 位图加载 注意：8位位图设置调色板项的时候不起作用。需要在每帧调用的时候，都调用设置调色板项才起作用！！123456789// 每帧调用int Game_Main()&amp;#123;    ...    ...    lpddpal-&amp;gt;SetEntries(0, 0, MAX_COLORS_PALETTE, bitmap.palette);    ...    ...&amp;#12">
@@ -199,7 +199,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-位图结构"><span class="toc-number">1.</span> <span class="toc-text">1.位图结构</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-位图文件结构"><span class="toc-number">1.</span> <span class="toc-text">1.位图文件结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-加载位图文件"><span class="toc-number">2.</span> <span class="toc-text">2.加载位图文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-新位图文件结构"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 新位图文件结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-加载位图文件"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 加载位图文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3其他总结"><span class="toc-number">2.3.</span> <span class="toc-text">2.3其他总结</span></a></li></ol></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -222,17 +222,23 @@
         <p><strong>关键字</strong>： <strong>位图结构</strong> <strong>位图加载</strong></p>
 <p>注意：8位位图设置调色板项的时候不起作用。需要在<strong>每帧</strong>调用的时候，都调用设置调色板项才起作用！！<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每帧调用</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Game_Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    lpddpal-&gt;SetEntries(<span class="number">0</span>, <span class="number">0</span>, MAX_COLORS_PALETTE, bitmap.palette);</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="1-位图结构"><a href="#1-位图结构" class="headerlink" title="1.位图结构"></a>1.位图结构</h3><p>磁盘中的.BMP文件结构：</p>
+<h3 id="1-位图文件结构"><a href="#1-位图文件结构" class="headerlink" title="1.位图文件结构"></a>1.位图文件结构</h3><p>磁盘中的.BMP文件结构：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">位图文件头</th>
-<th style="text-align:center">–&gt;</th>
-<th style="text-align:left">位图文件信息</th>
-<th style="text-align:left">BITMAPFILEHEADER</th>
+<th style="text-align:center">位图文件 .bmp 文件</th>
+<th style="text-align:center"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:center">位图文件头</td>
+<td style="text-align:center">–&gt;</td>
+<td style="text-align:left">位图文件信息</td>
+<td style="text-align:left">BITMAPFILEHEADER</td>
+</tr>
 <tr>
 <td style="text-align:center">位图信息段</td>
 <td style="text-align:center">–&gt;</td>
@@ -259,10 +265,29 @@
 </tr>
 </tbody>
 </table>
-<p>BITMAPFILEHEADER:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagBITMAPFILEHEADER</span> &#123;</span></span><br><span class="line">        WORD    bfType;         <span class="comment">// 文件type .BMP文件是0x4D42</span></span><br><span class="line">        DWORD   bfSize;         <span class="comment">// bitmap file的size</span></span><br><span class="line">        WORD    bfReserved1;    <span class="comment">// 保留位，一定是0</span></span><br><span class="line">        WORD    bfReserved2;    <span class="comment">// 保留位，一定是0</span></span><br><span class="line">        DWORD   bfOffBits;      <span class="comment">// 从BITMAPFILEHEADER结构到bitmap bits的偏移量</span></span><br><span class="line">&#125; BITMAPFILEHEADER, FAR *LPBITMAPFILEHEADER, *PBITMAPFILEHEADER;</span><br></pre></td></tr></table></figure></p>
-<p>BITMAPINFO:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagBITMAPINFO</span> &#123;</span></span><br><span class="line">    BITMAPINFOHEADER    bmiHeader;      <span class="comment">// 头部</span></span><br><span class="line">    RGBQUAD             bmiColors[<span class="number">1</span>];   <span class="comment">// 调色板信息</span></span><br><span class="line">&#125; BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>位图文件头  BITMAPFILEHEADER: 存放图像信息的总体信息</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagBITMAPFILEHEADER</span> &#123;</span></span><br><span class="line">        WORD    bfType;         <span class="comment">// 文件type .BMP文件是0x4D42</span></span><br><span class="line">        DWORD   bfSize;         <span class="comment">// bitmap file的size</span></span><br><span class="line">        WORD    bfReserved1;    <span class="comment">// 保留位，一定是0</span></span><br><span class="line">        WORD    bfReserved2;    <span class="comment">// 保留位，一定是0</span></span><br><span class="line">        DWORD   bfOffBits;      <span class="comment">// 从BITMAPFILEHEADER结构到bitmap bits的偏移量</span></span><br><span class="line">&#125; BITMAPFILEHEADER, FAR *LPBITMAPFILEHEADER, *PBITMAPFILEHEADER;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>位图信息段：BITMAPINFO,包括两部分数据结构,BITMAPINFOHEADER部分和调色板信息部分（如果有的话）<br>BITMAPINFO:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagBITMAPINFO</span> &#123;</span></span><br><span class="line">    BITMAPINFOHEADER    bmiHeader;      <span class="comment">// 头部</span></span><br><span class="line">    RGBQUAD             bmiColors[<span class="number">1</span>];   <span class="comment">// 调色板信息</span></span><br><span class="line">&#125; BITMAPINFO, FAR *LPBITMAPINFO, *PBITMAPINFO;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>BITMAPINFOHEADER:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagBITMAPINFOHEADER</span>&#123;</span></span><br><span class="line">        DWORD      biSize;          <span class="comment">// 此结构体的size</span></span><br><span class="line">        LONG       biWidth;         <span class="comment">// bitmap的宽度，单位是pixels</span></span><br><span class="line">        LONG       biHeight;        <span class="comment">// bitmap的高度，单位是pixels</span></span><br><span class="line">                                    <span class="comment">// 如果是正数，bitmap是bottom-up DIB,初始位置是左下角</span></span><br><span class="line">                                    <span class="comment">// 如果是负数，bitmap是top-down DIB，初始位置是左上角</span></span><br><span class="line">        WORD       biPlanes;        <span class="comment">// 指定色彩平面，一定为1</span></span><br><span class="line">        WORD       biBitCount;      <span class="comment">// 指定单个像素的大小(bits)</span></span><br><span class="line">        DWORD      biCompression;   <span class="comment">// 指定压缩格式。 .BMP的未压缩格式为BI_RGB</span></span><br><span class="line">        DWORD      biSizeImage;     <span class="comment">// size of image in bytes</span></span><br><span class="line">        LONG       biXPelsPerMeter; <span class="comment">// x轴方向每米的像素数量</span></span><br><span class="line">        LONG       biYPelsPerMeter; <span class="comment">// y轴方向每米的像素数量</span></span><br><span class="line">        DWORD      biClrUsed;       <span class="comment">// 指定bitmap使用的颜色数量。8位图像为256，其他位图像为0.</span></span><br><span class="line">        DWORD      biClrImportant;  <span class="comment">// 指定导入颜色的数量。8位图像为256，其他位图像为0.</span></span><br><span class="line">&#125; BITMAPINFOHEADER, FAR *LPBITMAPINFOHEADER, *PBITMAPINFOHEADER;</span><br></pre></td></tr></table></figure></p>
-<p>RGBQUAD: 正常PALETTEENTRY的倒序<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagRGBQUAD</span> &#123;</span></span><br><span class="line">        BYTE    rgbBlue;</span><br><span class="line">        BYTE    rgbGreen;</span><br><span class="line">        BYTE    rgbRed;</span><br><span class="line">        BYTE    rgbReserved;</span><br><span class="line">&#125; RGBQUAD;</span><br></pre></td></tr></table></figure></p>
+<p>RGBQUAD: 位图文件中的调色板项。正常PALETTEENTRY的倒序<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tagRGBQUAD</span> &#123;</span></span><br><span class="line">        BYTE    rgbBlue;</span><br><span class="line">        BYTE    rgbGreen;</span><br><span class="line">        BYTE    rgbRed;</span><br><span class="line">        BYTE    rgbReserved;</span><br><span class="line">&#125; RGBQUAD;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ 图像数据区：是一个字节流，描述了<span class="number">1</span>/<span class="number">4</span>/<span class="number">8</span>/<span class="number">16</span>/<span class="number">24</span>位图像像素。</span><br><span class="line">    + 数据是逐行排列的，有时候会颠倒过来（上下颠倒）。通过biHeight的正负号来表示。正值表示颠倒，负值表示正常。</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-加载位图文件"><a href="#2-加载位图文件" class="headerlink" title="2.加载位图文件"></a>2.加载位图文件</h3><p>Win32 API中提供加载图像的函数LoadImage(), 但是这个函数太通用了，以至于要真正得到像素数据是很繁琐的.<br>因此，定义一个新的位图文件类型和加载位图的函数。</p>
+<h4 id="2-1-新位图文件结构"><a href="#2-1-新位图文件结构" class="headerlink" title="2.1 新位图文件结构"></a>2.1 新位图文件结构</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义的位图文件类型。</span></span><br><span class="line">typedef <span class="keyword">struct</span> BITMAP_FILE_TAG</span><br><span class="line">&#123;</span><br><span class="line">	BITMAPFILEHEADER bitmapfileHeader;		<span class="comment">// 位图文件信息</span></span><br><span class="line">	BITMAPINFOHEADER bitmapInfoHeader;		<span class="comment">// 位图信息</span></span><br><span class="line">	PALETTEENTRY palette[<span class="number">256</span>];				<span class="comment">// 调色板，如果有</span></span><br><span class="line">	UCHAR *buffer;							<span class="comment">// 位图像素数据</span></span><br><span class="line">&#125;BITMAP_FILE, *BITMAP_FILE_PTR;</span><br></pre></td></tr></table></figure>
+<p>将所有需要的信息都组合在一起。<br>bitmapfileHeader 为位图文件信息<br>bitmapInfoHeader 为位图信息<br>pallette 为调色板项。只有1 4 8位位图有<br>buffer 为像素数据</p>
+<h4 id="2-2-加载位图文件"><a href="#2-2-加载位图文件" class="headerlink" title="2.2 加载位图文件"></a>2.2 加载位图文件</h4><p>上下翻转bitmap内存:<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上下翻转bitmap内存</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Flip_Bitmap</span>(<span class="params">UCHAR* image, <span class="keyword">int</span> bytes_per_line, <span class="keyword">int</span> height</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	UCHAR *buffer;</span><br><span class="line">	<span class="keyword">if</span> (!(buffer = (UCHAR*)malloc(bytes_per_line*height)))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	memcpy(buffer, image, bytes_per_line*height);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		memcpy(&amp;image[(height - <span class="number">1</span> - i)*bytes_per_line], &amp;buffer[i*bytes_per_line], bytes_per_line);</span><br><span class="line">	&#125;</span><br><span class="line">	free(buffer);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>加载bitmap文件:<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加载bitmap文件</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Load_Bitmap_File</span>(<span class="params">BITMAP_FILE_PTR bitmap, <span class="keyword">const</span> <span class="keyword">char</span>* filename</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> file_handle, index;</span><br><span class="line"></span><br><span class="line">	UCHAR *temp_buffer = NULL;</span><br><span class="line">	OFSTRUCT file_data;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ((file_handle = OpenFile(filename, &amp;file_data, OF_READ)) == <span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(<span class="string">"load_bitmap_file error! openFile failed!!"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 读取bitmap文件头部分的信息</span></span><br><span class="line">	_lread(file_handle, &amp;bitmap-&gt;bitmapfileHeader, <span class="keyword">sizeof</span>(BITMAPFILEHEADER));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 如果读取之后，不是bitmap类型</span></span><br><span class="line">	<span class="keyword">if</span> (bitmap-&gt;bitmapfileHeader.bfType != BITMAP_ID)</span><br><span class="line">	&#123;</span><br><span class="line">		_lclose(file_handle);</span><br><span class="line">		printf(<span class="string">"load_bitmap_file error! read headinfo failed!!"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 读取bitmap头部分的信息</span></span><br><span class="line">	_lread(file_handle, &amp;bitmap-&gt;bitmapInfoHeader, <span class="keyword">sizeof</span>(BITMAPINFOHEADER));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 如果是8位模式，读取调色板信息</span></span><br><span class="line">	<span class="comment">// 并且调整rgb顺序。读取信息是BGR顺序，Paletteentry是RGB顺序. G的顺序不用改变.</span></span><br><span class="line">	<span class="keyword">if</span> (bitmap-&gt;bitmapInfoHeader.biBitCount == <span class="number">8</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		_lread(file_handle, &amp;bitmap-&gt;palette, MAX_COLORS_PALETTE * <span class="keyword">sizeof</span>(PALETTEENTRY));</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (index = <span class="number">0</span>; index &lt; MAX_COLORS_PALETTE; ++index)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> tmp_color = bitmap-&gt;palette[index].peRed;</span><br><span class="line">			bitmap-&gt;palette[index].peRed = bitmap-&gt;palette[index].peBlue;</span><br><span class="line">			bitmap-&gt;palette[index].peBlue = tmp_color;</span><br><span class="line"></span><br><span class="line">			bitmap-&gt;palette[index].peFlags = PC_NOCOLLAPSE;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 最后，读取像素信息</span></span><br><span class="line">	<span class="comment">// 定位开始位置</span></span><br><span class="line">	_llseek(file_handle, -(<span class="keyword">int</span>)(bitmap-&gt;bitmapInfoHeader.biSizeImage), SEEK_END);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (bitmap-&gt;bitmapInfoHeader.biBitCount == <span class="number">8</span> ||</span><br><span class="line">		bitmap-&gt;bitmapInfoHeader.biBitCount == <span class="number">16</span> ||</span><br><span class="line">		bitmap-&gt;bitmapInfoHeader.biBitCount == <span class="number">24</span></span><br><span class="line">		)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (bitmap-&gt;buffer)</span><br><span class="line">		&#123;</span><br><span class="line">			free(bitmap-&gt;buffer);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (!(bitmap-&gt;buffer = (UCHAR*)malloc(bitmap-&gt;bitmapInfoHeader.biSizeImage)))</span><br><span class="line">		&#123;</span><br><span class="line">			_lclose(file_handle);</span><br><span class="line">			printf(<span class="string">"load_bitmap_file error! malloc failed!!"</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 读取到buffer中</span></span><br><span class="line">		_lread(file_handle, bitmap-&gt;buffer, bitmap-&gt;bitmapInfoHeader.biSizeImage);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>		<span class="comment">// 其他位的像素（serious problem) </span></span><br><span class="line">	&#123;</span><br><span class="line">		printf(<span class="string">"load_bitmap_file error! not 8pixel !!"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	_lclose(file_handle);</span><br><span class="line"></span><br><span class="line">	Flip_Bitmap(bitmap-&gt;buffer,</span><br><span class="line">		bitmap-&gt;bitmapInfoHeader.biWidth*(bitmap-&gt;bitmapInfoHeader.biBitCount / <span class="number">8</span>),</span><br><span class="line">		bitmap-&gt;bitmapInfoHeader.biHeight);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>释放bitmap内存：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 释放内存</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Unload_Bitmap_Flie</span>(<span class="params">BITMAP_FILE_PTR bitmap</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bitmap-&gt;buffer)</span><br><span class="line">	&#123;</span><br><span class="line">		free(bitmap-&gt;buffer);</span><br><span class="line">		bitmap-&gt;buffer = NULL;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-3其他总结"><a href="#2-3其他总结" class="headerlink" title="2.3其他总结"></a>2.3其他总结</h4><ol>
+<li>文件操作中SEEK_END表示定位文件位置到最后。文件相关的知识都是互通的，从python的文件操作中获取的知识~</li>
+<li>读取位图文件的像素信息时，按字节（UCHAR）存储的。在之后的使用过程中，8位位图每个像素一个字节，所以一个UCHAR就代表了；16为位图每个像素2个字节，因此需要使用USHORT获取2个字节；24位位图每个像素3个字节，因此是3个UCHAR表示了一个像素的BGR。</li>
+<li>关于24位像素深度，PC是不支持的，转换成32位位深加载24位位图，补一个字节的Alpha,转成32位的像素。</li>
+<li>书中示例代码，设置调色板项都是在初始化的时候设置一次，但是最终显示效果上，没有起作用的。需要在每帧渲染之前都设置一次调色板。</li>
+<li>使用IrfanView图片查看软件，有调色板的位图，在Image-&gt;Palette-&gt;Editor Palette中可以查看和修改调色板。（自己用pc自带的图片编辑器做的8位位图和示例中给的8位位图调色板相差非常大）</li>
+</ol>
 
       
 
@@ -448,7 +473,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-位图结构"><span class="toc-number">1.</span> <span class="toc-text">1.位图结构</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-位图文件结构"><span class="toc-number">1.</span> <span class="toc-text">1.位图文件结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-加载位图文件"><span class="toc-number">2.</span> <span class="toc-text">2.加载位图文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-新位图文件结构"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 新位图文件结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-加载位图文件"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 加载位图文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3其他总结"><span class="toc-number">2.3.</span> <span class="toc-text">2.3其他总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -690,19 +715,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mesh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color5">mesh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,7 +727,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,7 +751,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
+                <a href="javascript:void(0)" class="js-tag color2">shader</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">特效</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,14 +768,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Unity3d</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">shader</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">特效</a>
               </li>
             
             <div class="clearfix"></div>
