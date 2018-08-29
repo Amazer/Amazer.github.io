@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://yanchezuo.com/img/blog/csharp_stackInfo3.png">
 <meta property="og:image" content="https://yanchezuo.com/img/blog/csharp_exc_trace_code.png">
 <meta property="og:image" content="https://yanchezuo.com/img/blog/csharp_exc_tra.png">
-<meta property="og:updated_time" content="2018-07-19T11:14:46.125Z">
+<meta property="og:updated_time" content="2018-07-19T11:53:51.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[c#总结]异常处理和堆栈跟踪的正确方式">
 <meta name="twitter:description" content="关键字：Exception   StackTrace">
@@ -207,7 +207,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题描述"><span class="toc-number">1.</span> <span class="toc-text">1.问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-现象和代码"><span class="toc-number">1.1.</span> <span class="toc-text">1.现象和代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-现象描述和分析"><span class="toc-number">1.2.</span> <span class="toc-text">2.现象描述和分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-打印异常堆栈跟踪信息"><span class="toc-number">1.3.</span> <span class="toc-text">3.打印异常堆栈跟踪信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-关于异常捕获"><span class="toc-number">2.</span> <span class="toc-text">2.关于异常捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-关于堆栈跟踪"><span class="toc-number">3.</span> <span class="toc-text">3.关于堆栈跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-堆栈跟踪知识点"><span class="toc-number">3.1.</span> <span class="toc-text">1.堆栈跟踪知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-调用堆栈信息代码示例"><span class="toc-number">3.2.</span> <span class="toc-text">2.调用堆栈信息代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建Exception的StackTrace"><span class="toc-number">3.3.</span> <span class="toc-text">3.创建Exception的StackTrace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4.总结</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题描述"><span class="toc-number">1.</span> <span class="toc-text">1.问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-现象和代码"><span class="toc-number">1.1.</span> <span class="toc-text">1.现象和代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-现象描述和分析"><span class="toc-number">1.2.</span> <span class="toc-text">2.现象描述和分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-打印异常堆栈跟踪信息"><span class="toc-number">1.3.</span> <span class="toc-text">3.打印异常堆栈跟踪信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-关于异常捕获"><span class="toc-number">2.</span> <span class="toc-text">2.关于异常捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-关于堆栈跟踪"><span class="toc-number">3.</span> <span class="toc-text">3.关于堆栈跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-堆栈跟踪知识点"><span class="toc-number">3.1.</span> <span class="toc-text">1.堆栈跟踪知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-调用堆栈信息代码示例"><span class="toc-number">3.2.</span> <span class="toc-text">2.调用堆栈信息代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建Exception的StackTrace"><span class="toc-number">3.3.</span> <span class="toc-text">3.创建Exception的StackTrace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4.总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-学习过程"><span class="toc-number">5.</span> <span class="toc-text">5.学习过程</span></a></li></ol>
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -387,6 +387,11 @@
 <li>每一次的函数调用，都会生成一个StackFrame,并且压栈(可以使用StackTrace的资源来源)</li>
 <li>StackTrace和StackFrame的使用</li>
 </ul>
+<h2 id="5-学习过程"><a href="#5-学习过程" class="headerlink" title="5.学习过程"></a>5.学习过程</h2><ul>
+<li>使用exception.StackTrace获得异常的堆栈信息的知识点</li>
+<li>为了把知识点串起来，阅读《CLR via C#》的Exception章节</li>
+<li>对于如何获取堆栈信息感到好奇，阅读.NET FRAMEWORK StackTrace相关文档(<a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.stacktrace?view=netframework-4.7.2" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.stacktrace?view=netframework-4.7.2</a>)</li>
+</ul>
 
       
 
@@ -534,6 +539,15 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
+    <a href="/game-tricks-1.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [游戏开发]protobuf和传输数据加密压缩
+        
+      </div>
+    </a>
+  
   
     <a href="/lua-1.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">[lua]Lua的Gvim编程环境搭建</div>
@@ -563,7 +577,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题描述"><span class="toc-number">1.</span> <span class="toc-text">1.问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-现象和代码"><span class="toc-number">1.1.</span> <span class="toc-text">1.现象和代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-现象描述和分析"><span class="toc-number">1.2.</span> <span class="toc-text">2.现象描述和分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-打印异常堆栈跟踪信息"><span class="toc-number">1.3.</span> <span class="toc-text">3.打印异常堆栈跟踪信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-关于异常捕获"><span class="toc-number">2.</span> <span class="toc-text">2.关于异常捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-关于堆栈跟踪"><span class="toc-number">3.</span> <span class="toc-text">3.关于堆栈跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-堆栈跟踪知识点"><span class="toc-number">3.1.</span> <span class="toc-text">1.堆栈跟踪知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-调用堆栈信息代码示例"><span class="toc-number">3.2.</span> <span class="toc-text">2.调用堆栈信息代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建Exception的StackTrace"><span class="toc-number">3.3.</span> <span class="toc-text">3.创建Exception的StackTrace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4.总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题描述"><span class="toc-number">1.</span> <span class="toc-text">1.问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-现象和代码"><span class="toc-number">1.1.</span> <span class="toc-text">1.现象和代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-现象描述和分析"><span class="toc-number">1.2.</span> <span class="toc-text">2.现象描述和分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-打印异常堆栈跟踪信息"><span class="toc-number">1.3.</span> <span class="toc-text">3.打印异常堆栈跟踪信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-关于异常捕获"><span class="toc-number">2.</span> <span class="toc-text">2.关于异常捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-关于堆栈跟踪"><span class="toc-number">3.</span> <span class="toc-text">3.关于堆栈跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-堆栈跟踪知识点"><span class="toc-number">3.1.</span> <span class="toc-text">1.堆栈跟踪知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-调用堆栈信息代码示例"><span class="toc-number">3.2.</span> <span class="toc-text">2.调用堆栈信息代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建Exception的StackTrace"><span class="toc-number">3.3.</span> <span class="toc-text">3.创建Exception的StackTrace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4.总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-学习过程"><span class="toc-number">5.</span> <span class="toc-text">5.学习过程</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -777,10 +791,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C++ Primer Plus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">c#</a>
               </li>
              
@@ -789,7 +799,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C++ Primer Plus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">引擎笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">StackTrace</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,7 +827,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,15 +835,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">游戏框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,11 +851,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">shader</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">特效</a>
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,7 +859,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">StackTrace</a>
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Unity3d</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">shader</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">特效</a>
               </li>
             
             <div class="clearfix"></div>
