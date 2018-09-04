@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yanchezuo.com">
-  <title>[引擎笔记]之八：深入文本和字体 | 延澈左的博客</title>
+  <title>[引擎笔记]ddsp.lpitch是什么 | 延澈左的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.知识要点 1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
-<meta name="keywords" content="笔记,引擎笔记">
+  <meta name="description" content="【转】原文链接地址：http://www.hankcs.com/program/cpp/ddsdlpitch_what.html">
+<meta name="keywords" content="笔记,引擎笔记,转载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[引擎笔记]之八：深入文本和字体">
-<meta property="og:url" content="https://yanchezuo.com/en-16.html">
+<meta property="og:title" content="[引擎笔记]ddsp.lpitch是什么">
+<meta property="og:url" content="https://yanchezuo.com/en-27.html">
 <meta property="og:site_name" content="延澈左的博客">
-<meta property="og:description" content="1.知识要点 1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
+<meta property="og:description" content="【转】原文链接地址：http://www.hankcs.com/program/cpp/ddsdlpitch_what.html">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-26T05:47:35.433Z">
+<meta property="og:image" content="https://yanchezuo.com/img/blog/lpitch.jpg">
+<meta property="og:updated_time" content="2018-09-04T03:26:35.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[引擎笔记]之八：深入文本和字体">
-<meta name="twitter:description" content="1.知识要点 1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。">
+<meta name="twitter:title" content="[引擎笔记]ddsp.lpitch是什么">
+<meta name="twitter:description" content="【转】原文链接地址：http://www.hankcs.com/program/cpp/ddsdlpitch_what.html">
+<meta name="twitter:image" content="https://yanchezuo.com/img/blog/lpitch.jpg">
   
     <link rel="alternative" href="/atom.xml" title="延澈左的博客" type="application/atom+xml">
   
@@ -161,14 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-en-16" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-en-27" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [引擎笔记]之八：深入文本和字体
+      [引擎笔记]ddsp.lpitch是什么
     </h1>
   
 
@@ -178,13 +180,13 @@
 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/en-16.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/en-27.html" class="pageViews">0</span>次
   </a>
 
 
         
-        <a href="/en-16.html" class="archive-article-date">
-  	<time datetime="2018-04-25T12:21:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
+        <a href="/en-27.html" class="archive-article-date">
+  	<time datetime="2018-08-31T04:35:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
 </a>
         
       </header>
@@ -199,7 +201,7 @@
 	<div id="toc-article" class="toc-article">
 	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
 		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-知识要点"><span class="toc-number">1.</span> <span class="toc-text">1.知识要点</span></a></li></ol>
+           
          </div>
    <script type="text/javascript">
 	function showToc(){
@@ -219,51 +221,17 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-知识要点"><a href="#1-知识要点" class="headerlink" title="1.知识要点"></a>1.知识要点</h3><ul>
-<li>1.用DX编写游戏的大多数情况下，都需要使用自己的字体引擎来渲染文本。特别是希望有理想的速度的情况下。</li>
-</ul>
+        <p>【转】原文链接地址：<a href="http://www.hankcs.com/program/cpp/ddsdlpitch_what.html" target="_blank" rel="noopener">http://www.hankcs.com/program/cpp/ddsdlpitch_what.html</a></p>
 <a id="more"></a>
-<ul>
-<li><p>2.选定系统中已有的字体：<br>  SelectObject(hdc,GetStockObject(SYSTEM_FIXED_FONT);<br>  将SYSTEM_FIXED_FONT字体作为之后文本的字体。<br>  系统内置TrueType字体字样名;</p>
-<ul>
-<li>Courier New</li>
-<li>Courier New Blod</li>
-<li>Courier New Italic</li>
-<li>Courier New Blod Italic</li>
-<li>Times New Roman</li>
-<li>Times New Roman Blod</li>
-<li>Times New Roman Italic</li>
-<li>Times New Roman Blod Italic</li>
-<li>Arial</li>
-<li>Arial Blod</li>
-<li>Arial Italic</li>
-<li>Arial Blod Italic</li>
-<li>Symbol</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>3.创建字体函数CreateFont():(p125)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">HFONT CreateFont(int nHeight,           // </span><br><span class="line">            int nWidth,</span><br><span class="line">            int nEscapement,</span><br><span class="line">            int nOrientation,</span><br><span class="line">            int fnWeight,</span><br><span class="line">            DWORD fdwItalic,</span><br><span class="line">            DWORD fwdUnderline,</span><br><span class="line">            DWORD fwdStrikeOut,</span><br><span class="line">            DWORD fwdCharSet,</span><br><span class="line">            DWORD fwdOutputPrecision,</span><br><span class="line">            DWORD fwdClipPercisiion,</span><br><span class="line">            DWORD fwdQuality,</span><br><span class="line">            DWORD fwdPitchAndFamily,</span><br><span class="line">            LPCTSTR lpszFace);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>4.字符的构成:(p140)</p>
-<ul>
-<li>高度                  : 字符总高度(单位是像素)</li>
-<li>基线                  : 大写字符的底线</li>
-<li>上部                  : 从基线到重音符号顶端的像素数</li>
-<li>下部                  : 从基线到小写字符扩展底边的像素数</li>
-<li>内部插入的空行        : 留给重音符号的像素数</li>
-<li>外部插入的空行        : 在该字符上面允许插入的其他字符的像素数</li>
-</ul>
-</li>
-<li><ol start="5">
-<li>获取GDI正在使用的字体信息：GetTextMetrics()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BOOL GetTextMetrics(HDC hdc,</span><br><span class="line">        LPTEXTMETRIC lptm);     // 接收TextMetric的结构</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ul>
-<p>TEXTMETRIC结构体重包含了所有字体的信息。<br><strong>作者：真是个聪明的小函数呀！</strong>(皮这一下很开心)</p>
-<p>居中文本实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">TEXTMETRIC tm;</span><br><span class="line">GetTextMetrics(hdc,&amp;tm);</span><br><span class="line"></span><br><span class="line">int x_pos=WINDOW_WIDTH-</span><br><span class="line">        strlen(&quot;Hello world&quot;)*tm.tmAveCharWidth/2;</span><br><span class="line"></span><br><span class="line">TextOut(hdc,x_pos,&quot;Hello world&quot;,strlen(&quot;Hello world&quot;));</span><br></pre></td></tr></table></figure></p>
+<p><strong>lpitch</strong>是结构体<strong>DDSURFACEDESC2</strong>的一项，这个结构体描述了页面/表面的一些信息。</p>
+<p>lpitch一般译做<strong>步幅(stride)或内存宽度(memory width)</strong>。<br><strong>注意</strong>，它与DDSURFACEDESC2结构体中的另一项<strong>dwWidth</strong>的意义是不一样的。</p>
+<p>lpitch的单位是<strong>字节</strong>，<strong>dwWidth</strong>的单位是<strong>像素</strong>。所以，一个640×480×8（640×480个像素，每像素用8位，即一个字节表示）页面，dwWidth=640 像素（字节）。但是，此时Lpitch不一定就等于640（字节）！同样一个640×480×16的页面，它的Lpitch值也不一定等于640×2（字节）。</p>
+<p>这是因为，<strong>Lpitch中的字节数</strong>有时还包含了<strong>高速缓冲区的内存字节数</strong>。如下图：</p>
+<p><img src="img/blog/lpitch.jpg" alt="lpitch"></p>
+<p>通过以上图可以看到，页面外面还有一段<strong>额外内存</strong>，而这段内存是未知的；所以说，假如一个640×480×8的页面，它的dwWidth值是640，但是，它的Lpitch值应该是640+x，x就是高速缓冲区Cache占用的内存。</p>
+<p>所以，如果要访问这个页面缓冲区的第y行的第x个像素,应该这样：</p>
+<p>ddsd.lpSurface[x+y*ddsd.lpitch]</p>
+<p><strong>综上：访问像素位置，要是用lpitch,而不是dwWidth</strong></p>
 
       
 
@@ -296,9 +264,9 @@ div.article-footer-copyright {
 </style>
 <br>
 <div class="article-footer-copyright">
-<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-16.html" target="_blank" title="[引擎笔记]之八：深入文本和字体">[引擎笔记]之八：深入文本和字体</a></b></center>
+<center>转载请注明作者及出处,本文作者为<b><a href="/index.html" target="_blank" title="延澈左">延澈左</a></b>,本文标题为<b><a href="/en-27.html" target="_blank" title="[引擎笔记]ddsp.lpitch是什么">[引擎笔记]ddsp.lpitch是什么</a></b></center>
 
-<center>本文链接为<b><a href="/en-16.html" target="_blank" title="[引擎笔记]之八：深入文本和字体">https://yanchezuo.com/en-16.html</a></b></center>
+<center>本文链接为<b><a href="/en-27.html" target="_blank" title="[引擎笔记]ddsp.lpitch是什么">https://yanchezuo.com/en-27.html</a></b></center>
 
 </div>
 <! -- 添加版权信息 -->
@@ -343,22 +311,15 @@ div.article-footer-copyright {
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引擎笔记</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">转载</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -408,7 +369,7 @@ div.article-footer-copyright {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-16.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yanchezuo.com/en-27.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -422,18 +383,9 @@ div.article-footer-copyright {
   
 <nav id="article-nav">
   
-    <a href="/en-17.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          [引擎笔记]之九：GDI控件使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/en-15.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[引擎笔记]工程配置</div>
+    <a href="/en-26.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[引擎笔记]之十八：Blitter的使用总结和示例</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -460,7 +412,7 @@ div.article-footer-copyright {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-知识要点"><span class="toc-number">1.</span> <span class="toc-text">1.知识要点</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -486,7 +438,7 @@ div.article-footer-copyright {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://yanchezuo.com/en-16.html",
+  id: "https://yanchezuo.com/en-27.html",
   owner: 'Amazer',
   repo: 'BlogComments',
   oauth: {
